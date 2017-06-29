@@ -1,13 +1,13 @@
 <template>
     <div class="new">
         <md-list>
-            <md-list-item v-for="(team, id) in teams" :key="id">
+            <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>
-                <span>{{ team.name }} ({{ playersInTeamCount(id) }} players)</span>
-                <md-button class="md-icon-button md-list-action" @click.native="editTeam({id})">
+                <span>{{ team.name }} ({{ team.players.length }} players)</span>
+                <md-button class="md-icon-button md-list-action" @click.native="editTeam({id: team.id})">
                     <md-icon class="md-primary">edit</md-icon>
                 </md-button>
-                <md-button class="md-icon-button md-list-action" @click.native="deleteTeam({id})">
+                <md-button class="md-icon-button md-list-action" @click.native="deleteTeam({id: team.id})">
                     <md-icon class="md-warn">remove_circle</md-icon>
                 </md-button>
             </md-list-item>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-    import { mapMutations, mapState, mapGetters } from 'vuex'
+    import { mapMutations, mapGetters } from 'vuex';
 
     export default {
         methods: {
@@ -42,13 +42,9 @@
             }
         },
         computed: {
-            ...mapState([
-                'teams',
-                'players'
-            ]),
             ...mapGetters([
-                'playersInTeamCount',
-                'teamsReady'
+                'teamSet',
+                'readyToStart'
             ])
         }
     }

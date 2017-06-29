@@ -12,10 +12,11 @@ export default new Vuex.Store({
     plugins: [createPersistedState({
         paths: [
             'teams',
+            'teamList',
             'players'
         ]
     })],
     state,
     getters,
     mutations
-})
+});

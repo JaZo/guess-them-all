@@ -8,11 +8,11 @@
                 </md-input-container>
             </md-list-item>
 
-            <player v-for="(player, playerId) in players"
-                    :key="playerId"
+            <player v-for="(player, index) in players"
+                    :key="index"
                     :data="player"
-                    @update="updatePlayer({id: playerId, player: $event})"
-                    @delete="deletePlayer({id: playerId})"
+                    @update="updatePlayer({id: team.players[index], player: $event})"
+                    @delete="deletePlayer({id: team.players[index]})"
             ></player>
 
             <md-list-item>
@@ -41,14 +41,16 @@
                 return this.$store.state.teams[this.id];
             },
             players() {
-                return this.$store.getters.playersInTeam(this.id);
+                return this.team.players.map((id) => {
+                    return this.$store.state.players[id];
+                });
             },
             name: {
                 get() {
                     return this.team.name;
                 },
                 set(value) {
-                    this.$store.commit('updateTeam', {id: this.id, team: {name: value}});
+                    this.$store.commit('updateTeam', {id: this.id, team: {name: value, players: this.team.players}});
                 }
             }
         },
