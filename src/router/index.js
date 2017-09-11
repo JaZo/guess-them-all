@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/pages/Home';
 import Game from '@/pages/Game';
+import GameIndex from '@/pages/game/Index';
+import GameReady from '@/pages/game/Ready';
 import GameTeam from '@/pages/game/Team';
 import GameNew from '@/pages/game/New';
 
@@ -39,6 +41,22 @@ export default new Router({
                     component: GameTeam,
                     meta: {
                         allowBack: true
+                    }
+                },
+                {
+                    path: 'index',
+                    name: 'game-index',
+                    component: GameIndex,
+                    meta: {
+                        allowBack: false
+                    }
+                },
+                {
+                    path: 'ready',
+                    name: 'game-ready',
+                    component: GameReady,
+                    meta: {
+                        allowBack: false
                     }
                 }
             ]

@@ -17,5 +17,14 @@ export default {
         '2': {
             name: 'Player 2'
         }
+    },
+    usedEntities: [],
+    // Index-based
+    turn: {
+        team: 0,
+        player: {
+            0: 0,
+            1: 0
+        }
     }
 }

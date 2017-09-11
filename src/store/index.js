@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
+import * as actions from './actions'
 import * as getters from './getters'
 import * as mutations from './mutations'
 import state from './state'
@@ -11,12 +12,15 @@ export default new Vuex.Store({
     strict: process.env.NODE_ENV !== 'production',
     plugins: [createPersistedState({
         paths: [
+            'usedEntities',
             'teams',
             'teamList',
+            'turn',
             'players'
         ]
     })],
     state,
     getters,
-    mutations
+    mutations,
+    actions
 });

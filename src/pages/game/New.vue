@@ -20,7 +20,10 @@
             </md-list-item>
         </md-list>
 
-        <a v-if="teamsReady" href="#" @click.prevent="start">Start new Game</a>
+        <md-button class="md-raised md-primary" :disabled="!readyToStart" @click.native="start()">
+            Start new game
+            <md-icon>play_arrow</md-icon>
+        </md-button>
     </div>
 </template>
 
@@ -37,8 +40,9 @@
                 this.$router.push('/game/new/team/' + id);
             },
             start() {
-                this.$store.dispatch('start');
-                this.$router.push('/game/index');
+                this.$store.dispatch('start').then(() => {
+                    this.$router.push('/game/index');
+                });
             }
         },
         computed: {

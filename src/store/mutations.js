@@ -43,3 +43,19 @@ export const deletePlayer = (state, {id}) => {
     });
     Vue.delete(state.players, id);
 }
+
+// Turn
+export const nextTurn = (state) => {
+    // TODO: Use Vue.set for this!
+    state.turn.player[state.turn.team] = ((state.turn.player[state.turn.team] || 0) + 1) % state.teams[state.teamList[state.turn.team]].players.length;
+    state.turn.team = (state.turn.team + 1) % state.teamList.length;
+}
+
+// Used entities
+export const resetUsedEntities = (state) => {
+    state.usedEntities = [];
+}
+
+export const addUsedEntities = (state, entities) => {
+    state.usedEntities = state.usedEntities.concat(entities);
+}
