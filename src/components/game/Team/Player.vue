@@ -16,7 +16,7 @@
         props: {
             data: {
                 type: Object,
-                require: true
+                required: true
             }
         },
         computed: {
