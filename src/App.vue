@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <md-toolbar>
-            <md-button v-if="allowBack" class="md-icon-button" @click.native="$router.back()">
+            <md-button v-if="allowBack" class="md-icon-button" @click="$router.back()">
                 <md-icon>arrow_back</md-icon>
             </md-button>
             <h1 class="md-title">30 Seconds</h1>

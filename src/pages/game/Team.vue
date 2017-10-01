@@ -17,7 +17,7 @@
 
             <md-list-item>
                 <span></span>
-                <md-button class="md-icon-button md-list-action" @click.native="createPlayer({teamId: id})">
+                <md-button class="md-icon-button md-list-action" @click="createPlayer({teamId: id})">
                     <md-icon class="md-primary">person_add</md-icon>
                 </md-button>
             </md-list-item>

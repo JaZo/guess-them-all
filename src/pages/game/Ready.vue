@@ -6,7 +6,7 @@
             </md-list-item>
         </md-list>
 
-        <md-button class="md-raised md-primary" @click.native="continueGame()">
+        <md-button class="md-raised md-primary" @click="continueGame()">
             Continue
             <md-icon>play_arrow</md-icon>
         </md-button>

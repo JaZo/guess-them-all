@@ -5,7 +5,7 @@
             <label>Player name</label>
             <md-input v-model="name"></md-input>
         </md-input-container>
-        <md-button class="md-icon-button md-list-action" @click.native="$emit('delete')">
+        <md-button class="md-icon-button md-list-action" @click="$emit('delete')">
             <md-icon class="md-warn">remove_circle</md-icon>
         </md-button>
     </md-list-item>
