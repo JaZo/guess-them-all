@@ -20,7 +20,7 @@
         methods: {
             continueGame() {
                 this.$store.dispatch('startRound').then(() => {
-                    this.$router.push('/game/game');
+                    this.$router.push({name: 'game-game'});
                 });
             }
         },

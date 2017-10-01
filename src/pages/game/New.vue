@@ -37,11 +37,11 @@
                 'deleteTeam'
             ]),
             editTeam({id}) {
-                this.$router.push('/game/new/team/' + id);
+                this.$router.push({name: 'game-new-team', params: {id}});
             },
             start() {
                 this.$store.dispatch('startGame').then(() => {
-                    this.$router.push('/game/index');
+                    this.$router.push({name: 'game-index'});
                 });
             }
         },

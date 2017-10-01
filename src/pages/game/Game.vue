@@ -42,7 +42,7 @@
                 }
             },
             continueGame() {
-                this.$router.push('/game/time-over');
+                this.$router.push({name: 'game-time-over'});
             }
         },
         computed: {

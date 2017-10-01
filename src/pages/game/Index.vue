@@ -23,7 +23,7 @@
     export default {
         methods: {
             continueGame() {
-                this.$router.push('/game/ready');
+                this.$router.push({name: 'game-ready'});
             }
         },
         computed: {

@@ -19,7 +19,7 @@
     export default {
         methods: {
             continueGame() {
-                this.$router.push('/game/new');
+                this.$router.push({name: 'game-new'});
             }
         },
         computed: mapGetters(['winningTeam'])

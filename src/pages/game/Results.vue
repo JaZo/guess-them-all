@@ -33,9 +33,9 @@
             continueGame() {
                 this.$store.dispatch('endRound', {score: this.score}).then(() => {
                     if (this.$store.state.winner !== null) {
-                        this.$router.push('/game/game-over');
+                        this.$router.push({name: 'game-game-over'});
                     } else {
-                        this.$router.push('/game/index');
+                        this.$router.push({name: 'game-index'});
                     }
                 });
             }
