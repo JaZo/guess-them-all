@@ -10,15 +10,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     strict: process.env.NODE_ENV !== 'production',
-    plugins: [createPersistedState({
-        paths: [
-            'usedEntities',
-            'teams',
-            'teamList',
-            'turn',
-            'players'
-        ]
-    })],
+    plugins: [createPersistedState()],
     state,
     getters,
     mutations,
