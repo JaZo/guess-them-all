@@ -18,6 +18,7 @@ export default {
             name: 'Player 2'
         }
     },
+    entities: [],
     usedEntities: [],
     // Index-based
     turn: {
@@ -26,5 +27,13 @@ export default {
             0: 0,
             1: 0
         }
-    }
+    },
+    // Index-based
+    score: {
+        0: 0,
+        1: 0
+    },
+    time: 0,
+    // Index-based
+    winner: null
 }

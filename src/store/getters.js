@@ -15,3 +15,7 @@ export const teamInTurn = (state) => {
 export const playerInTurn = (state, getters) => {
     return state.players[getters.teamInTurn.players[state.turn.player[state.turn.team]]];
 }
+
+export const winningTeam = (state) => {
+    return state.winner !== null ? state.teams[state.teamList[state.winner]] : null;
+}

@@ -2,7 +2,7 @@
     <div class="new">
         <md-list>
             <md-list-item>
-                <span>Team: {{ teamInTurn.name }} | Player: {{ playerInTurn.name }} | Ready?</span>
+                <span>Time over!</span>
             </md-list-item>
         </md-list>
 
@@ -14,19 +14,11 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
-
     export default {
         methods: {
             continueGame() {
-                this.$store.dispatch('startRound').then(() => {
-                    this.$router.push('/game/game');
-                });
+                this.$router.push('/game/results');
             }
-        },
-        computed: mapGetters([
-            'teamInTurn',
-            'playerInTurn'
-        ])
+        }
     }
 </script>

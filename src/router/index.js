@@ -6,6 +6,10 @@ import GameIndex from '@/pages/game/Index';
 import GameReady from '@/pages/game/Ready';
 import GameTeam from '@/pages/game/Team';
 import GameNew from '@/pages/game/New';
+import GameGame from '@/pages/game/Game';
+import GameTimeOver from '@/pages/game/TimeOver';
+import GameResults from '@/pages/game/Results';
+import GameGameOVer from '@/pages/game/GameOVer';
 
 Vue.use(Router);
 
@@ -55,6 +59,38 @@ export default new Router({
                     path: 'ready',
                     name: 'game-ready',
                     component: GameReady,
+                    meta: {
+                        allowBack: false
+                    }
+                },
+                {
+                    path: 'game',
+                    name: 'game-game',
+                    component: GameGame,
+                    meta: {
+                        allowBack: false
+                    }
+                },
+                {
+                    path: 'time-over',
+                    name: 'game-time-over',
+                    component: GameTimeOver,
+                    meta: {
+                        allowBack: false
+                    }
+                },
+                {
+                    path: 'results',
+                    name: 'game-results',
+                    component: GameResults,
+                    meta: {
+                        allowBack: false
+                    }
+                },
+                {
+                    path: 'game-over',
+                    name: 'game-game-over',
+                    component: GameGameOVer,
                     meta: {
                         allowBack: false
                     }

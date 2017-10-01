@@ -2,11 +2,11 @@
     <div class="new">
         <md-list>
             <md-list-item>
-                <span>Score</span>
+                <span>Pass me on to {{ playerInTurn.name }} ({{ teamInTurn.name }})</span>
             </md-list-item>
             <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>
-                <span>{{ team.name }}: {{ 0 }} points</span>
+                <span>{{ team.name }}: {{ score[index] || 0 }} points</span>
             </md-list-item>
         </md-list>
 
@@ -27,9 +27,13 @@
             }
         },
         computed: {
-            ...mapState([]),
+            ...mapState([
+                'score'
+            ]),
             ...mapGetters([
-                'teamSet'
+                'teamSet',
+                'teamInTurn',
+                'playerInTurn'
             ])
         }
     }

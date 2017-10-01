@@ -40,7 +40,7 @@
                 this.$router.push('/game/new/team/' + id);
             },
             start() {
-                this.$store.dispatch('start').then(() => {
+                this.$store.dispatch('startGame').then(() => {
                     this.$router.push('/game/index');
                 });
             }

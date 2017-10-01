@@ -51,6 +51,11 @@ export const nextTurn = (state) => {
     state.turn.team = (state.turn.team + 1) % state.teamList.length;
 }
 
+// Entities
+export const setEntities = (state, entities) => {
+    state.entities = entities;
+}
+
 // Used entities
 export const resetUsedEntities = (state) => {
     state.usedEntities = [];
@@ -58,4 +63,30 @@ export const resetUsedEntities = (state) => {
 
 export const addUsedEntities = (state, entities) => {
     state.usedEntities = state.usedEntities.concat(entities);
+}
+
+// Time
+export const setTime = (state, time) => {
+    state.time = time;
+}
+
+export const resetTime = (state) => {
+    state.time = 0;
+}
+
+// Score
+export const resetScore = (state) => {
+    state.score = {};
+}
+
+export const addPointsToCurrentTeam = (state, points) => {
+    state.score[state.turn.team] = (state.score[state.turn.team] || 0) + points;
+}
+
+export const setWinner = (state, winner) => {
+    state.winner = winner;
+}
+
+export const resetWinner = (state) => {
+    state.winner = null;
 }
