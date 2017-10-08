@@ -23,10 +23,7 @@ export default {
     // Index-based
     turn: {
         team: 0,
-        player: {
-            0: 0,
-            1: 0
-        }
+        player: {}
     },
     score: {},
     time: 0,

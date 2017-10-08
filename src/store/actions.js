@@ -6,6 +6,7 @@ export const startGame = (context) => {
     context.commit('resetUsedEntities');
     context.commit('resetScore');
     context.commit('resetTime');
+    context.commit('resetTurn');
     context.commit('resetWinner');
     context.commit('setEntities', []);
 }
@@ -40,6 +41,7 @@ export const stopGame = (context) => {
     context.commit('resetUsedEntities');
     context.commit('resetScore');
     context.commit('resetTime');
+    context.commit('resetTurn');
     context.commit('resetWinner');
     context.commit('setEntities', []);
 }
