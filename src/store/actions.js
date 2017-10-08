@@ -32,3 +32,12 @@ export const endRound = (context, {score}) => {
 export const endGame = (context) => {
     context.commit('resetGameState');
 }
+
+export const stopGame = (context) => {
+    context.commit('resetGameState');
+    context.commit('resetUsedEntities');
+    context.commit('resetScore');
+    context.commit('resetTime');
+    context.commit('resetWinner');
+    context.commit('setEntities', []);
+}
