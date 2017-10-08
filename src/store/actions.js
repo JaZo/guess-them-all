@@ -18,12 +18,14 @@ export const startRound = (context) => {
 }
 
 export const endRound = (context, {score}) => {
-    context.commit('addPointsToCurrentTeam', score);
+    let teamId = context.state.teamList[context.state.turn.team];
+
+    context.commit('addPointsToTeam', {teamId, points: score});
     context.commit('setEntities', []);
     context.commit('resetTime');
 
-    if (context.state.score[context.state.turn.team] >= POINTS_NEEDED_TO_WIN) {
-        context.commit('setWinner', context.state.teamList[context.state.turn.team]);
+    if (context.state.score[teamId] >= POINTS_NEEDED_TO_WIN) {
+        context.commit('setWinner', teamId);
     } else {
         context.commit('nextTurn');
     }

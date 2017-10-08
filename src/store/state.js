@@ -28,11 +28,7 @@ export default {
             1: 0
         }
     },
-    // Index-based
-    score: {
-        0: 0,
-        1: 0
-    },
+    score: {},
     time: 0,
     winner: null,
     gameState: null

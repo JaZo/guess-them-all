@@ -88,8 +88,8 @@ export const resetScore = (state) => {
     state.score = {};
 }
 
-export const addPointsToCurrentTeam = (state, points) => {
-    state.score[state.turn.team] = (state.score[state.turn.team] || 0) + points;
+export const addPointsToTeam = (state, {teamId, points}) => {
+    state.score[teamId] = (state.score[teamId] || 0) + points;
 }
 
 export const setWinner = (state, winner) => {
