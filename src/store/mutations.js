@@ -1,5 +1,14 @@
 import Vue from 'vue'
 
+// Game state
+export const setGameState = (state, gameState) => {
+    state.gameState = gameState;
+}
+
+export const resetGameState = (state) => {
+    state.gameState = null;
+}
+
 // Teams
 export const createTeam = (state) => {
     let id = String(Math.max(0, ...Object.keys(state.teams)) + 1);

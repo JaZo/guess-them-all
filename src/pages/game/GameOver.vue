@@ -19,7 +19,9 @@
     export default {
         methods: {
             continueGame() {
-                this.$router.push({name: 'game-new'});
+                this.$store.dispatch('endGame').then(() => {
+                    this.$router.replace({name: 'teams'});
+                });
             }
         },
         computed: mapGetters(['winningTeam'])

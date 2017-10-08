@@ -45,32 +45,63 @@ export default [
             {
                 path: 'index',
                 name: 'game-index',
-                component: GameIndex
+                component: GameIndex,
+                meta: {
+                    allowedNextRoutes: [
+                        'game-ready'
+                    ]
+                }
             },
             {
                 path: 'ready',
                 name: 'game-ready',
-                component: GameReady
+                component: GameReady,
+                meta: {
+                    allowedNextRoutes: [
+                        'game-game'
+                    ]
+                }
             },
             {
                 path: 'game',
                 name: 'game-game',
-                component: GameGame
+                component: GameGame,
+                meta: {
+                    allowedNextRoutes: [
+                        'game-time-over'
+                    ]
+                }
             },
             {
                 path: 'time-over',
                 name: 'game-time-over',
-                component: GameTimeOver
+                component: GameTimeOver,
+                meta: {
+                    allowedNextRoutes: [
+                        'game-results'
+                    ]
+                }
             },
             {
                 path: 'results',
                 name: 'game-results',
-                component: GameResults
+                component: GameResults,
+                meta: {
+                    allowedNextRoutes: [
+                        'game-index',
+                        'game-game-over'
+                    ]
+                }
             },
             {
                 path: 'game-over',
                 name: 'game-game-over',
-                component: GameGameOVer
+                component: GameGameOVer,
+                meta: {
+                    allowedNextRoutes: [
+                        'home'
+                    ]
+                }
             }
         ]
     }

@@ -17,7 +17,7 @@
     export default {
         methods: {
             continueGame() {
-                this.$router.push({name: 'game-results'});
+                this.$router.replace({name: 'game-results'});
             }
         }
     }

@@ -41,7 +41,7 @@
             },
             start() {
                 this.$store.dispatch('startGame').then(() => {
-                    this.$router.push({name: 'game-index'});
+                    this.$router.replace({name: 'game-index'});
                 });
             }
         },

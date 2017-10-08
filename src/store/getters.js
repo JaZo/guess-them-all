@@ -1,3 +1,7 @@
+export const gameInProgress = (state) => {
+    return state.gameState !== null && state.gameState !== 'game-game-over';
+}
+
 export const teamSet = (state) => {
     return state.teamList.map((teamId) => ({id: teamId, ...state.teams[teamId]}));
 }

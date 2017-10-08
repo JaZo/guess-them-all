@@ -28,3 +28,7 @@ export const endRound = (context, {score}) => {
         context.commit('nextTurn');
     }
 }
+
+export const endGame = (context) => {
+    context.commit('resetGameState');
+}
