@@ -34,7 +34,6 @@ export default {
         1: 0
     },
     time: 0,
-    // Index-based
     winner: null,
     gameState: null
 }

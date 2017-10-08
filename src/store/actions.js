@@ -23,7 +23,7 @@ export const endRound = (context, {score}) => {
     context.commit('resetTime');
 
     if (context.state.score[context.state.turn.team] >= POINTS_NEEDED_TO_WIN) {
-        context.commit('setWinner', context.state.turn.team);
+        context.commit('setWinner', context.state.teamList[context.state.turn.team]);
     } else {
         context.commit('nextTurn');
     }
