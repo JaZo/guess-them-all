@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "30 seconds"
+  },
+  "home": {
+    "continue": "Ga verder met huidig spel",
+    "new": "Start nieuw spel",
+    "dialog": {
+      "cancel": "Nee",
+      "content": "Het huidige spel zal stoppen en alle voortgang zal verloren gaan.",
+      "ok": "Ja",
+      "title": "Weet je zeker dat je een nieuw spel wilt starten?"
+    }
+  },
+  "game": {
+    "choose-entities": "Welke worden zijn geraden?",
+    "continue": "Ga verder",
+    "pass-on": "Geef mij door aan {player}",
+    "ready": "{player}, ben je er klaar voor?",
+    "score": "{score} punten|{score} punt|{score} punten",
+    "time-over": "De tijd is op!",
+    "winner": "{team} heeft gewonnen!"
+  },
+  "teams": {
+    "player-name": "Speler naam",
+    "players": "geen spelers|{count} speler|{count} spelers",
+    "start": "Start nieuw spel",
+    "team-name": "Team naam",
+    "title": "Teams"
+  }
+}
