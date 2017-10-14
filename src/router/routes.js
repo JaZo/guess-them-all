@@ -1,3 +1,4 @@
+import store from '../store';
 import Home from '@/pages/Home';
 import Teams from '@/pages/Teams';
 import Team from '@/pages/Team';
@@ -23,7 +24,10 @@ export default [
         name: 'teams',
         component: Teams,
         meta: {
-            allowBack: true
+            allowBack: true,
+            title() {
+                return 'Teams';
+            }
         }
     },
     {
@@ -31,7 +35,10 @@ export default [
         name: 'team',
         component: Team,
         meta: {
-            allowBack: true
+            allowBack: true,
+            title() {
+                return 'Teams';
+            }
         }
     },
     {
@@ -39,7 +46,10 @@ export default [
         name: 'game',
         component: Game,
         meta: {
-            allowBack: false
+            allowBack: false,
+            title() {
+                return store.getters.teamInTurn.name;
+            }
         },
         children: [
             {

@@ -4,7 +4,7 @@
             <md-button v-if="allowBack" class="md-icon-button" @click="$router.back()">
                 <md-icon>arrow_back</md-icon>
             </md-button>
-            <h1 class="md-title">30 Seconds</h1>
+            <h1 class="md-title">{{ title }}</h1>
         </md-toolbar>
 
         <router-view></router-view>
@@ -17,6 +17,14 @@
         computed: {
             allowBack() {
                 return !this.$route.matched.some(record => !record.meta.allowBack);
+            },
+            title() {
+                let deepestRouteWithTitle = this.$route.matched.slice().reverse().find(record => record.meta.title);
+                if (deepestRouteWithTitle) {
+                    return deepestRouteWithTitle.meta.title();
+                }
+
+                return '30 Seconds';
             }
         }
     }

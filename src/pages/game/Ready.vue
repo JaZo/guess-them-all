@@ -2,7 +2,7 @@
     <div class="new">
         <md-list>
             <md-list-item>
-                <span>Team: {{ teamInTurn.name }} | Player: {{ playerInTurn.name }} | Ready?</span>
+                <span>{{ playerInTurn.name }}, are you ready?</span>
             </md-list-item>
         </md-list>
 

@@ -2,7 +2,7 @@
     <div class="new">
         <md-list>
             <md-list-item>
-                <span>Pass me on to {{ playerInTurn.name }} ({{ teamInTurn.name }})</span>
+                <span>Pass me on to {{ playerInTurn.name }}</span>
             </md-list-item>
             <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>
@@ -32,7 +32,6 @@
             ]),
             ...mapGetters([
                 'teamSet',
-                'teamInTurn',
                 'playerInTurn'
             ])
         }
