@@ -2,7 +2,7 @@
     <md-list-item>
         <md-icon>person</md-icon>
         <md-input-container>
-            <label>Player name</label>
+            <label>{{ $t('teams.player-name') }}</label>
             <md-input v-model="name"></md-input>
         </md-input-container>
         <md-button class="md-icon-button md-list-action" @click="$emit('delete')">

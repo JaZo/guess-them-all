@@ -2,12 +2,12 @@
     <div class="new">
         <md-list>
             <md-list-item>
-                <span>{{ playerInTurn.name }}, are you ready?</span>
+                <span>{{ $t('game.ready', {player: playerInTurn.name}) }}</span>
             </md-list-item>
         </md-list>
 
         <md-button class="md-raised md-primary" @click="continueGame()">
-            Continue
+            {{ $t('game.continue') }}
             <md-icon>play_arrow</md-icon>
         </md-button>
     </div>

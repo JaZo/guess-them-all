@@ -3,7 +3,7 @@
         <md-list>
             <md-list-item>
                 <md-input-container>
-                    <label>Team name</label>
+                    <label>{{ $t('teams.team-name') }}</label>
                     <md-input v-model="name"></md-input>
                 </md-input-container>
             </md-list-item>

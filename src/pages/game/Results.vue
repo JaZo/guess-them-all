@@ -2,7 +2,7 @@
     <div class="new">
         <md-list>
             <md-list-item>
-                <span>Which words were guessed?</span>
+                <span>{{ $t('game.choose-entities') }}</span>
             </md-list-item>
             <md-list-item v-for="(entity, index) in entities" :key="index">
                 <md-checkbox v-model="guessedEntities[index]" class="md-primary">{{ entity }}</md-checkbox>
@@ -10,7 +10,7 @@
         </md-list>
 
         <md-button class="md-raised md-primary" @click="continueGame()">
-            Continue
+            {{ $t('game.continue') }}
             <md-icon>play_arrow</md-icon>
         </md-button>
     </div>

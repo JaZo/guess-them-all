@@ -35,7 +35,7 @@
                     return deepestRouteWithTitle.meta.title();
                 }
 
-                return '30 Seconds';
+                return this.$t('app.title');
             }
         }
     }

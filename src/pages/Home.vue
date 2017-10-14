@@ -1,19 +1,19 @@
 <template>
     <div class="main-content">
         <md-dialog-confirm
-                md-title="Are you sure you want to start a new game?"
-                md-content="The current game will be stopped and all progress will be lost."
-                md-ok-text="Yes"
-                md-cancel-text="No"
+                :md-title="$t('home.dialog.title')"
+                :md-content="$t('home.dialog.content')"
+                :md-ok-text="$t('home.dialog.ok')"
+                :md-cancel-text="$t('home.dialog.cancel')"
                 @close="confirmDialogClosed"
                 ref="confirmDialog">
         </md-dialog-confirm>
 
         <md-button class="md-raised md-primary" v-if="gameInProgress" @click="continueGame()">
-            Continue game
+            {{ $t('home.continue') }}
         </md-button>
         <md-button class="md-raised md-primary" @click="startNewGame()">
-            Start new game
+            {{ $t('home.new') }}
         </md-button>
     </div>
 </template>

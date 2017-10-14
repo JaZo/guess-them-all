@@ -1,3 +1,4 @@
+import i18n from '../i18n';
 import store from '../store';
 import Home from '@/pages/Home';
 import Teams from '@/pages/Teams';
@@ -26,7 +27,7 @@ export default [
         meta: {
             allowBack: true,
             title() {
-                return 'Teams';
+                return i18n.t('teams.title');
             }
         }
     },
@@ -37,7 +38,7 @@ export default [
         meta: {
             allowBack: true,
             title() {
-                return 'Teams';
+                return i18n.t('teams.title');
             }
         }
     },

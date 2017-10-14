@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "30 seconds"
+  },
+  "home": {
+    "continue": "Continue game",
+    "new": "Start new game",
+    "dialog": {
+      "cancel": "No",
+      "content": "The current game will be stopped and all progress will be lost.",
+      "ok": "Yes",
+      "title": "Are you sure you want to start a new game?"
+    }
+  },
+  "game": {
+    "choose-entities": "Which words were guessed?",
+    "continue": "Continue",
+    "pass-on": "Pass me on to {player}",
+    "ready": "{player}, are you ready?",
+    "score": "{score} points|{score} point|{score} points",
+    "time-over": "Time over!",
+    "winner": "{team} won!"
+  },
+  "teams": {
+    "player-name": "Player name",
+    "players": "no players|{count} player|{count} players",
+    "start": "Start new game",
+    "team-name": "Team name",
+    "title": "Teams"
+  }
+}

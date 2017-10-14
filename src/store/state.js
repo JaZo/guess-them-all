@@ -1,4 +1,5 @@
 export default {
+    locale: 'en',
     teams: {
         '1': {
             name: 'Team 1',

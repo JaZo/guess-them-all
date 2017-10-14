@@ -2,16 +2,16 @@
     <div class="new">
         <md-list>
             <md-list-item>
-                <span>Pass me on to {{ playerInTurn.name }}</span>
+                <span>{{ $t('game.pass-on', {player: playerInTurn.name}) }}</span>
             </md-list-item>
             <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>
-                <span>{{ team.name }}: {{ score[index] || 0 }} points</span>
+                <span>{{ team.name }}: {{ $tc('game.score', score[index] || 0, {score: score[index] || 0}) }}</span>
             </md-list-item>
         </md-list>
 
         <md-button class="md-raised md-primary" @click="continueGame()">
-            Continue
+            {{ $t('game.continue') }}
             <md-icon>play_arrow</md-icon>
         </md-button>
     </div>
