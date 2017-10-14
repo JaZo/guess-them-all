@@ -57,6 +57,7 @@ export default [
                 name: 'game-index',
                 component: GameIndex,
                 meta: {
+                    allowHome: true,
                     allowedNextRoutes: [
                         'game-ready'
                     ]
@@ -108,6 +109,7 @@ export default [
                 name: 'game-game-over',
                 component: GameGameOVer,
                 meta: {
+                    allowHome: true,
                     allowedNextRoutes: [
                         'home'
                     ]
