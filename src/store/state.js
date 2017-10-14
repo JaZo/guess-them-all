@@ -28,5 +28,10 @@ export default {
     score: {},
     time: 0,
     winner: null,
-    gameState: null
+    gameState: null,
+    settings: {
+        numberOfEntitiesPerRound: 5,
+        pointsNeededToWin: 30,
+        timeLimit: 30
+    }
 }

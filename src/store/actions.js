@@ -1,7 +1,5 @@
 import Entities from '@/services/entities'
 
-const POINTS_NEEDED_TO_WIN = 30;
-
 export const startGame = (context) => {
     context.commit('resetUsedEntities');
     context.commit('resetScore');
@@ -12,7 +10,7 @@ export const startGame = (context) => {
 }
 
 export const startRound = (context) => {
-    let entities = Entities.get(context.state.usedEntities);
+    let entities = Entities.get(context.state.settings.numberOfEntitiesPerRound, context.state.usedEntities);
 
     context.commit('setEntities', entities);
     context.commit('addUsedEntities', entities);
@@ -25,7 +23,7 @@ export const endRound = (context, {score}) => {
     context.commit('setEntities', []);
     context.commit('resetTime');
 
-    if (context.state.score[teamId] >= POINTS_NEEDED_TO_WIN) {
+    if (context.state.score[teamId] >= context.state.settings.pointsNeededToWin) {
         context.commit('setWinner', teamId);
     } else {
         context.commit('nextTurn');
