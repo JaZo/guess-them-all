@@ -1,3 +1,11 @@
+import messages from '../i18n/messages';
+
+const getPreferredLanguage = function () {
+    let languages = navigator.languages || [navigator.language || navigator.userLanguage];
+
+    return languages.find(language => messages.hasOwnProperty(language)) || Object.keys(messages)[0];
+};
+
 export default {
     teams: {
         '1': {
@@ -30,7 +38,7 @@ export default {
     winner: null,
     gameState: null,
     settings: {
-        locale: 'en',
+        locale: getPreferredLanguage(),
         numberOfEntitiesPerRound: 5,
         pointsNeededToWin: 30,
         timeLimit: 30
