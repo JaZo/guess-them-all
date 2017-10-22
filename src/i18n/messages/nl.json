@@ -21,6 +21,13 @@
     "time-over": "De tijd is op!",
     "winner": "{team} heeft gewonnen!"
   },
+  "language": "Nederlands",
+  "settings": {
+    "locale": "Taal",
+    "number-of-entities-per-round": "Aantal woorden per ronde",
+    "points-needed-to-win": "Punten voor winst",
+    "title": "Instellingen"
+  },
   "teams": {
     "player-name": "Speler naam",
     "players": "geen spelers|{count} speler|{count} spelers",

@@ -1,6 +1,7 @@
 import i18n from '../i18n';
 import store from '../store';
 import Home from '@/pages/Home';
+import Settings from '@/pages/Settings';
 import Teams from '@/pages/Teams';
 import Team from '@/pages/Team';
 import Game from '@/pages/Game';
@@ -18,6 +19,17 @@ export default [
         component: Home,
         meta: {
             allowBack: false
+        }
+    },
+    {
+        path: '/settings',
+        name: 'settings',
+        component: Settings,
+        meta: {
+            allowBack: true,
+            title() {
+                return i18n.t('settings.title');
+            }
         }
     },
     {

@@ -1,4 +1,11 @@
-import Vue from 'vue'
+import Vue from 'vue';
+import i18n from '../i18n';
+
+// Settings
+export const updateSettings = (state, settings) => {
+    state.settings = settings;
+    i18n.locale = state.settings.locale;
+}
 
 // Game state
 export const setGameState = (state, gameState) => {

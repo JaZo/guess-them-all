@@ -1,5 +1,4 @@
 export default {
-    locale: 'en',
     teams: {
         '1': {
             name: 'Team 1',
@@ -31,6 +30,7 @@ export default {
     winner: null,
     gameState: null,
     settings: {
+        locale: 'en',
         numberOfEntitiesPerRound: 5,
         pointsNeededToWin: 30,
         timeLimit: 30

@@ -21,6 +21,13 @@
     "time-over": "Time over!",
     "winner": "{team} won!"
   },
+  "language": "English",
+  "settings": {
+    "locale": "Language",
+    "number-of-entities-per-round": "Number of words per round",
+    "points-needed-to-win": "Points to win",
+    "title": "Settings"
+  },
   "teams": {
     "player-name": "Player name",
     "players": "no players|{count} player|{count} players",

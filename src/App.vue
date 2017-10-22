@@ -7,7 +7,12 @@
             <md-button v-if="allowBack" class="md-icon-button" @click="$router.back()">
                 <md-icon>arrow_back</md-icon>
             </md-button>
-            <h1 class="md-title">{{ title }}</h1>
+
+            <h1 class="md-title" style="flex: 1">{{ title }}</h1>
+
+            <md-button class="md-icon-button" @click="settings">
+                <md-icon>settings</md-icon>
+            </md-button>
         </md-toolbar>
 
         <router-view></router-view>
@@ -20,6 +25,9 @@
         methods: {
             home() {
                 this.$router.replace({name: 'home'});
+            },
+            settings() {
+                this.$router.push({name: 'settings'});
             }
         },
         computed: {
