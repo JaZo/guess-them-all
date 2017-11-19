@@ -13,7 +13,7 @@
     }
   },
   "game": {
-    "choose-entities": "Welke worden zijn geraden?",
+    "choose-entities": "Welke woorden zijn geraden?",
     "continue": "Ga verder",
     "pass-on": "Geef mij door aan {player}",
     "ready": "{player}, ben je er klaar voor?",
