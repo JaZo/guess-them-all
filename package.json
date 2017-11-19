@@ -1,7 +1,7 @@
 {
-  "name": "30seconds",
+  "name": "guess-them-all",
   "version": "1.0.0",
-  "description": "30 Seconds",
+  "description": "Guess 'em all",
   "author": "Jasper Zonneveld <jasper.zonneveld@gmail.com>",
   "private": true,
   "scripts": {

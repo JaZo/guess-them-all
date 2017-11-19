@@ -1,6 +1,4 @@
-# 30seconds
-
-> 30 Seconds
+# Guess 'em all
 
 ## Build Setup
 
