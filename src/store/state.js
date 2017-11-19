@@ -3,7 +3,7 @@ import messages from '../i18n/messages';
 const getPreferredLanguage = function () {
     let languages = navigator.languages || [navigator.language || navigator.userLanguage];
 
-    return languages.find(language => messages.hasOwnProperty(language)) || Object.keys(messages)[0];
+    return languages.map(language => language.substr(0, 2)).find(language => messages.hasOwnProperty(language)) || Object.keys(messages)[0];
 };
 
 export default {
