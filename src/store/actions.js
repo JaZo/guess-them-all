@@ -1,12 +1,25 @@
 import Entities from '@/services/entities'
 
-export const startGame = (context) => {
+export const resetGame = (context) => {
     context.commit('resetUsedEntities');
     context.commit('resetScore');
     context.commit('resetTime');
     context.commit('resetTurn');
     context.commit('resetWinner');
     context.commit('setEntities', []);
+}
+
+export const startGame = (context) => {
+    resetGame(context);
+}
+
+export const endGame = (context) => {
+    context.commit('resetGameState');
+}
+
+export const stopGame = (context) => {
+    endGame(context);
+    resetGame(context);
 }
 
 export const startRound = (context) => {
@@ -28,18 +41,4 @@ export const endRound = (context, {score}) => {
     } else {
         context.commit('nextTurn');
     }
-}
-
-export const endGame = (context) => {
-    context.commit('resetGameState');
-}
-
-export const stopGame = (context) => {
-    context.commit('resetGameState');
-    context.commit('resetUsedEntities');
-    context.commit('resetScore');
-    context.commit('resetTime');
-    context.commit('resetTurn');
-    context.commit('resetWinner');
-    context.commit('setEntities', []);
 }
