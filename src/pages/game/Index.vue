@@ -6,7 +6,7 @@
             </md-list-item>
             <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>
-                <span>{{ team.name }}: {{ $tc('game.score', score[index] || 0, {score: score[index] || 0}) }}</span>
+                <span>{{ team.name }}: {{ $tc('game.score', score[team.id] || 0, {score: score[team.id] || 0}) }}</span>
             </md-list-item>
         </md-list>
 
