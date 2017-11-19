@@ -1,10 +1,7 @@
 var ora = require('ora')
-var path = require('path')
 var chalk = require('chalk')
+var ghpages = require('gh-pages')
 var config = require('../config')
-function exec (cmd) {
-    return require('child_process').execSync(cmd).toString().trim()
-}
 
 var currentDateTime = (function currentDateTime() {
     var date = new Date()
@@ -29,17 +26,14 @@ var currentDateTime = (function currentDateTime() {
     return `${year}-${month}-${day} ${hour}:${min}:${sec}`
 })()
 
-var currentBranch = exec('git rev-parse --abbrev-ref HEAD')
-
-var spinner = ora('deploying to GitHub Pages...\n')
+var spinner = ora('deploying to GitHub Pages...')
 spinner.start()
 
-exec('git checkout -b ' + config.build.deploymentBranch)
-exec('git add --force ' + path.join(config.build.assetsRoot, '/*'))
-exec('git commit -m "Build ' + currentDateTime + '"')
-exec('git push --force origin ' + config.build.deploymentBranch)
-exec('git checkout ' + currentBranch)
+var message = 'Automatic build ' + currentDateTime
 
-spinner.stop()
+ghpages.publish(config.build.assetsRoot, {message}, err => {
+    spinner.stop()
+    if (err) throw err
 
-console.log(chalk.cyan('\n  Deployment complete.\n'))
+    console.log(chalk.cyan('\n  Deployment complete.\n'))
+});
