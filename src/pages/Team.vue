@@ -11,6 +11,7 @@
             <player v-for="(player, index) in players"
                     :key="index"
                     :data="player"
+                    ref="players"
                     @update="updatePlayer({id: team.players[index], player: $event})"
                     @delete="deletePlayer({id: team.players[index]})"
             ></player>
@@ -54,10 +55,17 @@
                 }
             }
         },
-        methods: mapMutations([
-            'createPlayer',
-            'updatePlayer',
-            'deletePlayer'
-        ])
+        methods: {
+            ...mapMutations([
+                'updatePlayer',
+                'deletePlayer'
+            ]),
+            createPlayer(player) {
+                this.$store.commit('createPlayer', player);
+                this.$nextTick(() => {
+                    this.$refs.players[this.players.length - 1].focus();
+                });
+            }
+        }
     }
 </script>

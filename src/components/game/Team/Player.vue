@@ -3,7 +3,7 @@
         <md-icon>person</md-icon>
         <md-input-container>
             <label>{{ $t('teams.player-name') }}</label>
-            <md-input v-model="name"></md-input>
+            <md-input v-model="name" ref="input"></md-input>
         </md-input-container>
         <md-button class="md-icon-button md-list-action" @click="$emit('delete')">
             <md-icon class="md-warn">remove_circle</md-icon>
@@ -27,6 +27,11 @@
                 set(value) {
                     this.$emit('update', Object.assign({}, this.data, {name: value}));
                 }
+            }
+        },
+        methods: {
+            focus() {
+                this.$refs.input.$el.focus();
             }
         }
     }
