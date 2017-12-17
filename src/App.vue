@@ -16,6 +16,11 @@
         </md-toolbar>
 
         <router-view></router-view>
+
+        <md-snackbar md-position="bottom right" ref="offlineSnackbar">
+            <span>{{ $t('app.offline-ready') }}</span>
+            <md-button class="md-accent" @click="closeOfflineReady()">{{ $t('app.offline-close') }}</md-button>
+        </md-snackbar>
     </div>
 </template>
 
@@ -28,6 +33,12 @@
             },
             settings() {
                 this.$router.push({name: 'settings'});
+            },
+            openOfflineReady() {
+                this.$refs.offlineSnackbar.open();
+            },
+            closeOfflineReady() {
+                this.$refs.offlineSnackbar.close();
             }
         },
         computed: {

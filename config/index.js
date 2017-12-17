@@ -1,5 +1,6 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
+var pkg = require('../package.json')
 
 module.exports = {
   build: {
@@ -19,7 +20,17 @@ module.exports = {
     // View the bundle analyzer report after build finishes:
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
-    bundleAnalyzerReport: process.env.npm_config_report
+    bundleAnalyzerReport: process.env.npm_config_report,
+    // https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build
+    cacheId: pkg.name,
+    runtimeCaching: [
+      {
+        urlPattern: new RegExp('fonts\.(gstatic|googleapis)\.com\/(.*)'),
+        handler: 'staleWhileRevalidate'
+      }
+    ],
+    navigateFallback: '/',
+    directoryIndex: 'index.html',
   },
   dev: {
     env: require('./dev.env'),

@@ -6,16 +6,21 @@ import i18n from './i18n';
 import router from './router';
 import store from './store';
 import theme from './theme';
+import registerServiceWorker from './service-worker/register';
 
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
-new Vue({
+let vm = new Vue({
     el: '#app',
     i18n,
     router,
     store,
     theme,
-    template: '<App/>',
-    components: {App}
+    ...App
 });
+
+if (process.env.NODE_ENV === 'production') {
+    registerServiceWorker(() => {
+        vm.openOfflineReady();
+    });
+}

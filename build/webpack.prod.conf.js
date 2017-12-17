@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var WorkboxPlugin = require('workbox-webpack-plugin')
 
 var env = config.build.env
 
@@ -90,7 +91,21 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    // https://developers.google.com/web/tools/workbox/get-started/webpack
+    new WorkboxPlugin({
+      cacheId: config.build.cacheId,
+      globDirectory: config.build.assetsRoot,
+      globPatterns: ['**/*'],
+      globIgnores: ['**/*.map'],
+      swDest: path.join(config.build.assetsRoot, 'sw.js'),
+      dontCacheBustUrlsMatching: new RegExp(config.build.assetsSubDirectory + '\/(css|js)\/(.*)'),
+      navigateFallback: config.build.navigateFallback,
+      directoryIndex: config.build.directoryIndex,
+      clientsClaim: true,
+      skipWaiting: true,
+      runtimeCaching: config.build.runtimeCaching
+    })
   ]
 })
 
