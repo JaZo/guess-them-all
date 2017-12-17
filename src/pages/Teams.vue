@@ -1,5 +1,5 @@
 <template>
-    <div class="new">
+    <div>
         <md-list>
             <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>

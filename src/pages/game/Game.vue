@@ -1,5 +1,5 @@
 <template>
-    <div class="new">
+    <div>
         <md-progress class="md-accent" :md-progress="progress"></md-progress>
         <md-list>
             <md-list-item v-for="(entity, index) in entities" :key="index">

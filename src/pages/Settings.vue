@@ -1,5 +1,5 @@
 <template>
-    <div class="new">
+    <div>
         <md-list>
             <md-list-item>
                 <md-input-container>
