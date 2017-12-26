@@ -24,6 +24,9 @@
         mounted() {
             this.interval = setInterval(this.loop, 1000 / PROGRESS_TICKS_PER_SECOND);
         },
+        beforeDestroy() {
+            clearInterval(this.interval);
+        },
         methods: {
             ...mapMutations([
                 'setTime'
