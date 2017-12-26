@@ -10,7 +10,7 @@
 
             <h1 class="md-title" style="flex: 1">{{ title }}</h1>
 
-            <md-button class="md-icon-button" @click="settings">
+            <md-button v-if="allowSettings" key="settings" class="md-icon-button" @click="settings">
                 <md-icon>settings</md-icon>
             </md-button>
         </md-toolbar>
@@ -47,6 +47,9 @@
             },
             allowHome() {
                 return !!this.$route.meta.allowHome;
+            },
+            allowSettings() {
+                return !this.$route.matched.some(record => !record.meta.allowSettings);
             },
             title() {
                 let deepestRouteWithTitle = this.$route.matched.slice().reverse().find(record => record.meta.title);

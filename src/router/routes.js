@@ -18,7 +18,8 @@ export default [
         name: 'home',
         component: Home,
         meta: {
-            allowBack: false
+            allowBack: false,
+            allowSettings: true
         }
     },
     {
@@ -38,6 +39,7 @@ export default [
         component: Teams,
         meta: {
             allowBack: true,
+            allowSettings: true,
             title() {
                 return i18n.t('teams.title');
             }
@@ -49,6 +51,7 @@ export default [
         component: Team,
         meta: {
             allowBack: true,
+            allowSettings: true,
             title() {
                 return i18n.t('teams.title');
             }
@@ -71,6 +74,7 @@ export default [
                 component: GameIndex,
                 meta: {
                     allowHome: true,
+                    allowSettings: true,
                     allowedNextRoutes: [
                         'game-ready'
                     ]
