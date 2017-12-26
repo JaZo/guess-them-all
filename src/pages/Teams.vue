@@ -1,6 +1,10 @@
 <template>
     <div>
         <md-list>
+            <md-list-item>
+                <span>{{ $t('teams.intro') }}</span>
+            </md-list-item>
+
             <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>
                 <span>{{ team.name }} ({{ $tc('teams.players', team.players.length, {count: team.players.length}) }})</span>

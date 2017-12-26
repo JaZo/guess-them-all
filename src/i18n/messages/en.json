@@ -31,6 +31,7 @@
     "title": "Settings"
   },
   "teams": {
+    "intro": "Choose your teams! Two teams is the minimum and all teams must consist of at least two players.",
     "player-name": "Player name",
     "players": "no players|{count} player|{count} players",
     "start": "Start new game",

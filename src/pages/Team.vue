@@ -2,6 +2,10 @@
     <div>
         <md-list>
             <md-list-item>
+                <span>{{ $t('teams.intro') }}</span>
+            </md-list-item>
+
+            <md-list-item>
                 <md-input-container>
                     <label>{{ $t('teams.team-name') }}</label>
                     <md-input v-model="name"></md-input>

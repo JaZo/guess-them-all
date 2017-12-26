@@ -31,6 +31,7 @@
     "title": "Instellingen"
   },
   "teams": {
+    "intro": "Kies je teams! Twee teams is het minimum en alle teams moeten uit minimaal twee spelers bestaan.",
     "player-name": "Speler naam",
     "players": "geen spelers|{count} speler|{count} spelers",
     "start": "Start nieuw spel",
