@@ -1,6 +1,7 @@
 import i18n from '../i18n';
 import store from '../store';
 import Home from '@/pages/Home';
+import Rules from '@/pages/Rules';
 import Settings from '@/pages/Settings';
 import Teams from '@/pages/Teams';
 import Team from '@/pages/Team';
@@ -20,6 +21,17 @@ export default [
         meta: {
             allowBack: false,
             allowSettings: true
+        }
+    },
+    {
+        path: '/rules',
+        name: 'rules',
+        component: Rules,
+        meta: {
+            allowBack: true,
+            title() {
+                return i18n.t('rules.title');
+            }
         }
     },
     {

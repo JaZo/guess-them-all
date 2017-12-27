@@ -8,6 +8,7 @@
   "home": {
     "continue": "Ga verder met huidig spel",
     "new": "Start nieuw spel",
+    "rules": "Spelregels",
     "dialog": {
       "cancel": "Nee",
       "content": "Het huidige spel zal stoppen en alle voortgang zal verloren gaan.",
@@ -25,6 +26,20 @@
     "winner": "{team} heeft gewonnen!"
   },
   "language": "Nederlands",
+  "rules": {
+    "title": "Spelregels",
+    "rules": {
+      "1": "Eén van de teamleden probeert de woorden op de kaart te omschrijven. De andere teamleden moeten deze woorden raden.",
+      "2": "De speler die de woorden omschrijft mag geen namen op de kaart noemen. Woorden als \"de\", \"het\" en \"een\" zijn wel toegestaan.",
+      "3": "De speler die de woorden omschrijft mag geen namen noemen die van de naam op de kaart zijn afgeleid.",
+      "4": "De speler die de woorden omschrijft mag geen \"klinkt als\" of \"rijmt op\" tactieken toepassen.",
+      "5": "De speler die de woorden omschrijft mag niet verwijzen naar letters van het alfabet.",
+      "6": "De speler die de woorden omschrijft mag niet naar voorwerpen wijzen.",
+      "7": "Neuriën, zingen en gebaren zijn wel toegestaan.",
+      "8": "Na een halve minuut is de tijd om, en mag er niks meer gezegd of geraden worden.",
+      "9": "De speler die de woorden omschreven heeft geeft aan welke woorden geraden zijn. Elk woord is één punt waard."
+    }
+  },
   "settings": {
     "locale": "Taal",
     "number-of-entities-per-round": "Aantal woorden per ronde",

@@ -8,6 +8,7 @@
   "home": {
     "continue": "Continue game",
     "new": "Start new game",
+    "rules": "Game rules",
     "dialog": {
       "cancel": "No",
       "content": "The current game will be stopped and all progress will be lost.",
@@ -25,6 +26,20 @@
     "winner": "{team} won!"
   },
   "language": "English",
+  "rules": {
+    "title": "Games rules",
+    "rules": {
+      "1": "One of the team members tries to describe the words on the card, the other team members must guess these words.",
+      "2": "The player who describes the words may not name names on the card. Words such as \"the\" and \"a\" are allowed.",
+      "3": "The player who describes the words may not name names derived from the name on the card.",
+      "4": "The player who describes the words may not apply \"sounds like\" or \"rhymes to\" tactics.",
+      "5": "The player who describes the words may not refer to letters of the alphabet.",
+      "6": "The player who describes the words may not point at objects.",
+      "7": "Humming, singing and gestures are allowed.",
+      "8": "After half a minute the time is up, and nothing more can be said or guessed.",
+      "9": "The player who described the words indicates which words are guessed, each word is worth one point."
+    }
+  },
   "settings": {
     "locale": "Language",
     "number-of-entities-per-round": "Number of words per round",

@@ -15,6 +15,9 @@
         <md-button class="md-raised md-primary" @click="startNewGame()">
             {{ $t('home.new') }}
         </md-button>
+        <router-link tag="md-button" :to="{name: 'rules'}" class="md-raised md-accent">
+            {{ $t('home.rules') }}
+        </router-link>
     </div>
 </template>
 
