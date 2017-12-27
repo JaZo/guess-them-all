@@ -3,7 +3,7 @@
     "title": "Guess 'em all",
     "offline-close": "Close",
     "offline-installed": "This website is ready for offline usage!",
-    "offline-updated": "This website is updated!"
+    "offline-updated": "This website is updated, please refresh!"
   },
   "home": {
     "continue": "Continue game",
