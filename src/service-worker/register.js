@@ -1,4 +1,4 @@
-export default function (callback) {
+export default function (callbackInstalled, callbackUpdated) {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('sw.js').then(registration => {
@@ -14,11 +14,11 @@ export default function (callback) {
                                 // have been added to the cache.
                                 // It's the perfect time to display a "New content is available; please refresh."
                                 // message in the page's interface.
-                                callback();
+                                callbackUpdated();
                             } else {
                                 // At this point, everything has been precached.
                                 // It's the perfect time to display a "Content is cached for offline use." message.
-                                callback();
+                                callbackInstalled();
                             }
                         }
                     };

@@ -17,9 +17,13 @@
 
         <router-view></router-view>
 
-        <md-snackbar md-position="bottom right" ref="offlineSnackbar">
-            <span>{{ $t('app.offline-ready') }}</span>
-            <md-button class="md-accent" @click="closeOfflineReady()">{{ $t('app.offline-close') }}</md-button>
+        <md-snackbar md-position="bottom right" ref="offlineInstalledSnackbar">
+            <span>{{ $t('app.offline-installed') }}</span>
+            <md-button class="md-accent" @click="closeOfflineInstalled()">{{ $t('app.offline-close') }}</md-button>
+        </md-snackbar>
+        <md-snackbar md-position="bottom right" ref="offlineUpdatedSnackbar">
+            <span>{{ $t('app.offline-updated') }}</span>
+            <md-button class="md-accent" @click="closeOfflineUpdated()">{{ $t('app.offline-close') }}</md-button>
         </md-snackbar>
     </div>
 </template>
@@ -27,6 +31,10 @@
 <script>
     export default {
         name: 'app',
+        mounted() {
+            this.$bus.$on('offline-installed', this.openOfflineInstalled);
+            this.$bus.$on('offline-updated', this.openOfflineUpdated);
+        },
         methods: {
             home() {
                 this.$router.replace({name: 'home'});
@@ -34,11 +42,17 @@
             settings() {
                 this.$router.push({name: 'settings'});
             },
-            openOfflineReady() {
-                this.$refs.offlineSnackbar.open();
+            openOfflineInstalled() {
+                this.$refs.offlineInstalledSnackbar.open();
             },
-            closeOfflineReady() {
-                this.$refs.offlineSnackbar.close();
+            closeOfflineInstalled() {
+                this.$refs.offlineInstalledSnackbar.close();
+            },
+            openOfflineUpdated() {
+                this.$refs.offlineUpdatedSnackbar.open();
+            },
+            closeOfflineUpdated() {
+                this.$refs.offlineUpdatedSnackbar.close();
             }
         },
         computed: {

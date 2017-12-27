@@ -2,7 +2,8 @@
   "app": {
     "title": "Guess 'em all",
     "offline-close": "Sluiten",
-    "offline-ready": "Deze website is klaar voor offline gebruik!"
+    "offline-installed": "Deze website is klaar voor offline gebruik!",
+    "offline-updated": "Deze website is bijgewerkt!"
   },
   "home": {
     "continue": "Ga verder met huidig spel",
