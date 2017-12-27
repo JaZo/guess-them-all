@@ -8,17 +8,17 @@
             <md-list-item>
                 <md-input-container>
                     <label>{{ $t('teams.team-name') }}</label>
-                    <md-input v-model="name"></md-input>
+                    <md-input v-model="name" />
                 </md-input-container>
             </md-list-item>
 
             <player v-for="(player, index) in players"
-                    :key="index"
-                    :data="player"
-                    ref="players"
-                    @update="updatePlayer({id: team.players[index], player: $event})"
-                    @delete="deletePlayer({id: team.players[index]})"
-            ></player>
+                ref="players"
+                :key="index"
+                :data="player"
+                @update="updatePlayer({id: team.players[index], player: $event})"
+                @delete="deletePlayer({id: team.players[index]})"
+            />
 
             <md-list-item>
                 <span></span>
@@ -38,18 +38,22 @@
         components: {
             'player': Player
         },
+
         computed: {
             id() {
                 return this.$route.params.id;
             },
+
             team() {
                 return this.$store.state.teams[this.id];
             },
+
             players() {
                 return this.team.players.map((id) => {
                     return this.$store.state.players[id];
                 });
             },
+
             name: {
                 get() {
                     return this.team.name;
@@ -59,11 +63,13 @@
                 }
             }
         },
+
         methods: {
             ...mapMutations([
                 'updatePlayer',
                 'deletePlayer'
             ]),
+
             createPlayer(player) {
                 this.$store.commit('createPlayer', player);
                 this.$nextTick(() => {

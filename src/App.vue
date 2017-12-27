@@ -15,13 +15,13 @@
             </md-button>
         </md-toolbar>
 
-        <router-view></router-view>
+        <router-view/>
 
-        <md-snackbar md-position="bottom right" ref="offlineInstalledSnackbar">
+        <md-snackbar ref="offlineInstalledSnackbar" md-position="bottom right">
             <span>{{ $t('app.offline-installed') }}</span>
             <md-button class="md-accent" @click="closeOfflineInstalled()">{{ $t('app.offline-close') }}</md-button>
         </md-snackbar>
-        <md-snackbar md-position="bottom right" ref="offlineUpdatedSnackbar">
+        <md-snackbar ref="offlineUpdatedSnackbar" md-position="bottom right">
             <span>{{ $t('app.offline-updated') }}</span>
             <md-button class="md-accent" @click="closeOfflineUpdated()">{{ $t('app.offline-close') }}</md-button>
         </md-snackbar>
@@ -30,41 +30,19 @@
 
 <script>
     export default {
-        name: 'app',
-        mounted() {
-            this.$bus.$on('offline-installed', this.openOfflineInstalled);
-            this.$bus.$on('offline-updated', this.openOfflineUpdated);
-        },
-        methods: {
-            home() {
-                this.$router.replace({name: 'home'});
-            },
-            settings() {
-                this.$router.push({name: 'settings'});
-            },
-            openOfflineInstalled() {
-                this.$refs.offlineInstalledSnackbar.open();
-            },
-            closeOfflineInstalled() {
-                this.$refs.offlineInstalledSnackbar.close();
-            },
-            openOfflineUpdated() {
-                this.$refs.offlineUpdatedSnackbar.open();
-            },
-            closeOfflineUpdated() {
-                this.$refs.offlineUpdatedSnackbar.close();
-            }
-        },
         computed: {
             allowBack() {
                 return !this.$route.matched.some(record => !record.meta.allowBack);
             },
+
             allowHome() {
                 return !!this.$route.meta.allowHome;
             },
+
             allowSettings() {
                 return !this.$route.matched.some(record => !record.meta.allowSettings);
             },
+
             title() {
                 let deepestRouteWithTitle = this.$route.matched.slice().reverse().find(record => record.meta.title);
                 if (deepestRouteWithTitle) {
@@ -72,6 +50,37 @@
                 }
 
                 return this.$t('app.title');
+            }
+        },
+
+        mounted() {
+            this.$bus.$on('offline-installed', this.openOfflineInstalled);
+            this.$bus.$on('offline-updated', this.openOfflineUpdated);
+        },
+
+        methods: {
+            home() {
+                this.$router.replace({name: 'home'});
+            },
+
+            settings() {
+                this.$router.push({name: 'settings'});
+            },
+
+            openOfflineInstalled() {
+                this.$refs.offlineInstalledSnackbar.open();
+            },
+
+            closeOfflineInstalled() {
+                this.$refs.offlineInstalledSnackbar.close();
+            },
+
+            openOfflineUpdated() {
+                this.$refs.offlineUpdatedSnackbar.open();
+            },
+
+            closeOfflineUpdated() {
+                this.$refs.offlineUpdatedSnackbar.close();
             }
         }
     }

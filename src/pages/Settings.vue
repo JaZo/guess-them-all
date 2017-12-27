@@ -9,6 +9,7 @@
                     </md-select>
                 </md-input-container>
             </md-list-item>
+
             <md-list-item>
                 <md-input-container>
                     <label>{{ $t('settings.points-needed-to-win') }}</label>
@@ -20,6 +21,7 @@
                     </md-select>
                 </md-input-container>
             </md-list-item>
+
             <md-list-item>
                 <md-input-container>
                     <label>{{ $t('settings.number-of-entities-per-round') }}</label>
@@ -42,6 +44,7 @@
             ...mapState([
                 'settings'
             ]),
+
             locales() {
                 return Object.keys(this.$i18n.messages).map((locale) => {
                     return {
@@ -50,6 +53,7 @@
                     };
                 });
             },
+
             locale: {
                 get() {
                     return this.$store.state.settings.locale;
@@ -58,6 +62,7 @@
                     this.updateSettings(Object.assign({}, this.settings, {locale: value}));
                 }
             },
+
             numberOfEntitiesPerRound: {
                 get() {
                     return this.$store.state.settings.numberOfEntitiesPerRound;
@@ -66,6 +71,7 @@
                     this.updateSettings(Object.assign({}, this.settings, {numberOfEntitiesPerRound: value}));
                 }
             },
+
             pointsNeededToWin: {
                 get() {
                     return this.$store.state.settings.pointsNeededToWin;
@@ -75,6 +81,7 @@
                 }
             }
         },
+
         methods: mapMutations([
             'updateSettings'
         ])

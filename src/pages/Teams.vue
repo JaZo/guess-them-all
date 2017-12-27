@@ -35,25 +35,28 @@
     import { mapMutations, mapGetters } from 'vuex';
 
     export default {
-        methods: {
-            ...mapMutations([
-                'createTeam',
-                'deleteTeam'
-            ]),
-            editTeam({id}) {
-                this.$router.push({name: 'team', params: {id}});
-            },
-            start() {
-                this.$store.dispatch('startGame').then(() => {
-                    this.$router.replace({name: 'game-index'});
-                });
-            }
-        },
         computed: {
             ...mapGetters([
                 'teamSet',
                 'readyToStart'
             ])
+        },
+
+        methods: {
+            ...mapMutations([
+                'createTeam',
+                'deleteTeam'
+            ]),
+
+            editTeam({id}) {
+                this.$router.push({name: 'team', params: {id}});
+            },
+
+            start() {
+                this.$store.dispatch('startGame').then(() => {
+                    this.$router.replace({name: 'game-index'});
+                });
+            }
         }
     }
 </script>

@@ -4,6 +4,7 @@
             <md-list-item>
                 <span>{{ $t('game.choose-entities') }}</span>
             </md-list-item>
+
             <md-list-item v-for="(entity, index) in entities" :key="index">
                 <md-checkbox v-model="guessedEntities[index]" class="md-primary">{{ entity }}</md-checkbox>
             </md-list-item>
@@ -29,6 +30,17 @@
                 }, {})
             }
         },
+
+        computed: {
+            ...mapState([
+                'entities'
+            ]),
+
+            score() {
+                return Object.values(this.guessedEntities).filter(value => value).length;
+            }
+        },
+
         methods: {
             continueGame() {
                 this.$store.dispatch('endRound', {score: this.score}).then(() => {
@@ -38,14 +50,6 @@
                         this.$router.replace({name: 'game-index'});
                     }
                 });
-            }
-        },
-        computed: {
-            ...mapState([
-                'entities'
-            ]),
-            score() {
-                return Object.values(this.guessedEntities).filter(value => value).length;
             }
         }
     }

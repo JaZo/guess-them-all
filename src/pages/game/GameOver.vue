@@ -17,13 +17,14 @@
     import { mapGetters } from 'vuex'
 
     export default {
+        computed: mapGetters(['winningTeam']),
+
         methods: {
             continueGame() {
                 this.$store.dispatch('endGame').then(() => {
                     this.$router.replace({name: 'teams'});
                 });
             }
-        },
-        computed: mapGetters(['winningTeam'])
+        }
     }
 </script>

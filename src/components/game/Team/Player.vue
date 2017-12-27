@@ -1,10 +1,12 @@
 <template>
     <md-list-item>
         <md-icon>person</md-icon>
+
         <md-input-container>
             <label>{{ $t('teams.player-name') }}</label>
-            <md-input v-model="name" ref="input"></md-input>
+            <md-input ref="input" v-model="name" />
         </md-input-container>
+
         <md-button class="md-icon-button md-list-action" @click="$emit('delete')">
             <md-icon class="md-warn">remove_circle</md-icon>
         </md-button>
@@ -19,6 +21,7 @@
                 required: true
             }
         },
+
         computed: {
             name: {
                 get() {
@@ -29,6 +32,7 @@
                 }
             }
         },
+
         methods: {
             focus() {
                 this.$refs.input.$el.focus();
