@@ -7,7 +7,7 @@
 
             <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>
-                <span>{{ team.name }} ({{ $tc('teams.players', team.players.length, {count: team.players.length}) }})</span>
+                <span @click="editTeam({id: team.id})">{{ team.name }} ({{ $tc('teams.players', team.players.length, {count: team.players.length}) }})</span>
                 <md-button class="md-icon-button md-list-action" @click="editTeam({id: team.id})">
                     <md-icon class="md-primary">edit</md-icon>
                 </md-button>
