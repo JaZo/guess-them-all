@@ -15,7 +15,13 @@
             </md-button>
         </md-toolbar>
 
-        <router-view/>
+        <transition
+            mode="out-in"
+            :enter-active-class="transitionEnterClass"
+            :leave-active-class="transitionLeaveClass"
+        >
+            <router-view/>
+        </transition>
 
         <md-snackbar ref="offlineInstalledSnackbar" md-position="bottom right">
             <span>{{ $t('app.offline-installed') }}</span>
@@ -30,6 +36,13 @@
 
 <script>
     export default {
+        data() {
+            return {
+                transitionEnterClass: null,
+                transitionLeaveClass: null
+            };
+        },
+
         computed: {
             allowBack() {
                 return !this.$route.matched.some(record => !record.meta.allowBack);
@@ -50,6 +63,17 @@
                 }
 
                 return this.$t('app.title');
+            }
+        },
+
+        watch: {
+            $route(to, from) {
+                const baseClass = 'animated page-transition ';
+                const toDepth = to.path.replace(/\/+$/, '').concat('/').split('/').length;
+                const fromDepth = from.path.replace(/\/+$/, '').concat('/').split('/').length;
+
+                this.transitionEnterClass = baseClass + (toDepth < fromDepth ? 'slideInLeft' : 'slideInRight');
+                this.transitionLeaveClass = baseClass + (toDepth < fromDepth ? 'slideOutRight' : 'slideOutLeft');
             }
         },
 
@@ -88,8 +112,13 @@
 
 <style>
     @import '../node_modules/vue-material/dist/vue-material.css';
+    @import '../node_modules/animate.css/animate.css';
 
     .main-content {
         padding: 16px;
+    }
+
+    .page-transition {
+        animation-duration: .2s;
     }
 </style>
