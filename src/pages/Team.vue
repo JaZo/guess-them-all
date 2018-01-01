@@ -13,15 +13,15 @@
             </md-list-item>
 
             <player v-for="(player, index) in players"
-                ref="players"
-                :key="index"
-                :data="player"
-                @update="updatePlayer({id: team.players[index], player: $event})"
-                @delete="deletePlayer({id: team.players[index]})"
+                    ref="players"
+                    :key="index"
+                    :data="player"
+                    @update="updatePlayer({id: team.players[index], player: $event})"
+                    @delete="deletePlayer({id: team.players[index]})"
             />
 
             <md-list-item>
-                <span></span>
+                <span/>
                 <md-button class="md-icon-button md-list-action" @click="createPlayer({teamId: id})">
                     <md-icon class="md-primary">person_add</md-icon>
                 </md-button>

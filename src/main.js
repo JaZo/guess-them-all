@@ -19,8 +19,8 @@ new Vue({
     router,
     store,
     theme,
-    template: '<App/>',
-    components: {App}
+    components: {App},
+    template: '<App/>'
 });
 
 if (process.env.NODE_ENV === 'production') {

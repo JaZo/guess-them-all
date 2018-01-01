@@ -17,7 +17,7 @@
             </md-list-item>
 
             <md-list-item>
-                <span></span>
+                <span/>
                 <md-button class="md-icon-button md-list-action" @click="createTeam()">
                     <md-icon class="md-primary">group_add</md-icon>
                 </md-button>
