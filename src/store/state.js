@@ -41,6 +41,10 @@ export default {
         locale: getPreferredLanguage(),
         numberOfEntitiesPerRound: 5,
         pointsNeededToWin: 30,
-        timeLimit: 30
+        timeLimit: 30,
+        entities: [
+            'nl.google',
+            'nl.susanne'
+        ]
     }
 }

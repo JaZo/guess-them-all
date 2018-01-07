@@ -32,12 +32,27 @@
                     </md-select>
                 </md-input-container>
             </md-list-item>
+
+            <md-list-item>
+                <md-input-container>
+                    <label>{{ $t('settings.entities') }}</label>
+                    <md-select v-model="entities" multiple>
+                        <template v-for="(lists, language) in entityLists">
+                            <md-subheader :key="language">{{ $t('language', language) }}</md-subheader>
+                            <template v-for="(list, key) in lists">
+                                <md-option :value="language + '.' + key" :key="language + '.' + key">{{ list.name }}</md-option>
+                            </template>
+                        </template>
+                    </md-select>
+                </md-input-container>
+            </md-list-item>
         </md-list>
     </div>
 </template>
 
 <script>
     import { mapMutations, mapState } from 'vuex';
+    import entities from '../data/entities';
 
     export default {
         computed: {
@@ -79,6 +94,19 @@
                 set(value) {
                     this.updateSettings(Object.assign({}, this.settings, {pointsNeededToWin: value}));
                 }
+            },
+
+            entities: {
+                get() {
+                    return this.$store.state.settings.entities;
+                },
+                set(value) {
+                    this.updateSettings(Object.assign({}, this.settings, {entities: value}));
+                }
+            },
+
+            entityLists() {
+                return entities;
             }
         },
 

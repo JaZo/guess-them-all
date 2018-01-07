@@ -41,6 +41,7 @@
     }
   },
   "settings": {
+    "entities": "Word lists",
     "locale": "Language",
     "number-of-entities-per-round": "Number of words per round",
     "points-needed-to-win": "Points to win",

@@ -41,6 +41,7 @@
     }
   },
   "settings": {
+    "entities": "Woordenlijsten",
     "locale": "Taal",
     "number-of-entities-per-round": "Aantal woorden per ronde",
     "points-needed-to-win": "Punten voor winst",
