@@ -23,7 +23,7 @@ export const stopGame = (context) => {
 }
 
 export const startRound = (context) => {
-    let entities = Entities.get(context.state.settings.numberOfEntitiesPerRound, context.state.usedEntities);
+    let entities = Entities.get(context.state.settings.entities, context.state.settings.numberOfEntitiesPerRound, context.state.usedEntities);
 
     context.commit('setEntities', entities);
     context.commit('addUsedEntities', entities);
