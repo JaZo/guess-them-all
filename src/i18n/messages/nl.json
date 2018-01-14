@@ -45,7 +45,12 @@
     "locale": "Taal",
     "number-of-entities-per-round": "Aantal woorden per ronde",
     "points-needed-to-win": "Punten voor winst",
-    "title": "Instellingen"
+    "title": "Instellingen",
+    "dialog": {
+      "content": "Kies minimaal één woordenlijst om een spel te kunnen starten.",
+      "ok": "Ok",
+      "title": "Geen woordenlijst gekozen"
+    }
   },
   "teams": {
     "intro": "Stel je teams samen! Twee teams is het minimum en alle teams moeten uit minimaal twee spelers bestaan.",

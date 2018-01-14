@@ -45,7 +45,12 @@
     "locale": "Language",
     "number-of-entities-per-round": "Number of words per round",
     "points-needed-to-win": "Points to win",
-    "title": "Settings"
+    "title": "Settings",
+    "dialog": {
+      "content": "Choose at least one word list to start a game.",
+      "ok": "Ok",
+      "title": "No word list chosen"
+    }
   },
   "teams": {
     "intro": "Choose your teams! Two teams is the minimum and all teams must consist of at least two players.",

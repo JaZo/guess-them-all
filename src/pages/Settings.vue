@@ -1,5 +1,12 @@
 <template>
     <div>
+        <md-dialog-alert
+            ref="chooseEntitiesDialog"
+            :md-title="$t('settings.dialog.title')"
+            :md-content="$t('settings.dialog.content')"
+            :md-ok-text="$t('settings.dialog.ok')"
+        />
+
         <md-list>
             <md-list-item>
                 <md-input-container>
@@ -107,6 +114,15 @@
 
             entityLists() {
                 return entities;
+            }
+        },
+
+        beforeRouteLeave(to, from, next) {
+            if (this.entities.length < 1) {
+                this.$refs.chooseEntitiesDialog.open();
+                next(false);
+            } else {
+                next();
             }
         },
 
