@@ -42,6 +42,7 @@ export default {
         numberOfEntitiesPerRound: 5,
         pointsNeededToWin: 30,
         timeLimit: 30,
+        sounds: true,
         entities: [
             'nl.google',
             'nl.standard',

@@ -12,8 +12,10 @@
 
 <script>
     import { mapMutations, mapState } from 'vuex'
+    const sound = new Audio(require('../../assets/sounds/ticking.mp3'));
 
     const PROGRESS_TICKS_PER_SECOND = 15; // i.e. FPS for progress bar
+    const SOUND_LENGTH = 5; // in seconds
 
     export default {
         data() {
@@ -41,6 +43,7 @@
 
         beforeDestroy() {
             clearInterval(this.interval);
+            this.stopSound();
         },
 
         methods: {
@@ -55,6 +58,10 @@
                     this.setTime(Math.min(Math.floor(this.progressCounter / PROGRESS_TICKS_PER_SECOND), this.settings.timeLimit));
                 }
 
+                if (this.time >= (this.settings.timeLimit - SOUND_LENGTH)) {
+                    this.playSound();
+                }
+
                 if (this.progressCounter >= PROGRESS_TICKS_PER_SECOND * this.settings.timeLimit) {
                     clearInterval(this.interval);
                     this.continueGame();
@@ -63,6 +70,18 @@
 
             continueGame() {
                 this.$router.replace({name: 'game-time-over'});
+            },
+
+            playSound() {
+                if (this.settings.sounds) {
+                    sound.play();
+                }
+            },
+
+            stopSound() {
+                if (this.settings.sounds) {
+                    sound.pause();
+                }
             }
         }
     }

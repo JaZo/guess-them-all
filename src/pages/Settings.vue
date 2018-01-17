@@ -53,6 +53,16 @@
                     </md-select>
                 </md-input-container>
             </md-list-item>
+
+            <md-list-item>
+                <md-input-container>
+                    <label>{{ $t('settings.sounds') }}</label>
+                    <md-select v-model="sounds">
+                        <md-option :value="true">{{ $t('settings.sounds-enabled') }}</md-option>
+                        <md-option :value="false">{{ $t('settings.sounds-disabled') }}</md-option>
+                    </md-select>
+                </md-input-container>
+            </md-list-item>
         </md-list>
     </div>
 </template>
@@ -109,6 +119,15 @@
                 },
                 set(value) {
                     this.updateSettings(Object.assign({}, this.settings, {entities: value}));
+                }
+            },
+
+            sounds: {
+                get() {
+                    return this.$store.state.settings.sounds;
+                },
+                set(value) {
+                    this.updateSettings(Object.assign({}, this.settings, {sounds: value}));
                 }
             },
 

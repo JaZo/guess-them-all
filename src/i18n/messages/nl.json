@@ -45,6 +45,9 @@
     "locale": "Taal",
     "number-of-entities-per-round": "Aantal woorden per ronde",
     "points-needed-to-win": "Punten voor winst",
+    "sounds": "Geluidseffecten",
+    "sounds-enabled": "Ingeschakeld",
+    "sounds-disabled": "Uitgeschakeld",
     "title": "Instellingen",
     "dialog": {
       "content": "Kies minimaal één woordenlijst om een spel te kunnen starten.",

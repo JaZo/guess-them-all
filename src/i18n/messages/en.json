@@ -45,6 +45,9 @@
     "locale": "Language",
     "number-of-entities-per-round": "Number of words per round",
     "points-needed-to-win": "Points to win",
+    "sounds": "Sound effects",
+    "sounds-enabled": "Enabled",
+    "sounds-disabled": "Disabled",
     "title": "Settings",
     "dialog": {
       "content": "Choose at least one word list to start a game.",
