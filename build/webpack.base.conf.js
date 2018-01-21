@@ -66,7 +66,7 @@ module.exports = {
         test: /\.(mp3)(\?.*)?$/,
         loader: 'file-loader',
         options: {
-          name: utils.assetsPath('sounds/[name].[hash:7].[ext]')
+          name: utils.assetsPath('audio/[name].[hash:7].[ext]')
         }
       }
     ]

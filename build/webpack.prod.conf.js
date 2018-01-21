@@ -99,7 +99,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       globPatterns: ['**/*'],
       globIgnores: ['**/*.map'],
       swDest: path.join(config.build.assetsRoot, 'sw.js'),
-      dontCacheBustUrlsMatching: new RegExp(config.build.assetsSubDirectory + '\/(css|js)\/(.*)'),
+      dontCacheBustUrlsMatching: new RegExp(config.build.assetsSubDirectory + '\/(audio|css|js)\/(.*)'),
       navigateFallback: config.build.navigateFallback,
       directoryIndex: config.build.directoryIndex,
       clientsClaim: true,
