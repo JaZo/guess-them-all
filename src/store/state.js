@@ -44,6 +44,7 @@ export default {
         timeLimit: 30,
         entities: [
             'nl.google',
+            'nl.standard',
             'nl.susanne'
         ]
     }
