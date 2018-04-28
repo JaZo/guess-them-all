@@ -44,6 +44,7 @@ export default {
         timeLimit: 30,
         sounds: true,
         entities: [
+            'nl.extra',
             'nl.google',
             'nl.standard',
             'nl.susanne'
