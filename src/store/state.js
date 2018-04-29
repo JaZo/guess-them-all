@@ -1,9 +1,19 @@
 import messages from '../i18n/messages';
 
-const getPreferredLanguage = function () {
-    let languages = navigator.languages || [navigator.language || navigator.userLanguage];
+const locale = (function () {
+    let languages = navigator.languages || [navigator.language || navigator.userLanguage]
 
-    return languages.map(language => language.substr(0, 2)).find(language => messages.hasOwnProperty(language)) || Object.keys(messages)[0];
+    return languages.map(language => language.substr(0, 2)).find(language => messages.hasOwnProperty(language)) || Object.keys(messages)[0]
+})();
+const defaultEntities = {
+    en: [
+        'en.standard'
+    ],
+    nl: [
+        'nl.google',
+        'nl.standard',
+        'nl.susanne'
+    ]
 };
 
 export default {
@@ -38,16 +48,11 @@ export default {
     winner: null,
     gameState: null,
     settings: {
-        locale: getPreferredLanguage(),
+        locale,
         numberOfEntitiesPerRound: 5,
         pointsNeededToWin: 30,
         timeLimit: 30,
         sounds: true,
-        entities: [
-            'nl.extra',
-            'nl.google',
-            'nl.standard',
-            'nl.susanne'
-        ]
+        entities: defaultEntities[locale] || defaultEntities['nl']
     }
 }

@@ -1,13 +1,7 @@
-import extra from './nl/extra.json';
-import google from './nl/google.json';
-import standard from './nl/standard.json';
-import susanne from './nl/susanne.json';
+import en from './en';
+import nl from './nl';
 
 export default {
-    nl: {
-        standard,
-        extra,
-        google,
-        susanne
-    }
+    en,
+    nl
 };
