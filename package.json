@@ -18,7 +18,7 @@
     "vue-material": "^1.0.0-beta-10.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "vuex-persistedstate": "^1.4.1"
+    "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
