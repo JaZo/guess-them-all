@@ -2,7 +2,7 @@
     <div>
         <md-list>
             <md-list-item>
-                <span>{{ $t('game.winner', {team: winningTeam.name}) }}</span>
+                <span class="md-list-item-text">{{ $t('game.winner', {team: winningTeam.name}) }}</span>
             </md-list-item>
         </md-list>
 

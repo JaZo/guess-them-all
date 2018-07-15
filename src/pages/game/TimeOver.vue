@@ -2,7 +2,7 @@
     <div>
         <md-list>
             <md-list-item>
-                <span>{{ $t('game.time-over') }}</span>
+                <span class="md-list-item-text">{{ $t('game.time-over') }}</span>
             </md-list-item>
         </md-list>
 

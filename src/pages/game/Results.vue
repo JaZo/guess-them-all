@@ -2,7 +2,7 @@
     <div>
         <md-list>
             <md-list-item>
-                <span>{{ $t('game.choose-entities') }}</span>
+                <span class="md-list-item-text">{{ $t('game.choose-entities') }}</span>
             </md-list-item>
 
             <md-list-item v-for="(entity, index) in entities" :key="index">

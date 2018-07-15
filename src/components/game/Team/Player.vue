@@ -2,13 +2,13 @@
     <md-list-item>
         <md-icon>person</md-icon>
 
-        <md-input-container>
+        <md-field>
             <label>{{ $t('teams.player-name') }}</label>
             <md-input ref="input" v-model="name" />
-        </md-input-container>
+        </md-field>
 
         <md-button class="md-icon-button md-list-action" @click="$emit('delete')">
-            <md-icon class="md-warn">remove_circle</md-icon>
+            <md-icon class="md-accent">remove_circle</md-icon>
         </md-button>
     </md-list-item>
 </template>

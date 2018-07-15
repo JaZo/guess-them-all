@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <md-toolbar>
+        <md-toolbar class="md-primary">
             <md-button v-if="allowHome" class="md-icon-button" @click="home">
                 <md-icon>close</md-icon>
             </md-button>
@@ -23,13 +23,13 @@
             <router-view/>
         </transition>
 
-        <md-snackbar ref="offlineInstalledSnackbar" md-position="bottom right">
+        <md-snackbar :md-active.sync="offlineInstalledSnackbarOpen" md-position="center">
             <span>{{ $t('app.offline-installed') }}</span>
-            <md-button class="md-accent" @click="closeOfflineInstalled()">{{ $t('app.offline-close') }}</md-button>
+            <md-button class="md-primary" @click="offlineInstalledSnackbarOpen = false">{{ $t('app.offline-close') }}</md-button>
         </md-snackbar>
-        <md-snackbar ref="offlineUpdatedSnackbar" md-position="bottom right">
+        <md-snackbar :md-active.sync="offlineUpdatedSnackbarOpen" md-position="center">
             <span>{{ $t('app.offline-updated') }}</span>
-            <md-button class="md-accent" @click="closeOfflineUpdated()">{{ $t('app.offline-close') }}</md-button>
+            <md-button class="md-primary" @click="offlineUpdatedSnackbarOpen = false">{{ $t('app.offline-close') }}</md-button>
         </md-snackbar>
     </div>
 </template>
@@ -39,7 +39,9 @@
         data() {
             return {
                 transitionEnterClass: null,
-                transitionLeaveClass: null
+                transitionLeaveClass: null,
+                offlineInstalledSnackbarOpen: false,
+                offlineUpdatedSnackbarOpen: false
             };
         },
 
@@ -78,8 +80,12 @@
         },
 
         mounted() {
-            this.$bus.$on('offline-installed', this.openOfflineInstalled);
-            this.$bus.$on('offline-updated', this.openOfflineUpdated);
+            this.$bus.$on('offline-installed', () => {
+                this.offlineInstalledSnackbarOpen = true;
+            });
+            this.$bus.$on('offline-updated', () => {
+                this.offlineUpdatedSnackbarOpen = true;
+            });
         },
 
         methods: {
@@ -89,22 +95,6 @@
 
             settings() {
                 this.$router.push({name: 'settings'});
-            },
-
-            openOfflineInstalled() {
-                this.$refs.offlineInstalledSnackbar.open();
-            },
-
-            closeOfflineInstalled() {
-                this.$refs.offlineInstalledSnackbar.close();
-            },
-
-            openOfflineUpdated() {
-                this.$refs.offlineUpdatedSnackbar.open();
-            },
-
-            closeOfflineUpdated() {
-                this.$refs.offlineUpdatedSnackbar.close();
             }
         }
     }
@@ -112,6 +102,7 @@
 
 <style>
     @import '../node_modules/vue-material/dist/vue-material.css';
+    @import '../node_modules/vue-material/dist/theme/default.css';
     @import '../node_modules/animate.css/animate.css';
 
     .main-content {

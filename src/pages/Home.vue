@@ -1,12 +1,12 @@
 <template>
     <div class="main-content">
         <md-dialog-confirm
-            ref="confirmDialog"
+            :md-active.sync="confirmDialogOpen"
             :md-title="$t('home.dialog.title')"
             :md-content="$t('home.dialog.content')"
-            :md-ok-text="$t('home.dialog.ok')"
+            :md-confirm-text="$t('home.dialog.ok')"
             :md-cancel-text="$t('home.dialog.cancel')"
-            @close="confirmDialogClosed"
+            @md-confirm="confirmStartNewGame"
         />
 
         <md-button class="md-raised md-primary" v-if="gameInProgress" @click="continueGame()">
@@ -15,9 +15,9 @@
         <md-button class="md-raised md-primary" @click="startNewGame()">
             {{ $t('home.new') }}
         </md-button>
-        <router-link tag="md-button" :to="{name: 'rules'}" class="md-raised md-accent">
+        <md-button class="md-raised md-accent" :to="{name: 'rules'}">
             {{ $t('home.rules') }}
-        </router-link>
+        </md-button>
     </div>
 </template>
 
@@ -25,6 +25,12 @@
     import { mapGetters, mapState } from 'vuex';
 
     export default {
+        data() {
+            return {
+                confirmDialogOpen: false
+            };
+        },
+
         computed: {
             ...mapGetters([
                 'gameInProgress'
@@ -42,18 +48,16 @@
 
             startNewGame() {
                 if (this.gameInProgress) {
-                    this.$refs.confirmDialog.open();
+                    this.confirmDialogOpen = true;
                 } else {
                     this.$router.push({name: 'teams'});
                 }
             },
 
-            confirmDialogClosed(type) {
-                if (type === 'ok') {
-                    this.$store.dispatch('stopGame').then(() => {
-                        this.$router.push({name: 'teams'});
-                    });
-                }
+            confirmStartNewGame() {
+                this.$store.dispatch('stopGame').then(() => {
+                    this.$router.push({name: 'teams'});
+                });
             }
         }
     }

@@ -2,12 +2,12 @@
     <div>
         <md-list>
             <md-list-item>
-                <span>{{ $t('game.pass-on', {player: playerInTurn.name}) }}</span>
+                <span class="md-list-item-text">{{ $t('game.pass-on', {player: playerInTurn.name}) }}</span>
             </md-list-item>
 
             <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>
-                <span>{{ team.name }}: {{ $tc('game.score', score[team.id] || 0, {score: score[team.id] || 0}) }}</span>
+                <span class="md-list-item-text">{{ team.name }}: {{ $tc('game.score', score[team.id] || 0, {score: score[team.id] || 0}) }}</span>
             </md-list-item>
         </md-list>
 

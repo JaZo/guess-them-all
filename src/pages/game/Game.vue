@@ -1,10 +1,10 @@
 <template>
     <div>
-        <md-progress class="md-accent" :md-progress="progress" />
+        <md-progress-bar class="md-accent" :md-value="progress" />
 
         <md-list>
             <md-list-item v-for="(entity, index) in entities" :key="index">
-                <span>{{ entity }}</span>
+                <span class="md-list-item-text">{{ entity }}</span>
             </md-list-item>
         </md-list>
     </div>

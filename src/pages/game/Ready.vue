@@ -2,7 +2,7 @@
     <div>
         <md-list>
             <md-list-item>
-                <span>{{ $t('game.ready', {player: playerInTurn.name}) }}</span>
+                <span class="md-list-item-text">{{ $t('game.ready', {player: playerInTurn.name}) }}</span>
             </md-list-item>
         </md-list>
 

@@ -2,14 +2,14 @@
     <div>
         <md-list>
             <md-list-item>
-                <span>{{ $t('teams.intro') }}</span>
+                <span class="md-list-item-text">{{ $t('teams.intro') }}</span>
             </md-list-item>
 
             <md-list-item>
-                <md-input-container>
+                <md-field>
                     <label>{{ $t('teams.team-name') }}</label>
                     <md-input v-model="name" />
-                </md-input-container>
+                </md-field>
             </md-list-item>
 
             <player v-for="(player, index) in players"
@@ -21,7 +21,7 @@
             />
 
             <md-list-item>
-                <span/>
+                <span class="md-list-item-text"/>
                 <md-button class="md-icon-button md-list-action" @click="createPlayer({teamId: id})">
                     <md-icon class="md-primary">person_add</md-icon>
                 </md-button>
