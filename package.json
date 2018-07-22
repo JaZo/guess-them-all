@@ -2,7 +2,7 @@
   "name": "guess-them-all",
   "version": "1.0.0",
   "description": "Guess 'em all",
-  "author": "Jasper Zonneveld <jasper.zonneveld@gmail.com>",
+  "author": "Jasper Zonneveld <jasper@zonneveld.me>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
