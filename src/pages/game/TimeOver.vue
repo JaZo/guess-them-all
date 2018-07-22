@@ -1,10 +1,6 @@
 <template>
     <div>
-        <md-list>
-            <md-list-item>
-                <span class="md-list-item-text">{{ $t('game.time-over') }}</span>
-            </md-list-item>
-        </md-list>
+        <div class="main-content md-subheading">{{ $t('game.time-over') }}</div>
 
         <md-button class="md-raised md-primary" @click="continueGame()">
             {{ $t('game.continue') }}

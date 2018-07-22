@@ -1,10 +1,8 @@
 <template>
     <div>
-        <md-list>
-            <md-list-item>
-                <span class="md-list-item-text">{{ $t('teams.intro') }}</span>
-            </md-list-item>
+        <div class="main-content md-subheading">{{ $t('teams.intro') }}</div>
 
+        <md-list>
             <md-list-item v-for="(team, index) in teamSet" :key="index">
                 <md-icon>group</md-icon>
                 <span class="md-list-item-text no-select" @click="editTeam({id: team.id})">{{ team.name }} ({{ $tc('teams.players', team.players.length, {count: team.players.length}) }})</span>

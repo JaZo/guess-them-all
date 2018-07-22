@@ -1,10 +1,8 @@
 <template>
     <div>
-        <md-list>
-            <md-list-item>
-                <span class="md-list-item-text">{{ $t('teams.intro') }}</span>
-            </md-list-item>
+        <div class="main-content md-subheading">{{ $t('teams.intro') }}</div>
 
+        <md-list>
             <md-list-item>
                 <md-field>
                     <label>{{ $t('teams.team-name') }}</label>

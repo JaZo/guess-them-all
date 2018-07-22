@@ -15,13 +15,15 @@
             </md-button>
         </md-toolbar>
 
-        <transition
-            mode="out-in"
-            :enter-active-class="transitionEnterClass"
-            :leave-active-class="transitionLeaveClass"
-        >
-            <router-view/>
-        </transition>
+        <md-content>
+            <transition
+                mode="out-in"
+                :enter-active-class="transitionEnterClass"
+                :leave-active-class="transitionLeaveClass"
+            >
+                <router-view/>
+            </transition>
+        </md-content>
 
         <md-snackbar :md-active.sync="offlineInstalledSnackbarOpen" md-position="center">
             <span>{{ $t('app.offline-installed') }}</span>
@@ -104,6 +106,11 @@
     @import '../node_modules/vue-material/dist/vue-material.css';
     @import '../node_modules/vue-material/dist/theme/default.css';
     @import '../node_modules/animate.css/animate.css';
+
+    html.md-theme-default {
+        background-color: #fff;
+        background-color: var(--md-theme-default-background, #fff);
+    }
 
     .main-content {
         padding: 16px;

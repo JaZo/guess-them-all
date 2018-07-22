@@ -1,10 +1,8 @@
 <template>
     <div>
-        <md-list>
-            <md-list-item>
-                <span class="md-list-item-text">{{ $t('game.choose-entities') }}</span>
-            </md-list-item>
+        <div class="main-content md-subheading">{{ $t('game.choose-entities') }}</div>
 
+        <md-list>
             <md-list-item v-for="(entity, index) in entities" :key="index">
                 <md-checkbox v-model="guessedEntities[index]" class="md-primary">{{ entity }}</md-checkbox>
             </md-list-item>
