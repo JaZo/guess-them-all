@@ -20,7 +20,7 @@ importScripts('workbox-sw.prod.v2.1.2.js');
 const fileManifest = [
   {
     "url": "index.html",
-    "revision": "16ee4823726c86c55d9fdd11781cd4ec"
+    "revision": "6b63d49eec2c0b735dea1697acf3237b"
   },
   {
     "url": "static/audio/ringing.7187257.mp3"
@@ -35,10 +35,10 @@ const fileManifest = [
     "url": "static/js/app.b1f8d6d60b614a91e563.js"
   },
   {
-    "url": "static/js/manifest.fbc4f939b495001f9f6c.js"
+    "url": "static/js/manifest.1f9988ab9f7deaff5079.js"
   },
   {
-    "url": "static/js/vendor.2a184d13e648edd6dd41.js"
+    "url": "static/js/vendor.f7aeb2236e4f979367b5.js"
   }
 ];
 
