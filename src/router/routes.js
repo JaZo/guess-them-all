@@ -1,17 +1,17 @@
 import i18n from '../i18n';
 import store from '../store';
-import Home from '@/pages/Home';
-import Rules from '@/pages/Rules';
-import Settings from '@/pages/Settings';
-import Teams from '@/pages/Teams';
-import Team from '@/pages/Team';
-import Game from '@/pages/Game';
-import GameIndex from '@/pages/game/Index';
-import GameReady from '@/pages/game/Ready';
-import GameGame from '@/pages/game/Game';
-import GameTimeOver from '@/pages/game/TimeOver';
-import GameResults from '@/pages/game/Results';
-import GameGameOVer from '@/pages/game/GameOver';
+import Home from '@/views/Home';
+import Rules from '@/views/Rules';
+import Settings from '@/views/Settings';
+import Teams from '@/views/Teams';
+import Team from '@/views/Team';
+import Game from '@/views/Game';
+import GameIndex from '@/views/game/Index';
+import GameReady from '@/views/game/Ready';
+import GameGame from '@/views/game/Game';
+import GameTimeOver from '@/views/game/TimeOver';
+import GameResults from '@/views/game/Results';
+import GameGameOVer from '@/views/game/GameOver';
 
 export default [
     {
