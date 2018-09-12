@@ -71,6 +71,14 @@ export const resetTurn = (state) => {
     state.turn.player = {};
 }
 
+export const randomizeTurn = (state) => {
+    state.turn.team = Math.floor(Math.random() * state.teamList.length);
+    state.turn.player = {};
+    Object.keys(state.teams).forEach((index) => {
+        state.turn.player[index] = Math.floor(Math.random() * state.teams[index].players.length);
+    });
+}
+
 // Entities
 export const setEntities = (state, entities) => {
     state.entities = entities;

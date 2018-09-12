@@ -11,6 +11,7 @@ export const resetGame = (context) => {
 
 export const startGame = (context) => {
     resetGame(context);
+    context.commit('randomizeTurn');
 }
 
 export const endGame = (context) => {
