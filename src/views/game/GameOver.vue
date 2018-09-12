@@ -2,6 +2,13 @@
     <div>
         <div class="main-content md-subheading">{{ $t('game.winner', {team: winningTeam.name}) }}</div>
 
+        <md-list>
+            <md-list-item v-for="(team, index) in teamSet" :key="index">
+                <md-icon>group</md-icon>
+                <span class="md-list-item-text">{{ team.name }}: {{ $tc('game.score', score[team.id] || 0, {score: score[team.id] || 0}) }}</span>
+            </md-list-item>
+        </md-list>
+
         <md-button class="md-raised md-primary" @click="continueGame()">
             {{ $t('game.continue') }}
             <md-icon>play_arrow</md-icon>
@@ -10,10 +17,20 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapState, mapGetters } from 'vuex'
 
     export default {
-        computed: mapGetters(['winningTeam']),
+        computed: {
+            ...mapState([
+                'score'
+            ]),
+
+            ...mapGetters([
+                'teamSet',
+                'playerInTurn',
+                'winningTeam'
+            ])
+        },
 
         methods: {
             continueGame() {
