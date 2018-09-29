@@ -17,24 +17,24 @@
 </template>
 
 <script>
-    import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex';
 
-    export default {
-        computed: {
-            ...mapState([
-                'score'
-            ]),
+export default {
+    computed: {
+        ...mapState([
+            'score',
+        ]),
 
-            ...mapGetters([
-                'teamSet',
-                'playerInTurn'
-            ])
+        ...mapGetters([
+            'teamSet',
+            'playerInTurn',
+        ]),
+    },
+
+    methods: {
+        continueGame () {
+            this.$router.replace({ name: 'game-ready' });
         },
-
-        methods: {
-            continueGame() {
-                this.$router.replace({name: 'game-ready'});
-            }
-        }
-    }
+    },
+};
 </script>

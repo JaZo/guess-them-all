@@ -3,5 +3,5 @@ import nl from './nl';
 
 export default {
     en,
-    nl
+    nl,
 };

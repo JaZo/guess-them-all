@@ -10,28 +10,28 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
-    const sound = new Audio(require('../../assets/sounds/ringing.mp3'));
+import { mapState } from 'vuex';
+const sound = new Audio(require('../../assets/sounds/ringing.mp3'));
 
-    export default {
-        computed: mapState([
-            'settings'
-        ]),
+export default {
+    computed: mapState([
+        'settings',
+    ]),
 
-        mounted() {
-            this.playSound();
+    mounted () {
+        this.playSound();
+    },
+
+    methods: {
+        continueGame () {
+            this.$router.replace({ name: 'game-results' });
         },
 
-        methods: {
-            continueGame() {
-                this.$router.replace({name: 'game-results'});
-            },
-
-            playSound() {
-                if (this.settings.sounds) {
-                    sound.play();
-                }
+        playSound () {
+            if (this.settings.sounds) {
+                sound.play();
             }
-        }
-    }
+        },
+    },
+};
 </script>

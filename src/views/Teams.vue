@@ -22,7 +22,7 @@
             </md-list-item>
         </md-list>
 
-        <md-button class="md-raised md-primary" :disabled="!readyToStart" @click="start()">
+        <md-button :disabled="!readyToStart" class="md-raised md-primary" @click="start()">
             {{ $t('teams.start') }}
             <md-icon>play_arrow</md-icon>
         </md-button>
@@ -30,33 +30,33 @@
 </template>
 
 <script>
-    import { mapMutations, mapGetters } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 
-    export default {
-        computed: {
-            ...mapGetters([
-                'teamSet',
-                'readyToStart'
-            ])
+export default {
+    computed: {
+        ...mapGetters([
+            'teamSet',
+            'readyToStart',
+        ]),
+    },
+
+    methods: {
+        ...mapMutations([
+            'createTeam',
+            'deleteTeam',
+        ]),
+
+        editTeam ({ id }) {
+            this.$router.push({ name: 'team', params: { id } });
         },
 
-        methods: {
-            ...mapMutations([
-                'createTeam',
-                'deleteTeam'
-            ]),
-
-            editTeam({id}) {
-                this.$router.push({name: 'team', params: {id}});
-            },
-
-            start() {
-                this.$store.dispatch('startGame').then(() => {
-                    this.$router.replace({name: 'game-index'});
-                });
-            }
-        }
-    }
+        start () {
+            this.$store.dispatch('startGame').then(() => {
+                this.$router.replace({ name: 'game-index' });
+            });
+        },
+    },
+};
 </script>
 
 <style>

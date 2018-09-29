@@ -20,8 +20,8 @@ export default [
         component: Home,
         meta: {
             allowBack: false,
-            allowSettings: true
-        }
+            allowSettings: true,
+        },
     },
     {
         path: '/rules',
@@ -29,10 +29,10 @@ export default [
         component: Rules,
         meta: {
             allowBack: true,
-            title() {
+            title () {
                 return i18n.t('rules.title');
-            }
-        }
+            },
+        },
     },
     {
         path: '/settings',
@@ -40,10 +40,10 @@ export default [
         component: Settings,
         meta: {
             allowBack: true,
-            title() {
+            title () {
                 return i18n.t('settings.title');
-            }
-        }
+            },
+        },
     },
     {
         path: '/teams',
@@ -52,10 +52,10 @@ export default [
         meta: {
             allowBack: true,
             allowSettings: true,
-            title() {
+            title () {
                 return i18n.t('teams.title');
-            }
-        }
+            },
+        },
     },
     {
         path: '/teams/:id',
@@ -64,10 +64,10 @@ export default [
         meta: {
             allowBack: true,
             allowSettings: true,
-            title() {
+            title () {
                 return i18n.t('teams.title');
-            }
-        }
+            },
+        },
     },
     {
         path: '/game',
@@ -75,9 +75,9 @@ export default [
         component: Game,
         meta: {
             allowBack: false,
-            title() {
+            title () {
                 return store.getters.teamInTurn.name;
-            }
+            },
         },
         children: [
             {
@@ -88,9 +88,9 @@ export default [
                     allowHome: true,
                     allowSettings: true,
                     allowedNextRoutes: [
-                        'game-ready'
-                    ]
-                }
+                        'game-ready',
+                    ],
+                },
             },
             {
                 path: 'ready',
@@ -98,9 +98,9 @@ export default [
                 component: GameReady,
                 meta: {
                     allowedNextRoutes: [
-                        'game-game'
-                    ]
-                }
+                        'game-game',
+                    ],
+                },
             },
             {
                 path: 'game',
@@ -108,9 +108,9 @@ export default [
                 component: GameGame,
                 meta: {
                     allowedNextRoutes: [
-                        'game-time-over'
-                    ]
-                }
+                        'game-time-over',
+                    ],
+                },
             },
             {
                 path: 'time-over',
@@ -118,9 +118,9 @@ export default [
                 component: GameTimeOver,
                 meta: {
                     allowedNextRoutes: [
-                        'game-results'
-                    ]
-                }
+                        'game-results',
+                    ],
+                },
             },
             {
                 path: 'results',
@@ -129,9 +129,9 @@ export default [
                 meta: {
                     allowedNextRoutes: [
                         'game-index',
-                        'game-game-over'
-                    ]
-                }
+                        'game-game-over',
+                    ],
+                },
             },
             {
                 path: 'game-over',
@@ -140,10 +140,10 @@ export default [
                 meta: {
                     allowHome: true,
                     allowedNextRoutes: [
-                        'home'
-                    ]
-                }
-            }
-        ]
-    }
+                        'home',
+                    ],
+                },
+            },
+        ],
+    },
 ];

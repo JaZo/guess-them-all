@@ -7,5 +7,5 @@ export default {
     standard,
     extra,
     google,
-    susanne
+    susanne,
 };

@@ -10,20 +10,20 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
-    export default {
-        computed: mapGetters([
-            'teamInTurn',
-            'playerInTurn'
-        ]),
+export default {
+    computed: mapGetters([
+        'teamInTurn',
+        'playerInTurn',
+    ]),
 
-        methods: {
-            continueGame() {
-                this.$store.dispatch('startRound').then(() => {
-                    this.$router.replace({name: 'game-game'});
-                });
-            }
-        }
-    }
+    methods: {
+        continueGame () {
+            this.$store.dispatch('startRound').then(() => {
+                this.$router.replace({ name: 'game-game' });
+            });
+        },
+    },
+};
 </script>

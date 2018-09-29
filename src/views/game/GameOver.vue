@@ -17,27 +17,27 @@
 </template>
 
 <script>
-    import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex';
 
-    export default {
-        computed: {
-            ...mapState([
-                'score'
-            ]),
+export default {
+    computed: {
+        ...mapState([
+            'score',
+        ]),
 
-            ...mapGetters([
-                'teamSet',
-                'playerInTurn',
-                'winningTeam'
-            ])
+        ...mapGetters([
+            'teamSet',
+            'playerInTurn',
+            'winningTeam',
+        ]),
+    },
+
+    methods: {
+        continueGame () {
+            this.$store.dispatch('endGame').then(() => {
+                this.$router.replace({ name: 'teams' });
+            });
         },
-
-        methods: {
-            continueGame() {
-                this.$store.dispatch('endGame').then(() => {
-                    this.$router.replace({name: 'teams'});
-                });
-            }
-        }
-    }
+    },
+};
 </script>

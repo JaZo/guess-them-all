@@ -16,39 +16,39 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
-    export default {
-        data() {
-            return {
-                guessedEntities: this.$store.state.entities.reduce((acc, cur, i) => {
-                    acc[i] = false;
+export default {
+    data () {
+        return {
+            guessedEntities: this.$store.state.entities.reduce((acc, cur, i) => {
+                acc[i] = false;
 
-                    return acc;
-                }, {})
-            }
+                return acc;
+            }, {}),
+        };
+    },
+
+    computed: {
+        ...mapState([
+            'entities',
+        ]),
+
+        score () {
+            return Object.values(this.guessedEntities).filter(value => value).length;
         },
+    },
 
-        computed: {
-            ...mapState([
-                'entities'
-            ]),
-
-            score() {
-                return Object.values(this.guessedEntities).filter(value => value).length;
-            }
+    methods: {
+        continueGame () {
+            this.$store.dispatch('endRound', { score: this.score }).then(() => {
+                if (this.$store.state.winner !== null) {
+                    this.$router.replace({ name: 'game-game-over' });
+                } else {
+                    this.$router.replace({ name: 'game-index' });
+                }
+            });
         },
-
-        methods: {
-            continueGame() {
-                this.$store.dispatch('endRound', {score: this.score}).then(() => {
-                    if (this.$store.state.winner !== null) {
-                        this.$router.replace({name: 'game-game-over'});
-                    } else {
-                        this.$router.replace({name: 'game-index'});
-                    }
-                });
-            }
-        }
-    }
+    },
+};
 </script>

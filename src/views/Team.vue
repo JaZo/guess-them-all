@@ -29,51 +29,51 @@
 </template>
 
 <script>
-    import { mapMutations } from 'vuex'
-    import Player from '@/components/game/Team/Player'
+import { mapMutations } from 'vuex';
+import Player from '@/components/game/Team/Player';
 
-    export default {
-        components: {
-            'player': Player
+export default {
+    components: {
+        'player': Player,
+    },
+
+    computed: {
+        id () {
+            return this.$route.params.id;
         },
 
-        computed: {
-            id() {
-                return this.$route.params.id;
-            },
-
-            team() {
-                return this.$store.state.teams[this.id];
-            },
-
-            players() {
-                return this.team.players.map((id) => {
-                    return this.$store.state.players[id];
-                });
-            },
-
-            name: {
-                get() {
-                    return this.team.name;
-                },
-                set(value) {
-                    this.$store.commit('updateTeam', {id: this.id, team: {name: value, players: this.team.players}});
-                }
-            }
+        team () {
+            return this.$store.state.teams[this.id];
         },
 
-        methods: {
-            ...mapMutations([
-                'updatePlayer',
-                'deletePlayer'
-            ]),
+        players () {
+            return this.team.players.map((id) => {
+                return this.$store.state.players[id];
+            });
+        },
 
-            createPlayer(player) {
-                this.$store.commit('createPlayer', player);
-                this.$nextTick(() => {
-                    this.$refs.players[this.players.length - 1].focus();
-                });
-            }
-        }
-    }
+        name: {
+            get () {
+                return this.team.name;
+            },
+            set (value) {
+                this.$store.commit('updateTeam', { id: this.id, team: { name: value, players: this.team.players } });
+            },
+        },
+    },
+
+    methods: {
+        ...mapMutations([
+            'updatePlayer',
+            'deletePlayer',
+        ]),
+
+        createPlayer (player) {
+            this.$store.commit('createPlayer', player);
+            this.$nextTick(() => {
+                this.$refs.players[this.players.length - 1].focus();
+            });
+        },
+    },
+};
 </script>

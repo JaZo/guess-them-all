@@ -1,5 +1,3 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import App from './App';
 import bus from './bus';
@@ -11,17 +9,14 @@ import registerServiceWorker from './service-worker/register';
 
 Vue.config.productionTip = false;
 
-// eslint-disable-next-line no-new
 new Vue({
-    el: '#app',
     bus,
     i18n,
     router,
     store,
     theme,
-    components: {App},
-    template: '<App/>'
-});
+    render: h => h(App),
+}).$mount('#app');
 
 if (process.env.NODE_ENV === 'production') {
     registerServiceWorker(() => {

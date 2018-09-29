@@ -14,29 +14,29 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            data: {
-                type: Object,
-                required: true
-            }
+export default {
+    props: {
+        data: {
+            type: Object,
+            required: true,
         },
+    },
 
-        computed: {
-            name: {
-                get() {
-                    return this.data.name;
-                },
-                set(value) {
-                    this.$emit('update', Object.assign({}, this.data, {name: value}));
-                }
-            }
+    computed: {
+        name: {
+            get () {
+                return this.data.name;
+            },
+            set (value) {
+                this.$emit('update', Object.assign({}, this.data, { name: value }));
+            },
         },
+    },
 
-        methods: {
-            focus() {
-                this.$refs.input.$el.focus();
-            }
-        }
-    }
+    methods: {
+        focus () {
+            this.$refs.input.$el.focus();
+        },
+    },
+};
 </script>

@@ -8,5 +8,5 @@ Vue.use(VueI18n);
 export default new VueI18n({
     locale: store.state.settings.locale,
     fallbackLocale: Object.keys(messages)[0],
-    messages
+    messages,
 });

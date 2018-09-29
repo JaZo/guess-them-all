@@ -17,9 +17,9 @@
 
         <md-content>
             <transition
-                mode="out-in"
                 :enter-active-class="transitionEnterClass"
                 :leave-active-class="transitionLeaveClass"
+                mode="out-in"
             >
                 <router-view/>
             </transition>
@@ -37,69 +37,69 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                transitionEnterClass: null,
-                transitionLeaveClass: null,
-                offlineInstalledSnackbarOpen: false,
-                offlineUpdatedSnackbarOpen: false
-            };
+export default {
+    data () {
+        return {
+            transitionEnterClass: null,
+            transitionLeaveClass: null,
+            offlineInstalledSnackbarOpen: false,
+            offlineUpdatedSnackbarOpen: false,
+        };
+    },
+
+    computed: {
+        allowBack () {
+            return !this.$route.matched.some(record => !record.meta.allowBack);
         },
 
-        computed: {
-            allowBack() {
-                return !this.$route.matched.some(record => !record.meta.allowBack);
-            },
+        allowHome () {
+            return !!this.$route.meta.allowHome;
+        },
 
-            allowHome() {
-                return !!this.$route.meta.allowHome;
-            },
+        allowSettings () {
+            return !this.$route.matched.some(record => !record.meta.allowSettings);
+        },
 
-            allowSettings() {
-                return !this.$route.matched.some(record => !record.meta.allowSettings);
-            },
-
-            title() {
-                let deepestRouteWithTitle = this.$route.matched.slice().reverse().find(record => record.meta.title);
-                if (deepestRouteWithTitle) {
-                    return deepestRouteWithTitle.meta.title();
-                }
-
-                return this.$t('app.title');
+        title () {
+            let deepestRouteWithTitle = this.$route.matched.slice().reverse().find(record => record.meta.title);
+            if (deepestRouteWithTitle) {
+                return deepestRouteWithTitle.meta.title();
             }
+
+            return this.$t('app.title');
+        },
+    },
+
+    watch: {
+        $route (to, from) {
+            const baseClass = 'animated page-transition ';
+            const toDepth = to.path.replace(/\/+$/, '').concat('/').split('/').length;
+            const fromDepth = from.path.replace(/\/+$/, '').concat('/').split('/').length;
+
+            this.transitionEnterClass = baseClass + (toDepth < fromDepth ? 'slideInLeft' : 'slideInRight');
+            this.transitionLeaveClass = baseClass + (toDepth < fromDepth ? 'slideOutRight' : 'slideOutLeft');
+        },
+    },
+
+    mounted () {
+        this.$bus.$on('offline-installed', () => {
+            this.offlineInstalledSnackbarOpen = true;
+        });
+        this.$bus.$on('offline-updated', () => {
+            this.offlineUpdatedSnackbarOpen = true;
+        });
+    },
+
+    methods: {
+        home () {
+            this.$router.replace({ name: 'home' });
         },
 
-        watch: {
-            $route(to, from) {
-                const baseClass = 'animated page-transition ';
-                const toDepth = to.path.replace(/\/+$/, '').concat('/').split('/').length;
-                const fromDepth = from.path.replace(/\/+$/, '').concat('/').split('/').length;
-
-                this.transitionEnterClass = baseClass + (toDepth < fromDepth ? 'slideInLeft' : 'slideInRight');
-                this.transitionLeaveClass = baseClass + (toDepth < fromDepth ? 'slideOutRight' : 'slideOutLeft');
-            }
+        settings () {
+            this.$router.push({ name: 'settings' });
         },
-
-        mounted() {
-            this.$bus.$on('offline-installed', () => {
-                this.offlineInstalledSnackbarOpen = true;
-            });
-            this.$bus.$on('offline-updated', () => {
-                this.offlineUpdatedSnackbarOpen = true;
-            });
-        },
-
-        methods: {
-            home() {
-                this.$router.replace({name: 'home'});
-            },
-
-            settings() {
-                this.$router.push({name: 'settings'});
-            }
-        }
-    }
+    },
+};
 </script>
 
 <style>

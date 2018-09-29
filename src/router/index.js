@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import routes from './routes'
+import routes from './routes';
 import store from '../store';
 
 Vue.use(Router);
 
 const router = new Router({
-    routes
+    routes,
 });
 
 export default router;
@@ -20,7 +20,7 @@ router.beforeEach((to, from, next) => {
 
         // Coming from somewhere else, we are only allowed to go to the route belonging to the current gameState
         if (!routeIsGameRoute(from) && to.name !== store.state.gameState) {
-            return next({name: store.state.gameState});
+            return next({ name: store.state.gameState });
         }
     }
 
@@ -35,4 +35,4 @@ router.afterEach((to) => {
 
 const routeIsGameRoute = (route) => {
     return route.matched.some(route => route.name === 'game');
-}
+};

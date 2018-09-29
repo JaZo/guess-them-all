@@ -3,4 +3,4 @@ import VueMaterial from 'vue-material';
 
 Vue.use(VueMaterial);
 
-export default {}
+export default {};

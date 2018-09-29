@@ -67,91 +67,91 @@
 </template>
 
 <script>
-    import { mapMutations, mapState } from 'vuex';
-    import entities from '../data/entities';
+import { mapMutations, mapState } from 'vuex';
+import entities from '../data/entities';
 
-    export default {
-        data() {
-            return {
-                chooseEntitiesDialogOpen: false
-            };
+export default {
+    data () {
+        return {
+            chooseEntitiesDialogOpen: false,
+        };
+    },
+
+    computed: {
+        ...mapState([
+            'settings',
+        ]),
+
+        locales () {
+            return Object.keys(this.$i18n.messages).map((locale) => {
+                return {
+                    value: locale,
+                    label: this.$t('language', locale),
+                };
+            });
         },
 
-        computed: {
-            ...mapState([
-                'settings'
-            ]),
-
-            locales() {
-                return Object.keys(this.$i18n.messages).map((locale) => {
-                    return {
-                        value: locale,
-                        label: this.$t('language', locale)
-                    };
-                });
+        locale: {
+            get () {
+                return this.$store.state.settings.locale;
             },
-
-            locale: {
-                get() {
-                    return this.$store.state.settings.locale;
-                },
-                set(value) {
-                    this.updateSettings(Object.assign({}, this.settings, {locale: value}));
-                }
+            set (value) {
+                this.updateSettings(Object.assign({}, this.settings, { locale: value }));
             },
-
-            numberOfEntitiesPerRound: {
-                get() {
-                    return this.$store.state.settings.numberOfEntitiesPerRound;
-                },
-                set(value) {
-                    this.updateSettings(Object.assign({}, this.settings, {numberOfEntitiesPerRound: value}));
-                }
-            },
-
-            pointsNeededToWin: {
-                get() {
-                    return this.$store.state.settings.pointsNeededToWin;
-                },
-                set(value) {
-                    this.updateSettings(Object.assign({}, this.settings, {pointsNeededToWin: value}));
-                }
-            },
-
-            entities: {
-                get() {
-                    return this.$store.state.settings.entities;
-                },
-                set(value) {
-                    this.updateSettings(Object.assign({}, this.settings, {entities: value}));
-                }
-            },
-
-            sounds: {
-                get() {
-                    return this.$store.state.settings.sounds;
-                },
-                set(value) {
-                    this.updateSettings(Object.assign({}, this.settings, {sounds: value}));
-                }
-            },
-
-            entityLists() {
-                return entities;
-            }
         },
 
-        beforeRouteLeave(to, from, next) {
-            if (this.entities.length < 1) {
-                this.chooseEntitiesDialogOpen = true;
-                next(false);
-            } else {
-                next();
-            }
+        numberOfEntitiesPerRound: {
+            get () {
+                return this.$store.state.settings.numberOfEntitiesPerRound;
+            },
+            set (value) {
+                this.updateSettings(Object.assign({}, this.settings, { numberOfEntitiesPerRound: value }));
+            },
         },
 
-        methods: mapMutations([
-            'updateSettings'
-        ])
-    }
+        pointsNeededToWin: {
+            get () {
+                return this.$store.state.settings.pointsNeededToWin;
+            },
+            set (value) {
+                this.updateSettings(Object.assign({}, this.settings, { pointsNeededToWin: value }));
+            },
+        },
+
+        entities: {
+            get () {
+                return this.$store.state.settings.entities;
+            },
+            set (value) {
+                this.updateSettings(Object.assign({}, this.settings, { entities: value }));
+            },
+        },
+
+        sounds: {
+            get () {
+                return this.$store.state.settings.sounds;
+            },
+            set (value) {
+                this.updateSettings(Object.assign({}, this.settings, { sounds: value }));
+            },
+        },
+
+        entityLists () {
+            return entities;
+        },
+    },
+
+    beforeRouteLeave (to, from, next) {
+        if (this.entities.length < 1) {
+            this.chooseEntitiesDialogOpen = true;
+            next(false);
+        } else {
+            next();
+        }
+    },
+
+    methods: mapMutations([
+        'updateSettings',
+    ]),
+};
 </script>

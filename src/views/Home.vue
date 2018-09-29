@@ -9,56 +9,56 @@
             @md-confirm="confirmStartNewGame"
         />
 
-        <md-button class="md-raised md-primary" v-if="gameInProgress" @click="continueGame()">
+        <md-button v-if="gameInProgress" class="md-raised md-primary" @click="continueGame()">
             {{ $t('home.continue') }}
         </md-button>
         <md-button class="md-raised md-primary" @click="startNewGame()">
             {{ $t('home.new') }}
         </md-button>
-        <md-button class="md-raised md-accent" :to="{name: 'rules'}">
+        <md-button :to="{name: 'rules'}" class="md-raised md-accent">
             {{ $t('home.rules') }}
         </md-button>
     </div>
 </template>
 
 <script>
-    import { mapGetters, mapState } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 
-    export default {
-        data() {
-            return {
-                confirmDialogOpen: false
-            };
+export default {
+    data () {
+        return {
+            confirmDialogOpen: false,
+        };
+    },
+
+    computed: {
+        ...mapGetters([
+            'gameInProgress',
+        ]),
+
+        ...mapState([
+            'gameState',
+        ]),
+    },
+
+    methods: {
+        continueGame () {
+            this.$router.push({ name: this.gameState });
         },
 
-        computed: {
-            ...mapGetters([
-                'gameInProgress'
-            ]),
-
-            ...mapState([
-                'gameState'
-            ])
-        },
-
-        methods: {
-            continueGame() {
-                this.$router.push({name: this.gameState});
-            },
-
-            startNewGame() {
-                if (this.gameInProgress) {
-                    this.confirmDialogOpen = true;
-                } else {
-                    this.$router.push({name: 'teams'});
-                }
-            },
-
-            confirmStartNewGame() {
-                this.$store.dispatch('stopGame').then(() => {
-                    this.$router.push({name: 'teams'});
-                });
+        startNewGame () {
+            if (this.gameInProgress) {
+                this.confirmDialogOpen = true;
+            } else {
+                this.$router.push({ name: 'teams' });
             }
-        }
-    }
+        },
+
+        confirmStartNewGame () {
+            this.$store.dispatch('stopGame').then(() => {
+                this.$router.push({ name: 'teams' });
+            });
+        },
+    },
+};
 </script>
