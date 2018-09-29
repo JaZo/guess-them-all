@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "/guess-them-all/js/chunk-vendors.f8cb98bf.js"
   },
   {
-    "revision": "57b4045f936bcfbf96d4",
-    "url": "/guess-them-all/js/app.7704b56b.js"
+    "revision": "bd53f5b76156ec404444",
+    "url": "/guess-them-all/js/app.ab727b05.js"
   },
   {
-    "revision": "47dd768e24a0f726e2bfe1d271b1c882",
+    "revision": "27b7e5f751e32e83d3892d71b38db2e5",
     "url": "/guess-them-all/index.html"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/guess-them-all/css/chunk-vendors.6b6bbe46.css"
   },
   {
-    "revision": "57b4045f936bcfbf96d4",
+    "revision": "bd53f5b76156ec404444",
     "url": "/guess-them-all/css/app.ed7ab0fb.css"
   }
 ];
