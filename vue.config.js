@@ -19,6 +19,8 @@ module.exports = {
             ],
             navigateFallback: '/',
             directoryIndex: 'index.html',
+            clientsClaim: true,
+            skipWaiting: true,
         },
     },
 };
