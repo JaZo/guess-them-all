@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/guess-them-all/js/app.ab727b05.js"
   },
   {
-    "revision": "27b7e5f751e32e83d3892d71b38db2e5",
+    "revision": "5053499e54d0446da7bcbbb6b2e945a4",
     "url": "/guess-them-all/index.html"
   },
   {
