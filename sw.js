@@ -11,10 +11,10 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.5.0/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/guess-them-all/precache-manifest.57509a704ed0e94de6300f45de58d3f2.js"
+  "/guess-them-all/precache-manifest.278b5af29ae9d04107d9da05929970c0.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "guess-them-all"});
