@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/guess-them-all/precache-manifest.278b5af29ae9d04107d9da05929970c0.js"
+  "/guess-them-all/precache-manifest.4fef5bc9f86e0d2d41ec1efbe1f62593.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "guess-them-all"});
