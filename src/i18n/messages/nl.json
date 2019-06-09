@@ -22,6 +22,7 @@
     "pass-on": "Geef mij door aan {player}",
     "ready": "{player}, ben je er klaar voor?",
     "score": "{score} punten|{score} punt|{score} punten",
+    "start-new": "Start nieuw spel",
     "time-over": "De tijd is op!",
     "winner": "{team} heeft gewonnen!"
   },

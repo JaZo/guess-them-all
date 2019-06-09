@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="main-content md-subheading">{{ $t('game.winner', {team: winningTeam.name}) }}</div>
+        <div class="main-content md-headline">{{ $t('game.winner', {team: winningTeam.name}) }}</div>
 
         <md-list>
             <md-list-item v-for="(team, index) in teamSet" :key="index">
@@ -9,8 +9,8 @@
             </md-list-item>
         </md-list>
 
-        <md-button class="md-raised md-primary" @click="continueGame()">
-            {{ $t('game.continue') }}
+        <md-button class="md-raised md-accent" @click="continueGame()">
+            {{ $t('game.start-new') }}
             <md-icon>play_arrow</md-icon>
         </md-button>
     </div>

@@ -22,6 +22,7 @@
     "pass-on": "Pass me on to {player}",
     "ready": "{player}, are you ready?",
     "score": "{score} points|{score} point|{score} points",
+    "start-new": "Start new game",
     "time-over": "Time over!",
     "winner": "{team} won!"
   },
