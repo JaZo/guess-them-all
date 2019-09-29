@@ -24,7 +24,7 @@ function currentDateTime () {
 }
 
 module.exports = {
-    baseUrl: process.env.NODE_ENV === 'production' ? '/guess-them-all/' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/guess-them-all/' : '/',
 
     pwa: {
         name: pkg.description,
