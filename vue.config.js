@@ -1,6 +1,6 @@
 let pkg = require('./package.json');
 
-const currentDateTime = (function currentDateTime () {
+function currentDateTime () {
     const date = new Date();
 
     let hour = date.getHours();
@@ -21,7 +21,7 @@ const currentDateTime = (function currentDateTime () {
     day = (day < 10 ? '0' : '') + day;
 
     return `${year}-${month}-${day} ${hour}:${min}:${sec}`;
-})();
+}
 
 module.exports = {
     baseUrl: process.env.NODE_ENV === 'production' ? '/guess-them-all/' : '/',
@@ -49,7 +49,7 @@ module.exports = {
 
     pluginOptions: {
         ghPages: {
-            message: 'Automatic build ' + currentDateTime,
+            message: () => `Automatic build ${currentDateTime()}`,
         },
     },
 };
