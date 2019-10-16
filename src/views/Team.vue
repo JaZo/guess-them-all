@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div class="main-content md-subheading">{{ $t('teams.intro') }}</div>
+        <div class="main-content md-subheading">
+            {{ $t('teams.intro') }}
+        </div>
 
         <md-list>
             <md-list-item>
@@ -19,9 +21,11 @@
             />
 
             <md-list-item>
-                <span class="md-list-item-text"/>
+                <span class="md-list-item-text" />
                 <md-button class="md-icon-button md-list-action" @click="createPlayer({teamId: id})">
-                    <md-icon class="md-primary">person_add</md-icon>
+                    <md-icon class="md-primary">
+                        person_add
+                    </md-icon>
                 </md-button>
             </md-list-item>
         </md-list>

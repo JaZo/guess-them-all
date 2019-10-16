@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div class="main-content md-subheading">{{ $t('game.pass-on', {player: playerInTurn.name}) }}</div>
+        <div class="main-content md-subheading">
+            {{ $t('game.pass-on', {player: playerInTurn.name}) }}
+        </div>
 
         <md-list>
             <md-list-item v-for="(team, index) in teamSet" :key="index">

@@ -8,7 +8,9 @@
                 <md-icon>arrow_back</md-icon>
             </md-button>
 
-            <h1 class="md-title" style="flex: 1">{{ title }}</h1>
+            <h1 class="md-title" style="flex: 1">
+                {{ title }}
+            </h1>
 
             <md-button v-if="allowSettings" key="settings" class="md-icon-button" @click="settings">
                 <md-icon>settings</md-icon>
@@ -21,17 +23,21 @@
                 :leave-active-class="transitionLeaveClass"
                 mode="out-in"
             >
-                <router-view/>
+                <router-view />
             </transition>
         </md-content>
 
         <md-snackbar :md-active.sync="offlineInstalledSnackbarOpen" md-position="center">
             <span>{{ $t('app.offline-installed') }}</span>
-            <md-button class="md-primary" @click="offlineInstalledSnackbarOpen = false">{{ $t('app.offline-close') }}</md-button>
+            <md-button class="md-primary" @click="offlineInstalledSnackbarOpen = false">
+                {{ $t('app.offline-close') }}
+            </md-button>
         </md-snackbar>
         <md-snackbar :md-active.sync="offlineUpdatedSnackbarOpen" md-position="center">
             <span>{{ $t('app.offline-updated') }}</span>
-            <md-button class="md-primary" @click="offlineUpdatedSnackbarOpen = false">{{ $t('app.offline-close') }}</md-button>
+            <md-button class="md-primary" @click="offlineUpdatedSnackbarOpen = false">
+                {{ $t('app.offline-close') }}
+            </md-button>
         </md-snackbar>
     </div>
 </template>

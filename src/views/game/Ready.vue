@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div class="main-content md-subheading">{{ $t('game.ready', {player: playerInTurn.name}) }}</div>
+        <div class="main-content md-subheading">
+            {{ $t('game.ready', {player: playerInTurn.name}) }}
+        </div>
 
         <md-button class="md-raised md-primary" @click="continueGame()">
             {{ $t('game.continue') }}

@@ -1,17 +1,23 @@
 module.exports = {
     root: true,
+
     env: {
-        browser: true,
+      browser: true,
+      node: true,
     },
+
     parserOptions: {
         parser: 'babel-eslint',
     },
+
     extends: [
         'plugin:vue/recommended',
         '@vue/standard',
+        'plugin:vue/essential',
     ],
+
     rules: {
-        'indent': ['error', 4, { 'SwitchCase': 1 }],
+        'indent': ['error', 4, { SwitchCase: 1 }],
         'semi': ['error', 'always'],
         'comma-dangle': ['error', 'always-multiline'],
         'vue/html-indent': ['error', 4],

@@ -8,7 +8,9 @@
         </md-field>
 
         <md-button class="md-icon-button md-list-action" @click="$emit('delete')">
-            <md-icon class="md-accent">remove_circle</md-icon>
+            <md-icon class="md-accent">
+                remove_circle
+            </md-icon>
         </md-button>
     </md-list-item>
 </template>

@@ -29,7 +29,11 @@ module.exports = {
     pwa: {
         name: pkg.description,
         themeColor: '#448AFF',
-        appleMobileWebAppCapable: true,
+        appleMobileWebAppCapable: 'yes',
+
+        manifestOptions: {
+            background_color: '#000000',
+        },
 
         // configure the workbox plugin
         workboxOptions: {

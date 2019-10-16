@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div class="main-content md-subheading">{{ $t('game.time-over') }}</div>
+        <div class="main-content md-subheading">
+            {{ $t('game.time-over') }}
+        </div>
 
         <md-button class="md-raised md-primary" @click="continueGame()">
             {{ $t('game.continue') }}

@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div class="main-content md-headline">{{ $t('game.winner', {team: winningTeam.name}) }}</div>
+        <div class="main-content md-headline">
+            {{ $t('game.winner', {team: winningTeam.name}) }}
+        </div>
 
         <md-list>
             <md-list-item v-for="(team, index) in teamSet" :key="index">
