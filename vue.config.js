@@ -41,7 +41,7 @@ module.exports = {
             runtimeCaching: [
                 {
                     urlPattern: new RegExp('fonts.(gstatic|googleapis).com/(.*)'),
-                    handler: 'staleWhileRevalidate',
+                    handler: 'StaleWhileRevalidate',
                 },
             ],
             navigateFallback: '/',
