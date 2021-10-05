@@ -78,12 +78,12 @@ export default {
 
     watch: {
         $route (to, from) {
-            const baseClass = 'animated page-transition ';
+            const baseClass = 'animate__animated page-transition ';
             const toDepth = to.path.replace(/\/+$/, '').concat('/').split('/').length;
             const fromDepth = from.path.replace(/\/+$/, '').concat('/').split('/').length;
 
-            this.transitionEnterClass = baseClass + (toDepth < fromDepth ? 'slideInLeft' : 'slideInRight');
-            this.transitionLeaveClass = baseClass + (toDepth < fromDepth ? 'slideOutRight' : 'slideOutLeft');
+            this.transitionEnterClass = baseClass + (toDepth < fromDepth ? 'animate__slideInLeft' : 'animate__slideInRight');
+            this.transitionLeaveClass = baseClass + (toDepth < fromDepth ? 'animate__slideOutRight' : 'animate__slideOutLeft');
         },
     },
 
