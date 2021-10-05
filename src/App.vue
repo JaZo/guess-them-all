@@ -67,7 +67,7 @@ export default {
         },
 
         title () {
-            let deepestRouteWithTitle = this.$route.matched.slice().reverse().find(record => record.meta.title);
+            const deepestRouteWithTitle = this.$route.matched.slice().reverse().find(record => record.meta.title);
             if (deepestRouteWithTitle) {
                 return deepestRouteWithTitle.meta.title();
             }

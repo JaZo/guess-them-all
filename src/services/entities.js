@@ -21,7 +21,7 @@ export default class Entities {
      * @returns {Array}
      */
     static getEntitiesFromLists (listIds) {
-        let combined = new Set();
+        const combined = new Set();
 
         listIds.forEach((listId) => {
             (listId.split('.').reduce((acc, part) => acc[part] || {}, entities).entities || []).forEach((entity) => {

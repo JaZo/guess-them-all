@@ -24,14 +24,14 @@ export const stopGame = (context) => {
 };
 
 export const startRound = (context) => {
-    let entities = Entities.get(context.state.settings.entities, context.state.settings.numberOfEntitiesPerRound, context.state.usedEntities);
+    const entities = Entities.get(context.state.settings.entities, context.state.settings.numberOfEntitiesPerRound, context.state.usedEntities);
 
     context.commit('setEntities', entities);
     context.commit('addUsedEntities', entities);
 };
 
 export const endRound = (context, { score }) => {
-    let teamId = context.state.teamList[context.state.turn.team];
+    const teamId = context.state.teamList[context.state.turn.team];
 
     context.commit('addPointsToTeam', { teamId, points: score });
     context.commit('setEntities', []);

@@ -1,4 +1,4 @@
-let pkg = require('./package.json');
+const pkg = require('./package.json');
 
 function currentDateTime () {
     const date = new Date();
@@ -12,7 +12,7 @@ function currentDateTime () {
     let sec = date.getSeconds();
     sec = (sec < 10 ? '0' : '') + sec;
 
-    let year = date.getFullYear();
+    const year = date.getFullYear();
 
     let month = date.getMonth() + 1;
     month = (month < 10 ? '0' : '') + month;

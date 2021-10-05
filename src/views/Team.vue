@@ -38,7 +38,7 @@ import Player from '@/components/game/Team/Player';
 
 export default {
     components: {
-        'player': Player,
+        player: Player,
     },
 
     computed: {

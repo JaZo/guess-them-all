@@ -1,8 +1,9 @@
 import messages from '../i18n/messages';
 
 const locale = (function () {
-    let languages = navigator.languages || [navigator.language || navigator.userLanguage];
+    const languages = navigator.languages || [navigator.language || navigator.userLanguage];
 
+    // eslint-disable-next-line no-prototype-builtins
     return languages.map(language => language.substr(0, 2)).find(language => messages.hasOwnProperty(language)) || Object.keys(messages)[0];
 })();
 const defaultEntities = {
@@ -18,21 +19,21 @@ const defaultEntities = {
 
 export default {
     teams: {
-        '1': {
+        1: {
             name: 'Team 1',
             players: ['1'],
         },
-        '2': {
+        2: {
             name: 'Team 2',
             players: ['2'],
         },
     },
     teamList: ['1', '2'],
     players: {
-        '1': {
+        1: {
             name: 'Player 1',
         },
-        '2': {
+        2: {
             name: 'Player 2',
         },
     },
@@ -53,6 +54,6 @@ export default {
         pointsNeededToWin: 30,
         timeLimit: 30,
         sounds: true,
-        entities: defaultEntities[locale] || defaultEntities['nl'],
+        entities: defaultEntities[locale] || defaultEntities.nl,
     },
 };
