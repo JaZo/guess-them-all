@@ -26,6 +26,10 @@ function currentDateTime () {
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? '/guess-them-all/' : '/',
 
+    devServer: process.env.IS_DDEV_PROJECT ? {
+        public: process.env.DDEV_HOSTNAME,
+    } : {},
+
     pwa: {
         name: pkg.description,
         themeColor: '#448AFF',
