@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './App';
+import App from './App.vue';
 import bus from './bus';
 import i18n from './i18n';
 import router from './router';

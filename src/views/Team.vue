@@ -34,7 +34,7 @@
 
 <script>
 import { mapMutations } from 'vuex';
-import Player from '@/components/game/Team/Player';
+import Player from '@/components/game/Team/Player.vue';
 
 export default {
     components: {

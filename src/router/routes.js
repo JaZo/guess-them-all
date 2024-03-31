@@ -1,17 +1,17 @@
 import i18n from '../i18n';
 import store from '../store';
-import Home from '@/views/Home';
-import Rules from '@/views/Rules';
-import Settings from '@/views/Settings';
-import Teams from '@/views/Teams';
-import Team from '@/views/Team';
-import Game from '@/views/Game';
-import GameIndex from '@/views/game/Index';
-import GameReady from '@/views/game/Ready';
-import GameGame from '@/views/game/Game';
-import GameTimeOver from '@/views/game/TimeOver';
-import GameResults from '@/views/game/Results';
-import GameGameOVer from '@/views/game/GameOver';
+import Home from '@/views/Home.vue';
+import Rules from '@/views/Rules.vue';
+import Settings from '@/views/Settings.vue';
+import Teams from '@/views/Teams.vue';
+import Team from '@/views/Team.vue';
+import Game from '@/views/Game.vue';
+import GameIndex from '@/views/game/Index.vue';
+import GameReady from '@/views/game/Ready.vue';
+import GameGame from '@/views/game/Game.vue';
+import GameTimeOver from '@/views/game/TimeOver.vue';
+import GameResults from '@/views/game/Results.vue';
+import GameGameOVer from '@/views/game/GameOver.vue';
 
 export default [
     {
