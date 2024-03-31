@@ -13,7 +13,9 @@
 
 <script>
 import { mapState } from 'vuex';
-const sound = new Audio(require('../../assets/sounds/ringing.mp3'));
+import mp3 from '../../assets/sounds/ringing.mp3';
+
+const sound = new Audio(mp3);
 
 export default {
     computed: mapState([

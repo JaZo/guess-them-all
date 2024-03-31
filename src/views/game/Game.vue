@@ -12,7 +12,9 @@
 
 <script>
 import { mapMutations, mapState } from 'vuex';
-const sound = new Audio(require('../../assets/sounds/ticking.mp3'));
+import mp3 from '../../assets/sounds/ticking.mp3';
+
+const sound = new Audio(mp3);
 
 const PROGRESS_TICKS_PER_SECOND = 15; // i.e. FPS for progress bar
 const SOUND_LENGTH = 5; // in seconds
