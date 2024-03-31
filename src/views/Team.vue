@@ -12,12 +12,13 @@
                 </md-field>
             </md-list-item>
 
-            <player v-for="(player, index) in players"
-                    ref="players"
-                    :key="index"
-                    :data="player"
-                    @update="updatePlayer({id: team.players[index], player: $event})"
-                    @delete="deletePlayer({id: team.players[index]})"
+            <player
+                v-for="(player, index) in players"
+                ref="players"
+                :key="index"
+                :data="player"
+                @update="updatePlayer({id: team.players[index], player: $event})"
+                @delete="deletePlayer({id: team.players[index]})"
             />
 
             <md-list-item>

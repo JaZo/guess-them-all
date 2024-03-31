@@ -93,6 +93,15 @@ import { mapMutations, mapState } from 'vuex';
 import entities from '../data/entities';
 
 export default {
+    beforeRouteLeave (to, from, next) {
+        if (this.entities.length < 1) {
+            this.chooseEntitiesDialogOpen = true;
+            next(false);
+        } else {
+            next();
+        }
+    },
+
     data () {
         return {
             chooseEntitiesDialogOpen: false,
@@ -161,15 +170,6 @@ export default {
         entityLists () {
             return entities;
         },
-    },
-
-    beforeRouteLeave (to, from, next) {
-        if (this.entities.length < 1) {
-            this.chooseEntitiesDialogOpen = true;
-            next(false);
-        } else {
-            next();
-        }
     },
 
     methods: mapMutations([

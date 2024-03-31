@@ -5,7 +5,7 @@ import i18n from './i18n';
 import router from './router';
 import store from './store';
 import theme from './theme';
-import registerServiceWorker from './service-worker/register';
+import { registerSW } from 'virtual:pwa-register';
 
 Vue.config.productionTip = false;
 
@@ -18,10 +18,13 @@ new Vue({
     render: h => h(App),
 }).$mount('#app');
 
-if (process.env.NODE_ENV === 'production') {
-    registerServiceWorker(() => {
-        bus.$emit('offline-installed');
-    }, () => {
-        bus.$emit('offline-updated');
+if (import.meta.env.PROD) {
+    registerSW({
+        onOfflineReady () {
+            bus.$emit('offline-installed');
+        },
+        onNeedRefresh () {
+            bus.$emit('offline-updated');
+        },
     });
 }

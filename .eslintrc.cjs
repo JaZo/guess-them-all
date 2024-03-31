@@ -4,10 +4,7 @@ module.exports = {
     env: {
       browser: true,
       node: true,
-    },
-
-    parserOptions: {
-        parser: 'babel-eslint',
+      es2022: true,
     },
 
     extends: [
@@ -22,6 +19,7 @@ module.exports = {
         'comma-dangle': ['error', 'always-multiline'],
         'vue/html-indent': ['error', 4],
         'vue/max-attributes-per-line': 'off',
+        'vue/multi-word-component-names': 'off',
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     },

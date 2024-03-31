@@ -16,12 +16,16 @@ use_dns_when_possible: true
 timezone: Europe/Amsterdam
 composer_version: "2"
 web_environment: []
-nodejs_version: "16"
+nodejs_version: "20"
 web_extra_exposed_ports:
-    - name: vue
-      container_port: 8080
+    - name: vite
+      container_port: 5173
       http_port: 80
       https_port: 443
+    - name: vite-preview
+      container_port: 4173
+      http_port: 4172
+      https_port: 4173
 
 # Key features of DDEV's config.yaml:
 
