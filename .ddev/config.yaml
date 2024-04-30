@@ -11,7 +11,7 @@ additional_fqdns: []
 database:
     type: mariadb
     version: "10.4"
-omit_containers: [db, ddev-ssh-agent]
+omit_containers: [db]
 use_dns_when_possible: true
 timezone: Europe/Amsterdam
 composer_version: "2"
