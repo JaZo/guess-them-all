@@ -1,17 +1,17 @@
 <template>
-    <div>
-        <md-progress-bar :md-value="progress" class="md-accent" />
+    <v-container>
+        <v-progress-linear :model-value="progress" color="primary"/>
 
-        <md-list>
-            <md-list-item v-for="(entity, index) in entities" :key="index">
-                <span class="md-list-item-text">{{ entity }}</span>
-            </md-list-item>
-        </md-list>
-    </div>
+        <v-list>
+            <v-list-item v-for="(entity, index) in entities" :key="index">
+                <v-list-item-title>{{ entity }}</v-list-item-title>
+            </v-list-item>
+        </v-list>
+    </v-container>
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex';
+import {mapMutations, mapState} from 'vuex';
 import mp3 from '../../assets/sounds/ticking.mp3';
 
 const sound = new Audio(mp3);
@@ -20,7 +20,7 @@ const PROGRESS_TICKS_PER_SECOND = 15; // i.e. FPS for progress bar
 const SOUND_LENGTH = 5; // in seconds
 
 export default {
-    data () {
+    data() {
         return {
             interval: null,
             progressCounter: this.$store.state.time * PROGRESS_TICKS_PER_SECOND,
@@ -34,16 +34,16 @@ export default {
             'time',
         ]),
 
-        progress () {
+        progress() {
             return this.progressCounter / PROGRESS_TICKS_PER_SECOND / this.settings.timeLimit * 100;
         },
     },
 
-    mounted () {
+    mounted() {
         this.interval = setInterval(this.loop, 1000 / PROGRESS_TICKS_PER_SECOND);
     },
 
-    beforeDestroy () {
+    beforeDestroy() {
         clearInterval(this.interval);
         this.stopSound();
     },
@@ -53,7 +53,7 @@ export default {
             'setTime',
         ]),
 
-        loop () {
+        loop() {
             this.progressCounter = Math.min(this.progressCounter + 1, PROGRESS_TICKS_PER_SECOND * this.settings.timeLimit);
 
             if (this.progressCounter % PROGRESS_TICKS_PER_SECOND === 0) {
@@ -70,17 +70,17 @@ export default {
             }
         },
 
-        continueGame () {
-            this.$router.replace({ name: 'game-time-over' });
+        continueGame() {
+            this.$router.replace({name: 'game-time-over'});
         },
 
-        playSound () {
+        playSound() {
             if (this.settings.sounds) {
                 sound.play();
             }
         },
 
-        stopSound () {
+        stopSound() {
             if (this.settings.sounds) {
                 sound.pause();
             }

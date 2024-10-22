@@ -1,50 +1,35 @@
 <template>
-    <div id="app">
-        <md-toolbar class="md-primary">
-            <md-button v-if="allowHome" class="md-icon-button" @click="home">
-                <md-icon>close</md-icon>
-            </md-button>
-            <md-button v-if="allowBack" class="md-icon-button" @click="$router.back()">
-                <md-icon>arrow_back</md-icon>
-            </md-button>
+    <v-app>
+        <v-layout class="rounded rounded-md">
+            <v-app-bar>
+                <template #prepend>
+                    <v-btn v-if="allowHome" icon="mdi-close" @click="home"></v-btn>
+                    <v-btn v-if="allowBack" icon="mdi-arrow-left" @click="$router.back()"></v-btn>
+                </template>
 
-            <h1 class="md-title" style="flex: 1">
-                {{ title }}
-            </h1>
+                <v-app-bar-title>{{ title }}</v-app-bar-title>
 
-            <md-button v-if="allowSettings" key="settings" class="md-icon-button" @click="settings">
-                <md-icon>settings</md-icon>
-            </md-button>
-        </md-toolbar>
+                <template #append>
+                    <v-btn v-if="allowSettings" icon="mdi-cog" @click="settings"></v-btn>
+                </template>
+            </v-app-bar>
 
-        <md-content>
-            <transition
-                :enter-active-class="transitionEnterClass"
-                :leave-active-class="transitionLeaveClass"
-                mode="out-in"
-            >
-                <router-view />
-            </transition>
-        </md-content>
-
-        <md-snackbar :md-active.sync="offlineInstalledSnackbarOpen" md-position="center">
-            <span>{{ $t('app.offline-installed') }}</span>
-            <md-button class="md-primary" @click="offlineInstalledSnackbarOpen = false">
-                {{ $t('app.offline-close') }}
-            </md-button>
-        </md-snackbar>
-        <md-snackbar :md-active.sync="offlineUpdatedSnackbarOpen" md-position="center">
-            <span>{{ $t('app.offline-updated') }}</span>
-            <md-button class="md-primary" @click="offlineUpdatedSnackbarOpen = false">
-                {{ $t('app.offline-close') }}
-            </md-button>
-        </md-snackbar>
-    </div>
+            <v-main class="d-flex align-center justify-center">
+                <transition
+                    :enter-active-class="transitionEnterClass"
+                    :leave-active-class="transitionLeaveClass"
+                    mode="out-in"
+                >
+                    <router-view/>
+                </transition>
+            </v-main>
+        </v-layout>
+    </v-app>
 </template>
 
 <script>
 export default {
-    data () {
+    data() {
         return {
             transitionEnterClass: null,
             transitionLeaveClass: null,
@@ -54,19 +39,19 @@ export default {
     },
 
     computed: {
-        allowBack () {
+        allowBack() {
             return !this.$route.matched.some(record => !record.meta.allowBack);
         },
 
-        allowHome () {
+        allowHome() {
             return !!this.$route.meta.allowHome;
         },
 
-        allowSettings () {
+        allowSettings() {
             return !this.$route.matched.some(record => !record.meta.allowSettings);
         },
 
-        title () {
+        title() {
             const deepestRouteWithTitle = this.$route.matched.slice().reverse().find(record => record.meta.title);
             if (deepestRouteWithTitle) {
                 return deepestRouteWithTitle.meta.title();
@@ -77,7 +62,7 @@ export default {
     },
 
     watch: {
-        $route (to, from) {
+        $route(to, from) {
             const baseClass = 'animate__animated page-transition ';
             const toDepth = to.path.replace(/\/+$/, '').concat('/').split('/').length;
             const fromDepth = from.path.replace(/\/+$/, '').concat('/').split('/').length;
@@ -87,42 +72,30 @@ export default {
         },
     },
 
-    mounted () {
-        this.$bus.$on('offline-installed', () => {
-            this.offlineInstalledSnackbarOpen = true;
+    mounted() {
+        // TODO: Snackbar
+        /*this.$bus.$on('offline-installed', () => {
+          this.offlineInstalledSnackbarOpen = true;
         });
         this.$bus.$on('offline-updated', () => {
-            this.offlineUpdatedSnackbarOpen = true;
-        });
+          this.offlineUpdatedSnackbarOpen = true;
+        });*/
     },
 
     methods: {
-        home () {
-            this.$router.replace({ name: 'home' });
+        home() {
+            this.$router.replace({name: 'home'});
         },
 
-        settings () {
-            this.$router.push({ name: 'settings' });
+        settings() {
+            this.$router.push({name: 'settings'});
         },
     },
 };
 </script>
 
 <style>
-    @import '../node_modules/vue-material/dist/vue-material.css';
-    @import '../node_modules/vue-material/dist/theme/default.css';
-    @import '../node_modules/animate.css/animate.css';
-
-    html.md-theme-default {
-        background-color: #fff;
-        background-color: var(--md-theme-default-background, #fff);
-    }
-
-    .main-content {
-        padding: 16px;
-    }
-
-    .page-transition {
-        animation-duration: .2s;
-    }
+:root {
+    --animate-duration: 0.2s;
+}
 </style>

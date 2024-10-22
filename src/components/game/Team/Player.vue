@@ -1,18 +1,14 @@
 <template>
-    <md-list-item>
-        <md-icon>person</md-icon>
-
-        <md-field>
-            <label>{{ $t('teams.player-name') }}</label>
-            <md-input ref="input" v-model="name" />
-        </md-field>
-
-        <md-button class="md-icon-button md-list-action" @click="$emit('delete')">
-            <md-icon class="md-accent">
-                remove_circle
-            </md-icon>
-        </md-button>
-    </md-list-item>
+    <v-text-field
+        ref="input"
+        v-model="name"
+        prepend-icon="mdi-account"
+        :label="$t('teams.player-name')"
+    >
+        <template #append>
+            <v-btn color="red-darken-2" icon="mdi-minus-circle" variant="text" @click="$emit('delete')"/>
+        </template>
+    </v-text-field>
 </template>
 
 <script>
@@ -26,18 +22,18 @@ export default {
 
     computed: {
         name: {
-            get () {
+            get() {
                 return this.data.name;
             },
-            set (value) {
-                this.$emit('update', Object.assign({}, this.data, { name: value }));
+            set(value) {
+                this.$emit('update', Object.assign({}, this.data, {name: value}));
             },
         },
     },
 
     methods: {
-        focus () {
-            this.$refs.input.$el.focus();
+        focus() {
+            this.$refs.input.$el.querySelector('input').select();
         },
     },
 };
