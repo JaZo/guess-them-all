@@ -8,7 +8,7 @@ export default class Entities {
      *
      * @returns {Array}
      */
-    static get (listIds, amount, excludedEntities = []) {
+    static get(listIds, amount, excludedEntities = []) {
         return this.getEntitiesFromLists(listIds)
             .filter((entity) => excludedEntities.indexOf(entity) < 0)
             .sort(() => 0.5 - Math.random())
@@ -20,7 +20,7 @@ export default class Entities {
      *
      * @returns {Array}
      */
-    static getEntitiesFromLists (listIds) {
+    static getEntitiesFromLists(listIds) {
         const combined = new Set();
 
         listIds.forEach((listId) => {

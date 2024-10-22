@@ -3,7 +3,7 @@ export const gameInProgress = (state) => {
 };
 
 export const teamSet = (state) => {
-    return state.teamList.map((teamId) => ({ id: teamId, ...state.teams[teamId] }));
+    return state.teamList.map((teamId) => ({id: teamId, ...state.teams[teamId]}));
 };
 
 export const readyToStart = (state) => {

@@ -55,5 +55,6 @@ export default {
         timeLimit: 30,
         sounds: true,
         entities: defaultEntities[locale] || defaultEntities.nl,
+        theme: 'light',
     },
 };

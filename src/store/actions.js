@@ -30,10 +30,10 @@ export const startRound = (context) => {
     context.commit('addUsedEntities', entities);
 };
 
-export const endRound = (context, { score }) => {
+export const endRound = (context, {score}) => {
     const teamId = context.state.teamList[context.state.turn.team];
 
-    context.commit('addPointsToTeam', { teamId, points: score });
+    context.commit('addPointsToTeam', {teamId, points: score});
     context.commit('setEntities', []);
     context.commit('resetTime');
 
