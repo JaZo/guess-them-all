@@ -1,10 +1,9 @@
-import Vue from 'vue';
 import i18n from '../i18n';
 
 // Settings
 export const updateSettings = (state, settings) => {
     state.settings = settings;
-    i18n.locale = state.settings.locale;
+    i18n.global.locale = state.settings.locale;
 };
 
 // Game state
@@ -19,37 +18,37 @@ export const resetGameState = (state) => {
 // Teams
 export const createTeam = (state) => {
     const id = String(Math.max(0, ...Object.keys(state.teams)) + 1);
-    Vue.set(state.teams, id, { name: 'Team ' + id, players: [] });
+    state.teams[id] = {name: 'Team ' + id, players: []};
     state.teamList.push(id);
-    createPlayer(state, { teamId: id });
+    createPlayer(state, {teamId: id});
 };
 
-export const updateTeam = (state, { id, team }) => {
-    Vue.set(state.teams, id, team);
+export const updateTeam = (state, {id, team}) => {
+    state.teams[id] = team;
 };
 
-export const deleteTeam = (state, { id }) => {
+export const deleteTeam = (state, {id}) => {
     // Delete all players from this team
     state.teams[id].players.forEach((playerId) => {
-        Vue.delete(state.players, playerId);
+        delete state.players[playerId], playerId;
     });
     // Delete the team itself
     state.teamList.splice(state.teamList.indexOf(id), 1);
-    Vue.delete(state.teams, id);
+    delete state.teams[id];
 };
 
 // Players
-export const createPlayer = (state, { teamId }) => {
+export const createPlayer = (state, {teamId}) => {
     const id = String(Math.max(0, ...Object.keys(state.players)) + 1);
-    Vue.set(state.players, id, { name: 'Player ' + id });
+    state.players[id] = {name: 'Player ' + id};
     state.teams[teamId].players.push(id);
 };
 
-export const updatePlayer = (state, { id, player }) => {
-    Vue.set(state.players, id, player);
+export const updatePlayer = (state, {id, player}) => {
+    state.players[id] = player;
 };
 
-export const deletePlayer = (state, { id }) => {
+export const deletePlayer = (state, {id}) => {
     // Remove this player from its team
     state.teamList.forEach((teamId) => {
         const index = state.teams[teamId].players.indexOf(id);
@@ -57,12 +56,12 @@ export const deletePlayer = (state, { id }) => {
             state.teams[teamId].players.splice(index, 1);
         }
     });
-    Vue.delete(state.players, id);
+    delete state.players[id];
 };
 
 // Turn
 export const nextTurn = (state) => {
-    Vue.set(state.turn.player, state.turn.team, ((state.turn.player[state.turn.team] || 0) + 1) % state.teams[state.teamList[state.turn.team]].players.length);
+    state.turn.player[state.turn.team] = ((state.turn.player[state.turn.team] || 0) + 1) % state.teams[state.teamList[state.turn.team]].players.length;
     state.turn.team = (state.turn.team + 1) % state.teamList.length;
 };
 
@@ -107,7 +106,7 @@ export const resetScore = (state) => {
     state.score = {};
 };
 
-export const addPointsToTeam = (state, { teamId, points }) => {
+export const addPointsToTeam = (state, {teamId, points}) => {
     state.score[teamId] = (state.score[teamId] || 0) + points;
 };
 
