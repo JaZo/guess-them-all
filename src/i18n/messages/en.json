@@ -1,9 +1,10 @@
 {
   "app": {
     "title": "Guess 'em all",
-    "offline-close": "Close",
+    "offline-close": "Dismiss",
     "offline-installed": "This website is ready for offline usage!",
-    "offline-updated": "This website is updated, please refresh!"
+    "offline-updated": "This website is updated, please refresh!",
+    "offline-update": "Refresh"
   },
   "home": {
     "continue": "Continue game",
@@ -43,6 +44,7 @@
   },
   "settings": {
     "entities": "Word lists",
+    "theme": "Theme",
     "locale": "Language",
     "number-of-entities-per-round": "Number of words per round",
     "points-needed-to-win": "Points to win",
@@ -63,5 +65,9 @@
     "start": "Start new game",
     "team-name": "Team name",
     "title": "Teams"
+  },
+  "themes": {
+    "light": "Light",
+    "dark": "Dark"
   }
 }

@@ -1,17 +1,19 @@
 import i18n from '../i18n';
 import store from '../store';
-import Home from '@/views/Home.vue';
-import Rules from '@/views/Rules.vue';
-import Settings from '@/views/Settings.vue';
-import Teams from '@/views/Teams.vue';
-import Team from '@/views/Team.vue';
-import Game from '@/views/Game.vue';
-import GameIndex from '@/views/game/Index.vue';
-import GameReady from '@/views/game/Ready.vue';
-import GameGame from '@/views/game/Game.vue';
-import GameTimeOver from '@/views/game/TimeOver.vue';
-import GameResults from '@/views/game/Results.vue';
-import GameGameOVer from '@/views/game/GameOver.vue';
+import Home from '@/pages/Home.vue';
+import Rules from '@/pages/Rules.vue';
+import Settings from '@/pages/Settings.vue';
+import Teams from '@/pages/Teams.vue';
+import Team from '@/pages/Team.vue';
+import Game from '@/pages/Game.vue';
+import GameIndex from '@/pages/game/Index.vue';
+import GameReady from '@/pages/game/Ready.vue';
+import GameGame from '@/pages/game/Game.vue';
+import GameTimeOver from '@/pages/game/TimeOver.vue';
+import GameResults from '@/pages/game/Results.vue';
+import GameGameOVer from '@/pages/game/GameOver.vue';
+
+const {t: $t} = i18n.global;
 
 export default [
     {
@@ -29,8 +31,8 @@ export default [
         component: Rules,
         meta: {
             allowBack: true,
-            title () {
-                return i18n.t('rules.title');
+            title() {
+                return $t('rules.title');
             },
         },
     },
@@ -40,8 +42,8 @@ export default [
         component: Settings,
         meta: {
             allowBack: true,
-            title () {
-                return i18n.t('settings.title');
+            title() {
+                return $t('settings.title');
             },
         },
     },
@@ -52,8 +54,8 @@ export default [
         meta: {
             allowBack: true,
             allowSettings: true,
-            title () {
-                return i18n.t('teams.title');
+            title() {
+                return $t('teams.title');
             },
         },
     },
@@ -64,8 +66,8 @@ export default [
         meta: {
             allowBack: true,
             allowSettings: true,
-            title () {
-                return i18n.t('teams.title');
+            title() {
+                return $t('teams.title');
             },
         },
     },
@@ -75,7 +77,7 @@ export default [
         component: Game,
         meta: {
             allowBack: false,
-            title () {
+            title() {
                 return store.getters.teamInTurn.name;
             },
         },

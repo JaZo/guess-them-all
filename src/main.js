@@ -1,30 +1,20 @@
-import Vue from 'vue';
+/**
+ * main.js
+ *
+ * Bootstraps Vuetify and other plugins then mounts the App`
+ */
+
+// Plugins
+import {registerPlugins} from '@/plugins';
+
+// Components
 import App from './App.vue';
-import bus from './bus';
-import i18n from './i18n';
-import router from './router';
-import store from './store';
-import theme from './theme';
-import { registerSW } from 'virtual:pwa-register';
 
-Vue.config.productionTip = false;
+// Composables
+import {createApp} from 'vue';
 
-new Vue({
-    bus,
-    i18n,
-    router,
-    store,
-    theme,
-    render: h => h(App),
-}).$mount('#app');
+const app = createApp(App);
 
-if (import.meta.env.PROD) {
-    registerSW({
-        onOfflineReady () {
-            bus.$emit('offline-installed');
-        },
-        onNeedRefresh () {
-            bus.$emit('offline-updated');
-        },
-    });
-}
+registerPlugins(app);
+
+app.mount('#app');
