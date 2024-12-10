@@ -78,7 +78,7 @@ export default {
         },
 
         playSound() {
-            if (this.settings.sounds) {
+            if (this.settings.sounds && sound.paused) {
                 sound.play();
             }
         },
