@@ -18,7 +18,7 @@
         "core-js": "^3.34.0",
         "roboto-fontface": "*",
         "vue": "^3.4.0",
-        "vue-i18n": "^9.14.0",
+        "vue-i18n": "^9.14.2",
         "vuetify": "^3.5.0",
         "vue-router": "^4.3.0",
         "vuex": "^4.1.0",
