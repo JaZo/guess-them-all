@@ -11,7 +11,6 @@ const defaultEntities = {
         'en.standard',
     ],
     nl: [
-        'nl.google',
         'nl.standard',
         'nl.susanne',
     ],
