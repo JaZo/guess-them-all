@@ -14,6 +14,7 @@
 
 <script>
 import {mapMutations, mapState} from 'vuex';
+import {useWakeLock} from '@vueuse/core';
 import mp3 from '../../assets/sounds/ticking.mp3';
 
 const sound = new Audio(mp3);
@@ -22,6 +23,15 @@ const PROGRESS_TICKS_PER_SECOND = 15; // i.e. FPS for progress bar
 const SOUND_LENGTH = 5; // in seconds
 
 export default {
+    setup() {
+        const { request, release } = useWakeLock();
+
+        return {
+            requestWakeLock: request,
+            releaseWakeLock: release,
+        };
+    },
+
     data() {
         return {
             interval: null,
@@ -43,11 +53,13 @@ export default {
 
     mounted() {
         this.interval = setInterval(this.loop, 1000 / PROGRESS_TICKS_PER_SECOND);
+        this.requestWakeLock();
     },
 
     beforeDestroy() {
         clearInterval(this.interval);
         this.stopSound();
+        this.releaseWakeLock();
     },
 
     methods: {
