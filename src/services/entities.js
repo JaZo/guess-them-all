@@ -9,10 +9,12 @@ export default class Entities {
      * @returns {Array}
      */
     static get(listIds, amount, excludedEntities = []) {
-        return this.getEntitiesFromLists(listIds)
-            .filter((entity) => excludedEntities.indexOf(entity) < 0)
-            .sort(() => 0.5 - Math.random())
-            .slice(0, amount);
+        const availableEntities = this.getEntitiesFromLists(listIds)
+            .filter((entity) => excludedEntities.indexOf(entity) < 0);
+
+        this.#shuffle(availableEntities);
+
+        return availableEntities.slice(0, amount);
     }
 
     /**
@@ -30,5 +32,17 @@ export default class Entities {
         });
 
         return [...combined];
+    }
+
+    /**
+     * Randomize array in-place using Durstenfeld shuffle algorithm.
+     *
+     * @param {Array} array
+     */
+    static #shuffle(array) {
+        for (let i = array.length - 1; i >= 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
     }
 }
