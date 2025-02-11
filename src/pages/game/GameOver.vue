@@ -6,6 +6,10 @@
             </v-col>
         </v-row>
 
+        <v-row justify="center">
+            <ConfettiExplosion />
+        </v-row>
+
         <v-row>
             <v-col>
                 <v-list>
@@ -36,10 +40,19 @@
 
 <script>
 import {mapState, mapGetters} from 'vuex';
+import ConfettiExplosion from 'vue-confetti-explosion';
+import mp3 from '../../assets/sounds/game-over.mp3';
+
+const sound = new Audio(mp3);
 
 export default {
+    components: {
+        ConfettiExplosion,
+    },
+
     computed: {
         ...mapState([
+            'settings',
             'score',
         ]),
 
@@ -50,11 +63,21 @@ export default {
         ]),
     },
 
+    mounted() {
+        this.playSound();
+    },
+
     methods: {
         continueGame() {
             this.$store.dispatch('endGame').then(() => {
                 this.$router.replace({name: 'teams'});
             });
+        },
+
+        playSound() {
+            if (this.settings.sounds) {
+                sound.play();
+            }
         },
     },
 };
