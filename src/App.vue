@@ -15,13 +15,15 @@
             </v-app-bar>
 
             <v-main>
-                <transition
-                    :enter-active-class="transitionEnterClass"
-                    :leave-active-class="transitionLeaveClass"
-                    mode="out-in"
-                >
-                    <router-view/>
-                </transition>
+                <router-view v-slot="{ Component }">
+                    <transition
+                        :enter-active-class="transitionEnterClass"
+                        :leave-active-class="transitionLeaveClass"
+                        mode="out-in"
+                    >
+                        <component :is="Component" />
+                    </transition>
+                </router-view>
             </v-main>
 
             <v-snackbar v-model="offlineReady">
