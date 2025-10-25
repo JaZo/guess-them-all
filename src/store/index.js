@@ -29,6 +29,10 @@ const store = createStore({
                 return undefined;
             }
 
+            if (!parsed) {
+                return undefined;
+            }
+
             // Remove deprecated entityLists from stored state.
             parsed.settings.entities = parsed.settings.entities.filter(e => availableEntityLists.includes(e));
             if (parsed.settings.entities.length === 0) {
