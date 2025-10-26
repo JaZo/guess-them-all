@@ -1,41 +1,41 @@
 <template>
-    <v-container>
-        <v-row>
-            <v-col>
-                {{ $t('game.winner', {team: winningTeam.name}) }}
-            </v-col>
-        </v-row>
+    <div>
+        <v-container>
+            <v-row>
+                <v-col>
+                    {{ $t('game.winner', {team: winningTeam.name}) }}
+                </v-col>
+            </v-row>
 
-        <v-row justify="center">
-            <ConfettiExplosion />
-        </v-row>
+            <v-row justify="center">
+                <ConfettiExplosion :stageHeight="confettiHeight" :stageWidth="confettiWidth" />
+            </v-row>
+        </v-container>
 
-        <v-row>
-            <v-col>
-                <v-list>
-                    <v-list-item v-for="(team, index) in teamSet" :key="index">
-                        <template #prepend>
-                            <v-avatar color="grey-lighten-1">
-                                <v-icon>mdi-account-multiple</v-icon>
-                            </v-avatar>
-                        </template>
+        <v-list bg-color="transparent">
+            <v-list-item v-for="(team, index) in teamSet" :key="index">
+                <template #prepend>
+                    <v-avatar color="grey-lighten-1">
+                        <v-icon>mdi-account-multiple</v-icon>
+                    </v-avatar>
+                </template>
 
-                        <v-list-item-title>{{ team.name }}:
-                            {{ $tc('game.score', score[team.id] || 0, {score: score[team.id] || 0}) }}
-                        </v-list-item-title>
-                    </v-list-item>
-                </v-list>
-            </v-col>
-        </v-row>
+                <v-list-item-title>{{ team.name }}:
+                    {{ $tc('game.score', score[team.id] || 0, {score: score[team.id] || 0}) }}
+                </v-list-item-title>
+            </v-list-item>
+        </v-list>
 
-        <v-row>
-            <v-col>
-                <v-btn append-icon="mdi-play" color="primary" @click="continueGame()">
-                    {{ $t('game.start-new') }}
-                </v-btn>
-            </v-col>
-        </v-row>
-    </v-container>
+        <v-container>
+            <v-row>
+                <v-col>
+                    <v-btn append-icon="mdi-play" color="primary" @click="continueGame()">
+                        {{ $t('game.start-new') }}
+                    </v-btn>
+                </v-col>
+            </v-row>
+        </v-container>
+    </div>
 </template>
 
 <script>
@@ -61,6 +61,14 @@ export default {
             'playerInTurn',
             'winningTeam',
         ]),
+
+        confettiHeight() {
+            return window.innerHeight;
+        },
+
+        confettiWidth() {
+            return window.innerWidth * 1.25;
+        },
     },
 
     mounted() {

@@ -1,34 +1,36 @@
 <template>
-    <v-container>
-        <v-row>
-            <v-col>
-                {{ $t('teams.intro') }}
-            </v-col>
-        </v-row>
+    <v-form>
+        <v-container>
+            <v-row>
+                <v-col>
+                    {{ $t('teams.intro') }}
+                </v-col>
+            </v-row>
 
-        <v-row>
-            <v-col>
-                <v-form>
+            <v-row>
+                <v-col>
                     <v-text-field v-model="name" :label="$t('teams.team-name')"/>
+                </v-col>
+            </v-row>
 
+            <v-row v-for="(player, index) in players" :key="index">
+                <v-col>
                     <player
-                        v-for="(player, index) in players"
                         ref="players"
-                        :key="index"
                         :data="player"
                         @update="updatePlayer({id: team.players[index], player: $event})"
                         @delete="deletePlayer({id: team.players[index]})"
                     />
-                </v-form>
-            </v-col>
-        </v-row>
+                </v-col>
+            </v-row>
 
-        <v-row justify="end">
-            <v-col cols="auto">
-                <v-btn color="primary" icon="mdi-account-plus" @click="createPlayer({teamId: id})"/>
-            </v-col>
-        </v-row>
-    </v-container>
+            <v-row justify="end">
+                <v-col cols="auto">
+                    <v-btn color="primary" icon="mdi-account-plus" @click="createPlayer({teamId: id})"/>
+                </v-col>
+            </v-row>
+        </v-container>
+    </v-form>
 </template>
 
 <script>

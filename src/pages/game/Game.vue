@@ -2,13 +2,11 @@
     <div>
         <v-progress-linear :model-value="progress" color="red"/>
 
-        <v-container>
-            <v-list>
-                <v-list-item v-for="(entity, index) in entities" :key="index">
-                    <v-list-item-title>{{ entity }}</v-list-item-title>
-                </v-list-item>
-            </v-list>
-        </v-container>
+        <v-list bg-color="transparent">
+            <v-list-item v-for="(entity, index) in entities" :key="index">
+                <v-list-item-title>{{ entity }}</v-list-item-title>
+            </v-list-item>
+        </v-list>
     </div>
 </template>
 

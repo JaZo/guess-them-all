@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <div>
         <v-dialog v-model="chooseEntitiesDialogOpen">
             <v-card
                 class="mx-auto"
@@ -26,51 +26,77 @@
         </v-dialog>
 
         <v-form>
-            <v-select
-                v-model="theme"
-                :items="themes"
-                :label="$t('settings.theme')"
-            />
+            <v-container>
+                <v-row>
+                    <v-col>
+                        <v-select
+                            v-model="theme"
+                            :items="themes"
+                            :label="$t('settings.theme')"
+                        />
+                    </v-col>
+                </v-row>
 
-            <v-select
-                v-model="locale"
-                :items="locales"
-                :label="$t('settings.locale')"
-            />
+                <v-row>
+                    <v-col>
+                        <v-select
+                            v-model="locale"
+                            :items="locales"
+                            :label="$t('settings.locale')"
+                        />
+                    </v-col>
+                </v-row>
 
-            <v-select
-                v-model="pointsNeededToWin"
-                :items="[15, 30, 45, 60]"
-                :label="$t('settings.points-needed-to-win')"
-            />
+                <v-row>
+                    <v-col>
+                        <v-select
+                            v-model="pointsNeededToWin"
+                            :items="[15, 30, 45, 60]"
+                            :label="$t('settings.points-needed-to-win')"
+                        />
+                    </v-col>
+                </v-row>
 
-            <v-select
-                v-model="numberOfEntitiesPerRound"
-                :items="[4, 5, 6]"
-                :label="$t('settings.number-of-entities-per-round')"
-            />
+                <v-row>
+                    <v-col>
+                        <v-select
+                            v-model="numberOfEntitiesPerRound"
+                            :items="[4, 5, 6]"
+                            :label="$t('settings.number-of-entities-per-round')"
+                        />
+                    </v-col>
+                </v-row>
 
-            <v-select
-                v-model="entities"
-                multiple
-                :items="entityList"
-                :label="$t('settings.entities')"
-            >
-                <template #item="{ props, item }">
-                    <v-list-subheader v-if="props.header">
-                        {{ props.header }}
-                    </v-list-subheader>
-                    <v-list-item v-else v-bind="props"></v-list-item>
-                </template>
-            </v-select>
+                <v-row>
+                    <v-col>
+                        <v-select
+                            v-model="entities"
+                            multiple
+                            :items="entityList"
+                            :label="$t('settings.entities')"
+                        >
+                            <template #item="{ props, item }">
+                                <v-list-subheader v-if="props.header">
+                                    {{ props.header }}
+                                </v-list-subheader>
+                                <v-list-item v-else v-bind="props"></v-list-item>
+                            </template>
+                        </v-select>
+                    </v-col>
+                </v-row>
 
-            <v-select
-                v-model="sounds"
-                :items="[{title: $t('settings.sounds-enabled'), value: true}, {title: $t('settings.sounds-disabled'), value: false}]"
-                :label="$t('settings.sounds')"
-            />
+                <v-row>
+                    <v-col>
+                        <v-select
+                            v-model="sounds"
+                            :items="[{title: $t('settings.sounds-enabled'), value: true}, {title: $t('settings.sounds-disabled'), value: false}]"
+                            :label="$t('settings.sounds')"
+                        />
+                    </v-col>
+                </v-row>
+            </v-container>
         </v-form>
-    </v-container>
+    </div>
 </template>
 
 <script>
