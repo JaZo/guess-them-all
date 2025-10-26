@@ -14,7 +14,15 @@ import {md3} from 'vuetify/blueprints'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
-    blueprint: md3,
+    blueprint: {
+        ...md3,
+        theme: {
+            themes: {
+                ...md3.theme.themes,
+                dark: md3.theme.themes.light,
+            },
+        },
+    },
     defaults: {
         global: {
             hideDetails: 'auto',
