@@ -54,6 +54,6 @@ export default {
         timeLimit: 30,
         sounds: true,
         entities: defaultEntities[locale] || defaultEntities.nl,
-        theme: 'light',
+        theme: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
     },
 };
