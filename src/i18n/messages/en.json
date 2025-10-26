@@ -12,9 +12,9 @@
     "rules": "Game rules",
     "dialog": {
       "cancel": "No",
-      "content": "The current game will be stopped and all progress will be lost.",
+      "content": "Starting a new game will stop the current game and all progress will be lost.",
       "ok": "Yes",
-      "title": "Are you sure you want to start a new game?"
+      "title": "Are you sure?"
     }
   },
   "game": {

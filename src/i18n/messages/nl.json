@@ -12,9 +12,9 @@
     "rules": "Spelregels",
     "dialog": {
       "cancel": "Nee",
-      "content": "Het huidige spel zal stoppen en alle voortgang zal verloren gaan.",
+      "content": "Als je een nieuw spel start zal het huidige spel stoppen en zal alle voortgang verloren gaan.",
       "ok": "Ja",
-      "title": "Weet je zeker dat je een nieuw spel wilt starten?"
+      "title": "Weet je het zeker?"
     }
   },
   "game": {
