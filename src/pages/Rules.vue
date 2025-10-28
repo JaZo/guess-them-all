@@ -5,7 +5,7 @@
             :key="i"
         >
             <template #prepend>
-                <v-icon color="primary" :icon="`mdi-numeric-${i}-circle`" size="40"/>
+                <v-icon color="secondary" :icon="`mdi-numeric-${i}-circle`" size="40" style="opacity: 1"/>
             </template>
             {{ $t(`rules.rules.${i}`) }}
         </v-list-item>

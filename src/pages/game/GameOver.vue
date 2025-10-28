@@ -15,7 +15,7 @@
         <v-list bg-color="transparent">
             <v-list-item v-for="(team, index) in teamSet" :key="index">
                 <template #prepend>
-                    <v-avatar color="grey-lighten-1">
+                    <v-avatar color="secondary">
                         <v-icon>mdi-account-multiple</v-icon>
                     </v-avatar>
                 </template>

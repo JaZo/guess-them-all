@@ -12,7 +12,7 @@
             <v-list-item v-for="(team, index) in teamSet" :key="index" :value="index"
                          @click="editTeam({id: team.id})">
                 <template #prepend>
-                    <v-avatar color="grey-lighten-1">
+                    <v-avatar color="secondary">
                         <v-icon>mdi-account-multiple</v-icon>
                     </v-avatar>
                 </template>
