@@ -1,14 +1,20 @@
 {
   "app": {
     "title": "Guess 'em all",
+    "back": "Back",
+    "home": "Home",
+    "settings": "Settings",
     "offline-close": "Dismiss",
     "offline-installed": "This website is ready for offline usage!",
     "offline-updated": "This website is updated, please refresh!",
     "offline-update": "Refresh"
   },
   "home": {
+    "tagline": "Describe · Guess · Beat the clock",
+    "in-progress": "Game in progress",
+    "vs": "vs",
     "continue": "Continue game",
-    "new": "Start new game",
+    "new": "New game",
     "rules": "Game rules",
     "dialog": {
       "cancel": "No",
@@ -18,39 +24,65 @@
     }
   },
   "game": {
+    "back-to-scoreboard": "Back to scoreboard",
     "choose-entities": "Which words were guessed?",
     "continue": "Continue",
-    "pass-on": "Pass me on to {player}",
-    "ready": "{player}, are you ready?",
+    "describing": "{player} is describing",
+    "donts": {
+      "names": "No names",
+      "rhymes": "No rhymes",
+      "letters": "No letters",
+      "pointing": "No pointing"
+    },
+    "first-to": "First to {points}",
+    "home": "Home",
+    "pass-on": "Pass me on to",
+    "points-for": "points for {team}",
+    "ready-name": "{player},",
+    "ready-question": "are you ready?",
     "score": "{score} points|{score} point|{score} points",
+    "scoreboard": "Scoreboard",
+    "sec": "sec",
+    "seconds": "{seconds} seconds",
     "start-new": "Start new game",
+    "team-up": "{team} are up",
+    "time-left": "{seconds} seconds left",
     "time-over": "Time over!",
-    "winner": "{team} won!"
+    "won": "won!",
+    "words": "{count} words"
   },
   "language": "English",
   "rules": {
-    "title": "Games rules",
-    "rules": {
+    "title": "Game rules",
+    "intro": "{seconds} seconds, a handful of words, and one person doing the talking.",
+    "how": {
+      "title": "How a round works",
       "1": "One of the team members tries to describe the words on the card, the other team members must guess these words.",
-      "2": "The player who describes the words may not name names on the card. Words such as \"the\" and \"a\" are allowed.",
-      "3": "The player who describes the words may not name names derived from the name on the card.",
-      "4": "The player who describes the words may not apply \"sounds like\" or \"rhymes to\" tactics.",
-      "5": "The player who describes the words may not refer to letters of the alphabet.",
-      "6": "The player who describes the words may not point at objects.",
-      "7": "Humming, singing and gestures are allowed.",
-      "8": "After half a minute the time is up, and nothing more can be said or guessed.",
-      "9": "The player who described the words indicates which words are guessed, each word is worth one point."
+      "2": "After half a minute the time is up, and nothing more can be said or guessed.",
+      "3": "The player who described the words indicates which words are guessed, each word is worth one point."
+    },
+    "nots": {
+      "title": "The describer may not…",
+      "1": "Name names on the card. Words such as \"the\" and \"a\" are allowed.",
+      "2": "Name names derived from the name on the card.",
+      "3": "Apply \"sounds like\" or \"rhymes to\" tactics.",
+      "4": "Refer to letters of the alphabet.",
+      "5": "Point at objects."
+    },
+    "allowed": {
+      "title": "But go ahead and…",
+      "text": "Humming, singing and gestures are allowed."
     }
   },
   "settings": {
+    "appearance": "Appearance",
+    "game": "Game",
     "entities": "Word lists",
     "theme": "Theme",
     "locale": "Language",
-    "number-of-entities-per-round": "Number of words per round",
+    "number-of-entities-per-round": "Words per round",
     "points-needed-to-win": "Points to win",
     "sounds": "Sound effects",
-    "sounds-enabled": "Enabled",
-    "sounds-disabled": "Disabled",
     "title": "Settings",
     "dialog": {
       "content": "Choose at least one word list to start a game.",
@@ -59,12 +91,17 @@
     }
   },
   "teams": {
-    "intro": "Choose your teams! Two teams is the minimum and all teams must consist of at least two players.",
+    "add": "Add team",
+    "add-player": "Add player",
+    "done": "Done",
+    "edit-title": "Edit team",
+    "intro": "Two teams is the minimum and all teams must consist of at least two players.",
     "player-name": "Player name",
     "players": "no players|{count} player|{count} players",
+    "remove": "Remove team",
     "start": "Start new game",
     "team-name": "Team name",
-    "title": "Teams"
+    "title": "Pick your teams"
   },
   "themes": {
     "light": "Light",

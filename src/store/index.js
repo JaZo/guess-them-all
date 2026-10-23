@@ -33,6 +33,11 @@ const store = createStore({
                 return undefined;
             }
 
+            // The time-over screen merged into the results screen.
+            if (parsed.gameState === 'game-time-over') {
+                parsed.gameState = 'game-results';
+            }
+
             // Remove deprecated entityLists from stored state.
             parsed.settings.entities = parsed.settings.entities.filter(e => availableEntityLists.includes(e));
             if (parsed.settings.entities.length === 0) {

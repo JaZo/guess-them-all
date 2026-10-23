@@ -5,6 +5,16 @@
  */
 
 // https://vuetifyjs.com/features/sass-variables/`
-// @use 'vuetify/settings' with (
-//   $color-pack: false
-// );
+@use 'vuetify/settings' with (
+    $body-font-family: ('Roboto Flex', 'Roboto', system-ui, sans-serif),
+    $rounded: (
+        'xxl': 28px,
+    ),
+    $typography: (
+        'button': (
+            'weight': 700,
+            'letter-spacing': 0,
+            'text-transform': none,
+        ),
+    ),
+);

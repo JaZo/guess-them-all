@@ -44,8 +44,8 @@ export default defineConfig({
         ViteFonts({
             google: {
                 families: [{
-                    name: 'Roboto',
-                    styles: 'wght@100;300;400;500;700;900',
+                    name: 'Roboto Flex',
+                    styles: 'opsz,wdth,wght@8..144,25..151,100..1000',
                 }],
             },
         }),
@@ -55,7 +55,7 @@ export default defineConfig({
                 name: pkg.description,
                 short_name: pkg.description,
                 theme_color: '#57149f',
-                background_color: '#57149f',
+                background_color: '#fff7ff',
                 icons: [
                     {
                         src: './img/icons/android/android-launchericon-512-512.png',
@@ -222,7 +222,7 @@ export default defineConfig({
                         src: './img/icons/ios/1024.png',
                         sizes: '1024x1024',
                         type: 'image/png',
-                    }
+                    },
                 ],
             },
             workbox: {

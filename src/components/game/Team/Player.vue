@@ -2,11 +2,11 @@
     <v-text-field
         ref="input"
         v-model="name"
-        prepend-icon="mdi-account"
+        prepend-inner-icon="mdi-account"
         :label="$t('teams.player-name')"
     >
-        <template #append>
-            <v-btn color="red-darken-2" icon="mdi-minus-circle" variant="text" @click="$emit('delete')"/>
+        <template #append-inner>
+            <v-btn color="error" icon="mdi-minus-circle" size="small" variant="text" @click="$emit('delete')"/>
         </template>
     </v-text-field>
 </template>
@@ -19,6 +19,8 @@ export default {
             required: true,
         },
     },
+
+    emits: ['update', 'delete'],
 
     computed: {
         name: {

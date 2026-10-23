@@ -1,14 +1,20 @@
 {
   "app": {
     "title": "Guess 'em all",
+    "back": "Terug",
+    "home": "Home",
+    "settings": "Instellingen",
     "offline-close": "Sluiten",
     "offline-installed": "Deze website is klaar voor offline gebruik!",
     "offline-updated": "Deze website is bijgewerkt, ververs de pagina!",
     "offline-update": "Verversen"
   },
   "home": {
-    "continue": "Ga verder met huidig spel",
-    "new": "Start nieuw spel",
+    "tagline": "Omschrijf · Raad · Versla de klok",
+    "in-progress": "Spel bezig",
+    "vs": "vs",
+    "continue": "Ga verder",
+    "new": "Nieuw spel",
     "rules": "Spelregels",
     "dialog": {
       "cancel": "Nee",
@@ -18,39 +24,65 @@
     }
   },
   "game": {
+    "back-to-scoreboard": "Terug naar het scorebord",
     "choose-entities": "Welke woorden zijn geraden?",
     "continue": "Ga verder",
-    "pass-on": "Geef mij door aan {player}",
-    "ready": "{player}, ben je er klaar voor?",
+    "describing": "{player} omschrijft",
+    "donts": {
+      "names": "Geen namen",
+      "rhymes": "Geen rijm",
+      "letters": "Geen letters",
+      "pointing": "Niet wijzen"
+    },
+    "first-to": "Eerste bij {points}",
+    "home": "Home",
+    "pass-on": "Geef mij door aan",
+    "points-for": "punten voor {team}",
+    "ready-name": "{player},",
+    "ready-question": "ben je er klaar voor?",
     "score": "{score} punten|{score} punt|{score} punten",
+    "scoreboard": "Scorebord",
+    "sec": "sec",
+    "seconds": "{seconds} seconden",
     "start-new": "Start nieuw spel",
+    "team-up": "{team} is aan de beurt",
+    "time-left": "Nog {seconds} seconden",
     "time-over": "De tijd is op!",
-    "winner": "{team} heeft gewonnen!"
+    "won": "heeft gewonnen!",
+    "words": "{count} woorden"
   },
   "language": "Nederlands",
   "rules": {
     "title": "Spelregels",
-    "rules": {
+    "intro": "{seconds} seconden, een handvol woorden en één persoon die praat.",
+    "how": {
+      "title": "Zo werkt een ronde",
       "1": "Eén van de teamleden probeert de woorden op de kaart te omschrijven. De andere teamleden moeten deze woorden raden.",
-      "2": "De speler die de woorden omschrijft mag geen namen op de kaart noemen. Woorden als \"de\", \"het\" en \"een\" zijn wel toegestaan.",
-      "3": "De speler die de woorden omschrijft mag geen namen noemen die van de naam op de kaart zijn afgeleid.",
-      "4": "De speler die de woorden omschrijft mag geen \"klinkt als\" of \"rijmt op\" tactieken toepassen.",
-      "5": "De speler die de woorden omschrijft mag niet verwijzen naar letters van het alfabet.",
-      "6": "De speler die de woorden omschrijft mag niet naar voorwerpen wijzen.",
-      "7": "Neuriën, zingen en gebaren zijn wel toegestaan.",
-      "8": "Na een halve minuut is de tijd om, en mag er niks meer gezegd of geraden worden.",
-      "9": "De speler die de woorden omschreven heeft geeft aan welke woorden geraden zijn. Elk woord is één punt waard."
+      "2": "Na een halve minuut is de tijd om, en mag er niks meer gezegd of geraden worden.",
+      "3": "De speler die de woorden omschreven heeft geeft aan welke woorden geraden zijn. Elk woord is één punt waard."
+    },
+    "nots": {
+      "title": "De omschrijver mag niet…",
+      "1": "Namen op de kaart noemen. Woorden als \"de\", \"het\" en \"een\" zijn wel toegestaan.",
+      "2": "Namen noemen die van de naam op de kaart zijn afgeleid.",
+      "3": "\"Klinkt als\" of \"rijmt op\" tactieken toepassen.",
+      "4": "Verwijzen naar letters van het alfabet.",
+      "5": "Naar voorwerpen wijzen."
+    },
+    "allowed": {
+      "title": "Maar ga vooral je gang met…",
+      "text": "Neuriën, zingen en gebaren zijn wel toegestaan."
     }
   },
   "settings": {
+    "appearance": "Weergave",
+    "game": "Spel",
     "entities": "Woordenlijsten",
     "theme": "Thema",
     "locale": "Taal",
-    "number-of-entities-per-round": "Aantal woorden per ronde",
+    "number-of-entities-per-round": "Woorden per ronde",
     "points-needed-to-win": "Punten voor winst",
     "sounds": "Geluidseffecten",
-    "sounds-enabled": "Ingeschakeld",
-    "sounds-disabled": "Uitgeschakeld",
     "title": "Instellingen",
     "dialog": {
       "content": "Kies minimaal één woordenlijst om een spel te kunnen starten.",
@@ -59,12 +91,17 @@
     }
   },
   "teams": {
-    "intro": "Stel je teams samen! Twee teams is het minimum en alle teams moeten uit minimaal twee spelers bestaan.",
+    "add": "Team toevoegen",
+    "add-player": "Speler toevoegen",
+    "done": "Klaar",
+    "edit-title": "Team bewerken",
+    "intro": "Twee teams is het minimum en alle teams moeten uit minimaal twee spelers bestaan.",
     "player-name": "Speler naam",
     "players": "geen spelers|{count} speler|{count} spelers",
+    "remove": "Team verwijderen",
     "start": "Start nieuw spel",
     "team-name": "Team naam",
-    "title": "Teams"
+    "title": "Stel je teams samen"
   },
   "themes": {
     "light": "Licht",

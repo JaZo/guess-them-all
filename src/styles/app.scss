@@ -1,0 +1,100 @@
+/**
+ * src/styles/app.scss
+ *
+ * Global layout and typography for the app
+ */
+
+:root {
+    --animate-duration: 0.2s;
+}
+
+html {
+    font-optical-sizing: auto;
+}
+
+// Let pages fill the viewport so footers stick to the bottom
+.v-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+// Full-bleed wrapper for screens with their own background
+.page-bleed {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+
+    &__intro {
+        padding: 4px 24px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__footer {
+        padding: 16px 20px 28px;
+    }
+}
+
+// Type scale (Roboto Flex, variable width + weight)
+.font-display {
+    font-weight: 900;
+    font-stretch: 118%;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.font-headline {
+    font-weight: 800;
+    font-stretch: 110%;
+    line-height: 1.15;
+}
+
+.text-page-title {
+    margin: 0;
+    font-size: 36px;
+    line-height: 1.1;
+    font-weight: 900;
+    font-stretch: 115%;
+    letter-spacing: -0.5px;
+}
+
+.text-intro {
+    margin: 0;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.text-section-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+// Component tweaks
+.v-btn--variant-outlined {
+    border-color: rgb(var(--v-theme-outline));
+}
+
+.v-progress-circular__overlay {
+    stroke-linecap: round;
+}
