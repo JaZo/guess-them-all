@@ -9,7 +9,7 @@
         ></span>
 
         <div class="winner__explosion">
-            <ConfettiExplosion :stageHeight="confettiHeight" :stageWidth="confettiWidth"/>
+            <ConfettiExplosion :colors="confettiColors" :stageHeight="confettiHeight" :stageWidth="confettiWidth"/>
         </div>
 
         <page-header home/>
@@ -115,6 +115,10 @@ export default {
 
         confettiWidth() {
             return window.innerWidth * 1.25;
+        },
+
+        confettiColors() {
+            return CONFETTI_COLORS;
         },
     },
 
