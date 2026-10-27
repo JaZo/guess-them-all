@@ -25,7 +25,7 @@ const store = createStore({
                 parsed = (typeof value === 'string')
                     ? JSON.parse(value) : (typeof value === 'object')
                         ? value : undefined;
-            } catch (err) {
+            } catch {
                 return undefined;
             }
 

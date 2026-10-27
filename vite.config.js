@@ -5,7 +5,7 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 import { createHtmlPlugin } from "vite-plugin-html";
 import ViteFonts from 'unplugin-fonts/vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import pkg from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 const base = process.env.NODE_ENV === 'production' ? '/guess-them-all/' : '/';
 
