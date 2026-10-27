@@ -84,16 +84,6 @@ export default defineConfig({
         }),
     ],
     define: { 'process.env': {} },
-    css: {
-        preprocessorOptions: {
-            sass: {
-                api: 'modern-compiler',
-            },
-            scss: {
-                api: 'modern-compiler',
-            },
-        },
-    },
     base: base,
     server: process.env.IS_DDEV_PROJECT ? {
         strictPort: true,
