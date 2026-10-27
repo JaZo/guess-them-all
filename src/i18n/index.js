@@ -3,6 +3,7 @@ import messages from './messages';
 
 // The locale is set from the stored settings when the plugins are registered.
 const i18n = createI18n({
+    legacy: false,
     locale: Object.keys(messages)[0],
     fallbackLocale: Object.keys(messages)[0],
     messages,

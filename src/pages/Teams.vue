@@ -24,7 +24,7 @@
                     <div class="team-card__heading">
                         <span class="team-card__name font-headline">{{ team.name }}</span>
                         <span class="team-card__count">
-                            {{ $tc('teams.players', team.players.length, {count: team.players.length}) }}
+                            {{ $t('teams.players', {count: team.players.length}, team.players.length) }}
                         </span>
                     </div>
                     <div class="team-card__players">

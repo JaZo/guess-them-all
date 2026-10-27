@@ -203,7 +203,7 @@ export default {
             return this.$i18n.availableLocales.map((locale) => {
                 return {
                     value: locale,
-                    title: this.$t('language', locale),
+                    title: this.$t('language', {}, {locale}),
                 };
             });
         },
@@ -258,7 +258,7 @@ export default {
                 Object.keys(entities[language]).forEach((key) => {
                     acc.push({
                         title: entities[language][key].name,
-                        language: this.$t('language', language),
+                        language: this.$t('language', {}, {locale: language}),
                         value: language + '.' + key,
                     });
                 });

@@ -3,7 +3,7 @@ import i18n from '../i18n';
 // Settings
 export const updateSettings = (state, settings) => {
     state.settings = settings;
-    i18n.global.locale = state.settings.locale;
+    i18n.global.locale.value = state.settings.locale;
 };
 
 // Game state

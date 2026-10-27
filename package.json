@@ -22,7 +22,7 @@
         "roboto-fontface": "*",
         "vue": "^3.5.44",
         "vue-confetti-explosion": "^1.0.2",
-        "vue-i18n": "^9.14.0",
+        "vue-i18n": "^11.4.16",
         "vue-router": "^5.4.0",
         "vuetify": "^3.5.0",
         "vuex": "^4.1.0",

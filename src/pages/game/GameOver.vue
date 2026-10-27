@@ -34,7 +34,7 @@
                 <span class="winner__rank">{{ index + 1 }}</span>
                 <span class="winner__name">{{ team.name }}</span>
                 <span class="winner__score">
-                    {{ $tc('game.score', score[team.id] || 0, {score: score[team.id] || 0}) }}
+                    {{ $t('game.score', {score: score[team.id] || 0}, score[team.id] || 0) }}
                 </span>
             </div>
         </div>

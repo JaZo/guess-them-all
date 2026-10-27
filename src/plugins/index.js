@@ -13,7 +13,7 @@ import 'animate.css/animate.css';
 import '@/styles/app.scss';
 
 export function registerPlugins(app) {
-    i18n.global.locale = store.state.settings.locale;
+    i18n.global.locale.value = store.state.settings.locale;
 
     app
         .use(vuetify)
