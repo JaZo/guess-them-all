@@ -12,20 +12,18 @@ const router = createRouter({
 
 export default router;
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from) => {
     if (store.getters.gameInProgress && routeIsGameRoute(to)) {
         // Coming from another game route, we are only allowed to go to certain routes
         if (routeIsGameRoute(from) && from.meta.allowedNextRoutes.indexOf(to.name) === -1) {
-            return next(false);
+            return false;
         }
 
         // Coming from somewhere else, we are only allowed to go to the route belonging to the current gameState
         if (!routeIsGameRoute(from) && to.name !== store.state.gameState) {
-            return next({name: store.state.gameState});
+            return { name: store.state.gameState };
         }
     }
-
-    return next();
 });
 
 router.afterEach((to) => {

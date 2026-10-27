@@ -159,12 +159,10 @@ export default {
         PageHeader,
     },
 
-    beforeRouteLeave(to, from, next) {
+    beforeRouteLeave() {
         if (this.entities.length < 1) {
             this.chooseEntitiesDialogOpen = true;
-            next(false);
-        } else {
-            next();
+            return false;
         }
     },
 
