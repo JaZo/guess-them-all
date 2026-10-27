@@ -5,6 +5,9 @@
     "private": true,
     "description": "Guess 'em all",
     "author": "Jasper Zonneveld <jasper@zonneveld.me>",
+    "engines": {
+        "node": ">=24"
+    },
     "scripts": {
         "dev": "vite",
         "build": "vite build",
