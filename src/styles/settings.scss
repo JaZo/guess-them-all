@@ -10,11 +10,6 @@
     $rounded: (
         'xxl': 28px,
     ),
-    $typography: (
-        'button': (
-            'weight': 700,
-            'letter-spacing': 0,
-            'text-transform': none,
-        ),
-    ),
+    $button-font-weight: 700,
+    $button-text-letter-spacing: 0,
 );

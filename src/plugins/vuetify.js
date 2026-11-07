@@ -112,5 +112,13 @@ export default createVuetify({
         VContainer: {
             fluid: true,
         },
+        // Keep continuous progress bars instead of the MD3 split style the v4 blueprint enables
+        VProgressCircular: {
+            variant: null,
+        },
+        VProgressLinear: {
+            variant: null,
+            stopIndicator: null,
+        },
     },
 });

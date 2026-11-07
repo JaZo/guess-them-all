@@ -40,7 +40,7 @@
                         :aria-label="$t('settings.theme')"
                         border
                         class="settings__toggle"
-                        :color="cssColor('on-surface')"
+                        :color="cssColor('on-primary-container')"
                         density="comfortable"
                         divided
                         mandatory
@@ -61,7 +61,7 @@
                         :aria-label="$t('settings.locale')"
                         border
                         class="settings__toggle"
-                        :color="cssColor('on-surface')"
+                        :color="cssColor('on-primary-container')"
                         density="comfortable"
                         divided
                         mandatory
