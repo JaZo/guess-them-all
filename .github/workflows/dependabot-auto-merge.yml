@@ -1,0 +1,45 @@
+name: Dependabot auto-merge
+
+on: pull_request_target
+
+permissions:
+  pull-requests: write
+  contents: write
+  actions: write # needed to dispatch the deploy workflow
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'JaZo/guess-them-all' }}
+    env:
+      PR_URL: ${{ github.event.pull_request.html_url }}
+      GH_REPO: ${{ github.repository }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Auto-merge Dependabot PRs for semver-minor and semver-patch updates
+        id: automerge
+        if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-minor' || steps.metadata.outputs.update-type == 'version-update:semver-patch' }}
+        run: gh pr merge --auto --merge "$PR_URL"
+
+      # A merge made with GITHUB_TOKEN doesn't trigger the push-based deploy,
+      # so wait for the auto-merge to land and dispatch the deploy explicitly.
+      - name: Wait for merge and deploy
+        if: ${{ steps.automerge.outcome == 'success' }}
+        run: |
+          for _ in $(seq 1 60); do
+            state=$(gh pr view "$PR_URL" --json state --jq .state)
+            case "$state" in
+              MERGED) gh workflow run deploy.yml --ref develop; exit 0 ;;
+              CLOSED) echo "PR was closed without merging"; exit 0 ;;
+            esac
+            sleep 20
+          done
+          echo "PR was not merged within 20 minutes (did CI fail?)"
+          exit 1
