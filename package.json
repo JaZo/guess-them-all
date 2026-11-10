@@ -12,7 +12,8 @@
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
-        "lint": "eslint . --fix"
+        "lint": "eslint .",
+        "fix": "eslint . --fix"
     },
     "dependencies": {
         "@mdi/font": "7.4.47",
