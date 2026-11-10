@@ -91,7 +91,8 @@
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex';
+import {mapState, mapStores} from 'pinia';
+import {useGameStore} from '@/store/game';
 import AppLogo from '@/components/AppLogo.vue';
 import PageHeader from '@/components/PageHeader.vue';
 import {teamColors} from '@/services/team';
@@ -109,12 +110,11 @@ export default {
     },
 
     computed: {
-        ...mapGetters([
+        ...mapStores(useGameStore),
+
+        ...mapState(useGameStore, [
             'gameInProgress',
             'teamSet',
-        ]),
-
-        ...mapState([
             'gameState',
             'score',
             'settings',
@@ -141,9 +141,8 @@ export default {
         },
 
         confirmStartNewGame() {
-            this.$store.dispatch('stopGame').then(() => {
-                this.$router.push({name: 'teams'});
-            });
+            this.gameStore.stopGame();
+            this.$router.push({name: 'teams'});
         },
     },
 };

@@ -45,7 +45,8 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex';
+import {mapActions, mapStores} from 'pinia';
+import {useGameStore} from '@/store/game';
 import PageHeader from '@/components/PageHeader.vue';
 import Player from '@/components/game/Team/Player.vue';
 
@@ -56,17 +57,19 @@ export default {
     },
 
     computed: {
+        ...mapStores(useGameStore),
+
         id() {
             return this.$route.params.id;
         },
 
         team() {
-            return this.$store.state.teams[this.id];
+            return this.gameStore.teams[this.id];
         },
 
         players() {
             return this.team.players.map((id) => {
-                return this.$store.state.players[id];
+                return this.gameStore.players[id];
             });
         },
 
@@ -75,20 +78,20 @@ export default {
                 return this.team.name;
             },
             set(value) {
-                this.$store.commit('updateTeam', {id: this.id, team: {name: value, players: this.team.players}});
+                this.gameStore.updateTeam({id: this.id, team: {name: value, players: this.team.players}});
             },
         },
     },
 
     methods: {
-        ...mapMutations([
+        ...mapActions(useGameStore, [
             'updatePlayer',
             'deletePlayer',
             'deleteTeam',
         ]),
 
         createPlayer(player) {
-            this.$store.commit('createPlayer', player);
+            this.gameStore.createPlayer(player);
             this.$nextTick(() => {
                 this.$refs.players[this.players.length - 1].focus();
             });

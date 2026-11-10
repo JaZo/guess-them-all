@@ -3,7 +3,7 @@ import {createRouter, createWebHashHistory} from 'vue-router';
 
 // Plugins
 import routes from './routes';
-import store from '../store';
+import {useGameStore} from '@/store/game';
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -13,22 +13,24 @@ const router = createRouter({
 export default router;
 
 router.beforeEach((to, from) => {
-    if (store.getters.gameInProgress && routeIsGameRoute(to)) {
+    const store = useGameStore();
+
+    if (store.gameInProgress && routeIsGameRoute(to)) {
         // Coming from another game route, we are only allowed to go to certain routes
         if (routeIsGameRoute(from) && from.meta.allowedNextRoutes.indexOf(to.name) === -1) {
             return false;
         }
 
         // Coming from somewhere else, we are only allowed to go to the route belonging to the current gameState
-        if (!routeIsGameRoute(from) && to.name !== store.state.gameState) {
-            return { name: store.state.gameState };
+        if (!routeIsGameRoute(from) && to.name !== store.gameState) {
+            return { name: store.gameState };
         }
     }
 });
 
 router.afterEach((to) => {
     if (routeIsGameRoute(to)) {
-        store.commit('setGameState', to.name);
+        useGameStore().setGameState(to.name);
     }
 });
 

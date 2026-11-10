@@ -147,7 +147,8 @@
 </template>
 
 <script>
-import {mapMutations, mapState} from 'vuex';
+import {mapActions, mapState} from 'pinia';
+import {useGameStore} from '@/store/game';
 import CheckMark from '@/components/CheckMark.vue';
 import PageHeader from '@/components/PageHeader.vue';
 import {cssColor} from '@/services/theme';
@@ -173,7 +174,7 @@ export default {
     },
 
     computed: {
-        ...mapState([
+        ...mapState(useGameStore, [
             'settings',
         ]),
 
@@ -192,7 +193,7 @@ export default {
 
         theme: {
             get() {
-                return this.$store.state.settings.theme;
+                return this.settings.theme;
             },
             set(value) {
                 this.updateSettings(Object.assign({}, this.settings, {theme: value}));
@@ -210,7 +211,7 @@ export default {
 
         locale: {
             get() {
-                return this.$store.state.settings.locale;
+                return this.settings.locale;
             },
             set(value) {
                 this.updateSettings(Object.assign({}, this.settings, {locale: value}));
@@ -219,7 +220,7 @@ export default {
 
         numberOfEntitiesPerRound: {
             get() {
-                return this.$store.state.settings.numberOfEntitiesPerRound;
+                return this.settings.numberOfEntitiesPerRound;
             },
             set(value) {
                 this.updateSettings(Object.assign({}, this.settings, {numberOfEntitiesPerRound: value}));
@@ -228,7 +229,7 @@ export default {
 
         pointsNeededToWin: {
             get() {
-                return this.$store.state.settings.pointsNeededToWin;
+                return this.settings.pointsNeededToWin;
             },
             set(value) {
                 this.updateSettings(Object.assign({}, this.settings, {pointsNeededToWin: value}));
@@ -237,7 +238,7 @@ export default {
 
         entities: {
             get() {
-                return this.$store.state.settings.entities;
+                return this.settings.entities;
             },
             set(value) {
                 this.updateSettings(Object.assign({}, this.settings, {entities: value}));
@@ -246,7 +247,7 @@ export default {
 
         sounds: {
             get() {
-                return this.$store.state.settings.sounds;
+                return this.settings.sounds;
             },
             set(value) {
                 this.updateSettings(Object.assign({}, this.settings, {sounds: value}));
@@ -268,7 +269,7 @@ export default {
     },
 
     methods: {
-        ...mapMutations([
+        ...mapActions(useGameStore, [
             'updateSettings',
         ]),
 

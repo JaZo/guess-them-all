@@ -19,14 +19,13 @@
         "@vueuse/core": "^15.0.0",
         "animate.css": "^4.1.1",
         "core-js": "^3.34.0",
+        "pinia": "^3.0.4",
         "roboto-fontface": "*",
         "vue": "^3.5.44",
         "vue-confetti-explosion": "^1.0.2",
         "vue-i18n": "^11.4.16",
         "vue-router": "^5.4.0",
-        "vuetify": "^4.3.2",
-        "vuex": "^4.1.0",
-        "vuex-persistedstate": "^4.1.0"
+        "vuetify": "^4.3.2"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",

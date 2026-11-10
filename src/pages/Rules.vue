@@ -46,7 +46,8 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {mapState} from 'pinia';
+import {useGameStore} from '@/store/game';
 import BlobBadge from '@/components/BlobBadge.vue';
 import PageHeader from '@/components/PageHeader.vue';
 
@@ -56,7 +57,7 @@ export default {
         PageHeader,
     },
 
-    computed: mapState([
+    computed: mapState(useGameStore, [
         'settings',
     ]),
 };

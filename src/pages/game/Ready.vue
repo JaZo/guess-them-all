@@ -37,7 +37,8 @@
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex';
+import {mapState, mapStores} from 'pinia';
+import {useGameStore} from '@/store/game';
 import BlobBadge from '@/components/BlobBadge.vue';
 import PageHeader from '@/components/PageHeader.vue';
 
@@ -50,11 +51,10 @@ export default {
     },
 
     computed: {
-        ...mapState([
-            'settings',
-        ]),
+        ...mapStores(useGameStore),
 
-        ...mapGetters([
+        ...mapState(useGameStore, [
+            'settings',
             'teamInTurn',
             'playerInTurn',
         ]),
@@ -66,9 +66,8 @@ export default {
 
     methods: {
         continueGame() {
-            this.$store.dispatch('startRound').then(() => {
-                this.$router.replace({name: 'game-game'});
-            });
+            this.gameStore.startRound();
+            this.$router.replace({name: 'game-game'});
         },
     },
 };

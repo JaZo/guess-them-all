@@ -51,7 +51,8 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex';
+import {mapState, mapStores} from 'pinia';
+import {useGameStore} from '@/store/game';
 import ConfettiExplosion from 'vue-confetti-explosion';
 import BlobBadge from '@/components/BlobBadge.vue';
 import PageHeader from '@/components/PageHeader.vue';
@@ -79,12 +80,11 @@ export default {
     },
 
     computed: {
-        ...mapState([
+        ...mapStores(useGameStore),
+
+        ...mapState(useGameStore, [
             'settings',
             'score',
-        ]),
-
-        ...mapGetters([
             'teamSet',
             'winningTeam',
         ]),
@@ -128,15 +128,13 @@ export default {
 
     methods: {
         home() {
-            this.$store.dispatch('endGame').then(() => {
-                this.$router.replace({name: 'home'});
-            });
+            this.gameStore.endGame();
+            this.$router.replace({name: 'home'});
         },
 
         startNewGame() {
-            this.$store.dispatch('endGame').then(() => {
-                this.$router.replace({name: 'teams'});
-            });
+            this.gameStore.endGame();
+            this.$router.replace({name: 'teams'});
         },
 
         playSound() {

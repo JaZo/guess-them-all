@@ -37,7 +37,8 @@
 </template>
 
 <script>
-import {mapGetters, mapMutations, mapState} from 'vuex';
+import {mapActions, mapState} from 'pinia';
+import {useGameStore} from '@/store/game';
 import {useWakeLock} from '@vueuse/core';
 import mp3 from '../../assets/sounds/ticking.mp3';
 
@@ -59,19 +60,16 @@ export default {
     data() {
         return {
             interval: null,
-            progressCounter: this.$store.state.time * PROGRESS_TICKS_PER_SECOND,
+            progressCounter: useGameStore().time * PROGRESS_TICKS_PER_SECOND,
             donts: ['names', 'rhymes', 'letters', 'pointing'],
         };
     },
 
     computed: {
-        ...mapState([
+        ...mapState(useGameStore, [
             'entities',
             'settings',
             'time',
-        ]),
-
-        ...mapGetters([
             'teamInTurn',
             'playerInTurn',
         ]),
@@ -98,7 +96,7 @@ export default {
     },
 
     methods: {
-        ...mapMutations([
+        ...mapActions(useGameStore, [
             'setTime',
         ]),
 

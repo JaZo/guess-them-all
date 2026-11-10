@@ -32,7 +32,8 @@
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex';
+import {mapState, mapStores} from 'pinia';
+import {useGameStore} from '@/store/game';
 import CheckMark from '@/components/CheckMark.vue';
 import mp3 from '../../assets/sounds/ringing.mp3';
 
@@ -45,7 +46,7 @@ export default {
 
     data() {
         return {
-            guessedEntities: this.$store.state.entities.reduce((acc, cur, i) => {
+            guessedEntities: useGameStore().entities.reduce((acc, cur, i) => {
                 acc[i] = false;
 
                 return acc;
@@ -54,12 +55,11 @@ export default {
     },
 
     computed: {
-        ...mapState([
+        ...mapStores(useGameStore),
+
+        ...mapState(useGameStore, [
             'entities',
             'settings',
-        ]),
-
-        ...mapGetters([
             'teamInTurn',
         ]),
 
@@ -74,13 +74,12 @@ export default {
 
     methods: {
         continueGame() {
-            this.$store.dispatch('endRound', {score: this.score}).then(() => {
-                if (this.$store.state.winner !== null) {
-                    this.$router.replace({name: 'game-game-over'});
-                } else {
-                    this.$router.replace({name: 'game-index'});
-                }
-            });
+            this.gameStore.endRound({score: this.score});
+            if (this.gameStore.winner !== null) {
+                this.$router.replace({name: 'game-game-over'});
+            } else {
+                this.$router.replace({name: 'game-index'});
+            }
         },
 
         playSound() {

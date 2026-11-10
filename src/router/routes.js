@@ -1,4 +1,4 @@
-import store from '../store';
+import {useGameStore} from '@/store/game';
 import Home from '@/pages/Home.vue';
 import Rules from '@/pages/Rules.vue';
 import Settings from '@/pages/Settings.vue';
@@ -37,7 +37,7 @@ export default [
         name: 'team',
         component: Team,
         beforeEnter(to) {
-            if (!store.state.teams[to.params.id]) {
+            if (!useGameStore().teams[to.params.id]) {
                 return {name: 'teams'};
             }
         },

@@ -7,17 +7,19 @@
 // Plugins
 import vuetify from './vuetify';
 import router from '@/router';
-import store from '@/store';
+import pinia from '@/store';
+import {useGameStore} from '@/store/game';
 import i18n from '@/i18n';
 import 'animate.css/animate.css';
 import '@/styles/app.scss';
 
 export function registerPlugins(app) {
-    i18n.global.locale.value = store.state.settings.locale;
+    app.use(pinia);
+
+    i18n.global.locale.value = useGameStore().settings.locale;
 
     app
         .use(vuetify)
         .use(router)
-        .use(store)
         .use(i18n);
 }

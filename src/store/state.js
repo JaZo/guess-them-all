@@ -16,7 +16,7 @@ const defaultEntities = {
     ],
 };
 
-export default {
+export default () => ({
     teams: {
         1: {
             name: 'Team 1',
@@ -53,7 +53,7 @@ export default {
         pointsNeededToWin: 30,
         timeLimit: 30,
         sounds: true,
-        entities: defaultEntities[locale] || defaultEntities.nl,
+        entities: (defaultEntities[locale] || defaultEntities.nl).slice(),
         theme: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
     },
-};
+});

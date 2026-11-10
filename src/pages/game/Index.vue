@@ -56,7 +56,8 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex';
+import {mapState} from 'pinia';
+import {useGameStore} from '@/store/game';
 import BlobBadge from '@/components/BlobBadge.vue';
 import PageHeader from '@/components/PageHeader.vue';
 import TeamBadge from '@/components/game/TeamBadge.vue';
@@ -70,13 +71,10 @@ export default {
     },
 
     computed: {
-        ...mapState([
+        ...mapState(useGameStore, [
             'players',
             'score',
             'settings',
-        ]),
-
-        ...mapGetters([
             'teamSet',
             'teamInTurn',
             'playerInTurn',

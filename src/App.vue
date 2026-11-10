@@ -1,5 +1,5 @@
 <template>
-    <v-app :theme="$store.state.settings.theme">
+    <v-app :theme="settings.theme">
         <v-main>
             <router-view v-slot="{ Component }">
                 <transition
@@ -33,6 +33,8 @@
 
 <script>
 import { useRegisterSW } from 'virtual:pwa-register/vue';
+import {mapState} from 'pinia';
+import {useGameStore} from '@/store/game';
 
 export default {
     setup() {
@@ -61,6 +63,10 @@ export default {
             transitionLeaveClass: null,
         };
     },
+
+    computed: mapState(useGameStore, [
+        'settings',
+    ]),
 
     watch: {
         $route(to, from) {

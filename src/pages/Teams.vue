@@ -73,7 +73,8 @@
 </template>
 
 <script>
-import {mapGetters, mapMutations, mapState} from 'vuex';
+import {mapActions, mapState, mapStores} from 'pinia';
+import {useGameStore} from '@/store/game';
 import PageHeader from '@/components/PageHeader.vue';
 import TeamBadge from '@/components/game/TeamBadge.vue';
 import {teamColors} from '@/services/team';
@@ -85,18 +86,17 @@ export default {
     },
 
     computed: {
-        ...mapGetters([
+        ...mapStores(useGameStore),
+
+        ...mapState(useGameStore, [
             'teamSet',
             'readyToStart',
-        ]),
-
-        ...mapState([
             'players',
         ]),
     },
 
     methods: {
-        ...mapMutations([
+        ...mapActions(useGameStore, [
             'createTeam',
         ]),
 
@@ -107,9 +107,8 @@ export default {
         },
 
         start() {
-            this.$store.dispatch('startGame').then(() => {
-                this.$router.replace({name: 'game-index'});
-            });
+            this.gameStore.startGame();
+            this.$router.replace({name: 'game-index'});
         },
     },
 };
