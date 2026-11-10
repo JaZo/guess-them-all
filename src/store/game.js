@@ -18,7 +18,10 @@ export const useGameStore = defineStore('game', {
         teamInTurn: (state) => state.teams[state.teamList[state.turn.team]],
 
         playerInTurn() {
-            return this.players[this.teamInTurn.players[this.turn.player[this.turn.team] || 0]];
+            const players = this.teamInTurn.players;
+
+            // Wrap around, so a turn saved for a team that has since lost players still points at a player.
+            return this.players[players[(this.turn.player[this.turn.team] || 0) % players.length]];
         },
 
         winningTeam: (state) => state.winner !== null ? state.teams[state.winner] : null,
@@ -93,9 +96,10 @@ export const useGameStore = defineStore('game', {
         },
 
         randomizeTurn() {
+            // Keyed by team index, like turn.team
             const player = {};
-            Object.keys(this.teams).forEach((index) => {
-                player[index] = Math.floor(Math.random() * this.teams[index].players.length);
+            this.teamList.forEach((teamId, index) => {
+                player[index] = Math.floor(Math.random() * this.teams[teamId].players.length);
             });
             this.turn = {team: Math.floor(Math.random() * this.teamList.length), player};
         },
