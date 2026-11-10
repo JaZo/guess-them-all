@@ -1,15 +1,16 @@
 import entities from '../data/entities';
 
-// Same key vuex-persistedstate used, so existing users keep their teams, settings and game in progress.
-export const STORAGE_KEY = 'vuex';
+// Key vuex-persistedstate used. Its state is moved to the store's own key, so existing users keep their
+// teams, settings and game in progress.
+const LEGACY_STORAGE_KEY = 'vuex';
 
 const availableEntityLists = Object.keys(entities).flatMap((language) => {
     return Object.keys(entities[language]).map((key) => language + '.' + key);
 });
 
-const read = () => {
+const read = (key) => {
     try {
-        const parsed = JSON.parse(window.localStorage.getItem(STORAGE_KEY));
+        const parsed = JSON.parse(window.localStorage.getItem(key));
 
         return parsed && typeof parsed === 'object' ? parsed : null;
     } catch {
@@ -17,11 +18,22 @@ const read = () => {
     }
 };
 
-const write = (state) => {
+const write = (key, state) => {
     try {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        window.localStorage.setItem(key, JSON.stringify(state));
+
+        return true;
     } catch {
         // Storage unavailable (private mode, quota exceeded): keep running without persistence.
+        return false;
+    }
+};
+
+const remove = (key) => {
+    try {
+        window.localStorage.removeItem(key);
+    } catch {
+        // Storage unavailable: nothing to remove.
     }
 };
 
@@ -42,7 +54,7 @@ const migrate = (persisted, defaults) => {
 };
 
 /**
- * Pinia plugin that persists the given store to localStorage.
+ * Pinia plugin that persists the given store to localStorage, under the store's id.
  *
  * @param {String} storeId
  */
@@ -51,7 +63,8 @@ export const createPersistence = (storeId) => ({store}) => {
         return;
     }
 
-    const persisted = read();
+    const key = store.$id;
+    const persisted = read(key) || read(LEGACY_STORAGE_KEY);
 
     if (persisted) {
         const defaults = JSON.parse(JSON.stringify(store.$state));
@@ -72,7 +85,10 @@ export const createPersistence = (storeId) => ({store}) => {
         });
     }
 
-    write(store.$state);
+    // Only drop the legacy state once it is safely stored under the new key.
+    if (write(key, store.$state)) {
+        remove(LEGACY_STORAGE_KEY);
+    }
 
-    store.$subscribe((mutation, state) => write(state), {detached: true, flush: 'sync'});
+    store.$subscribe((mutation, state) => write(key, state), {detached: true, flush: 'sync'});
 };
