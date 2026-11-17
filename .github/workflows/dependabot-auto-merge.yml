@@ -2,14 +2,20 @@ name: Dependabot auto-merge
 
 on: pull_request
 
-permissions:
-  pull-requests: write
-  contents: write
-  actions: write # needed to dispatch the deploy workflow
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
 
 jobs:
   dependabot:
+    name: Auto-merge
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write # needed to enable auto-merge and assign PRs
+      contents: write # needed to merge the PR
+      actions: write # needed to dispatch the deploy workflow
     timeout-minutes: 25
     if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'JaZo/guess-them-all' }}
     env:
