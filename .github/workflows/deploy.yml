@@ -21,8 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Build
     permissions:
-      contents: read
-      pages: read
+      contents: read # needed to check out the repository
+      pages: read # needed by configure-pages to read the Pages site config
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -54,8 +54,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     permissions:
-      pages: write
-      id-token: write
+      pages: write # needed to deploy to GitHub Pages
+      id-token: write # needed to verify the deployment originates from this workflow
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
