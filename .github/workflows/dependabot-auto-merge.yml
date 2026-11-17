@@ -28,6 +28,10 @@ jobs:
         if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-minor' || steps.metadata.outputs.update-type == 'version-update:semver-patch' }}
         run: gh pr merge --auto --merge "$PR_URL"
 
+      - name: Assign PRs that need a manual review
+        if: ${{ steps.automerge.outcome == 'skipped' }}
+        run: gh pr edit "$PR_URL" --add-assignee JaZo
+
       # A merge made with GITHUB_TOKEN doesn't trigger the push-based deploy,
       # so wait for the auto-merge to land and dispatch the deploy explicitly.
       - name: Wait for merge and deploy
