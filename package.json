@@ -23,7 +23,7 @@
         "core-js": "^3.34.0",
         "pinia": "^4.1.0",
         "roboto-fontface": "*",
-        "vue": "^3.5.44",
+        "vue": "^3.5.46",
         "vue-confetti-explosion": "^1.0.2",
         "vue-i18n": "^11.4.20",
         "vue-router": "^5.5.1",
