@@ -27,7 +27,7 @@
         "vue-confetti-explosion": "^1.0.2",
         "vue-i18n": "^11.4.23",
         "vue-router": "^5.5.1",
-        "vuetify": "^4.3.2"
+        "vuetify": "^4.3.4"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
